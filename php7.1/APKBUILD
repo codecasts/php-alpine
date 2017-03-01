@@ -265,7 +265,7 @@ fpm() {
 	mkdir -p "$subpkgdir"/etc/$pkgname \
 		"$subpkgdir"/usr \
 		"$subpkgdir"/var/lib \
-		"$subpkgdir"/var/log/$pkgname
+		"$subpkgdir"/var/log/$pkgconfname
 
 	mv "$pkgdir"/usr/share/$pkgname/fpm "$subpkgdir"/var/lib/$pkgname/ || return 1
 	mv "$pkgdir"/usr/sbin "$subpkgdir"/usr/ || return 1
