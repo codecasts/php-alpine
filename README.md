@@ -28,22 +28,22 @@ add our public key, so you say APK you trust our packages, and them add the repo
 
 ##### Trusting the repository
 ```bash
-    wget -O /etc/apk/keys/php-alpine.pub http://php-alpine.codecasts.rocks/repo/php-alpine.pub
+wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub http://php-alpine.codecasts.rocks/repo/php-alpine.pub
 ```
 
 ##### Registering the repository on APK
 
 ```bash
-    echo "http://php-alpine.codecasts.rocks/repo >> /etc/apk/repositories"
+echo "http://php-alpine.codecasts.rocks/repo" >> /etc/apk/repositories
 ```
 
 ### Usage
 
 For installing PHP and other available extension, you can simply search for the ones you want:
 
-```
-    apk search php7.0*
-    apk search php7.1*
+```bash
+apk search php7.0*
+apk search php7.1*
 ```
 
 > **Warning: We currently do not enforce replacement between versions, so do not install multiple versions and hope it work**
