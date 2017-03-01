@@ -20,3 +20,12 @@
 .main-content pre {
   background-color: #ddeaea;
 }
+
+.main-content ul, 
+.main-content ol {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+        flex: 1 1 calc(100% - 50%);
+  }
+}
