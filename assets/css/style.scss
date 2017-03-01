@@ -1,8 +1,6 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
 // Headers
 $header-heading-color: #fff;
 $header-bg-color: #009586;
@@ -22,3 +20,5 @@ $code-text-color: #567482;
 $border-color: #dce6f0;
 $table-border-color: #e9ebec;
 $hr-border-color: #eff0f1;
+
+@import "{{ site.theme }}";
