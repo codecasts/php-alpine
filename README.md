@@ -92,6 +92,7 @@ The following packages are available for install, on both 7.0 and 7.1 repositori
 
 This section will keep being updated as more extension are added.
 
-`php7-libsodium` `php7-mongodb` `php7-redis` `php7-xdebug`
+`php7-apcu` `php7-imagick` `php7-libsodium` `php7-memcached`
+`php7-mongodb` `php7-redis` `php7-xdebug`
 
 
