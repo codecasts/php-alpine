@@ -323,6 +323,9 @@ _package_ext() {
 	# extension dependencies and loading order
 	local elo=00
 	[ -z "$extdepends" ] || elo=01
+    if [ "$extname" = "pdo_mysql" ]; then
+      elo=20
+    fi
 
 	# extension prefix
 	local prefix=
