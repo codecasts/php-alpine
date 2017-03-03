@@ -1,4 +1,4 @@
-#MAINTAINER="Diego Hernandes <diego@hernandev.com>"
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
 pkgname=php7-xdebug
 _pkgreal=xdebug
 pkgver=2.5.1

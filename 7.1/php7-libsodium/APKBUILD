@@ -1,4 +1,4 @@
-#MAINTAINER="Diego Hernandes <diego@hernandev.com>"
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
 pkgname=php7-libsodium
 _pkgreal=libsodium
 pkgver=1.0.6
