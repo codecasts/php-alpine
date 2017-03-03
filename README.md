@@ -1,40 +1,48 @@
-# PHP Repository for Alpine
+# PHP Repositories for Alpine
 
-By [CODECASTS](https://codecasts.com.br)
+By [CODECASTS](https://codecasts.com.br) - **Based on the work of [Valery Kartel](https://github.com/vakartel)**
 
-### Important
-This repository is based on the work of **[Valery Kartel](https://github.com/vakartel)**. 
-
+---
 The main goal of this repository (both code and packages) is to provide the latest versions of PHP as they are released on http://php.net.
 
 Additionally, we will include extensions many packaged extensions from PECL.
 
 ---
 
-### Available PHP Versions
+## Available PHP Versions
 
 Right now, the following PHP Versions are available:
 
-| Version | Current Patch Version |
-|---------|-----------------------|
-| 7.1     | 7.1.2                 |
-| 7.0     | 7.0.16                |
+| Version | Current Patch Version | Repository URL  |
+|---------|-----------------------|-----------------|
+| 7.1     | 7.1.2                 | http://php-alpine.codecasts.rocks/repo/7.0 |
+| 7.0     | 7.0.16                | http://php-alpine.codecasts.rocks/repo/7.1 |
 
+> Each version is available on a separate repository, choose the one you want on the instruction below
 
-### Setting UP
+## Setting UP
 
-For making the repository available on your Alpine install, you need to first
-add our public key, so you say APK you trust our packages, and them add the repository:
+You make make this repositories available on two simple steps:
 
-##### Trusting the repository
+#### 1) Trusting the repository
 ```bash
 wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub http://php-alpine.codecasts.rocks/repo/php-alpine.pub
 ```
 
-##### Registering the repository on APK
+#### 2) Choosing and Registering the repository on APK
+
+Before registering the repository, you should choose which version of PHP you want.
+
+For PHP 7.0:
 
 ```bash
-echo "http://php-alpine.codecasts.rocks/repo" >> /etc/apk/repositories
+echo "http://php-alpine.codecasts.rocks/repo/7.0" >> /etc/apk/repositories
+```
+
+For PHP 7.1:
+
+```bash
+echo "http://php-alpine.codecasts.rocks/repo/7.1" >> /etc/apk/repositories
 ```
 
 ### Usage
@@ -42,154 +50,31 @@ echo "http://php-alpine.codecasts.rocks/repo" >> /etc/apk/repositories
 For installing PHP and other available extension, you can simply search for the ones you want:
 
 ```bash
-apk search php7.0*
-apk search php7.1*
+apk search php7*
 ```
 
-> **Warning: We currently do not enforce replacement between versions, so do not install multiple versions and hope it work**
 
+## Available Packages
 
-### Available Packages
+The following packages are available for install, on both 7.0 and 7.1 repositories:
 
-All core PHP Extensions are available:
+- Core Packages (Provide Binaries or Modules)
+  `php7` `php7-common` `php7-fpm` `php7-cgi` `php7-apache2`
 
-#### PHP 7.1
-- php7.1
-- php7.1-apache2
-- php7.1-bcmath
-- php7.1-bz2
-- php7.1-calendar
-- php7.1-cgi
-- php7.1-common
-- php7.1-ctype
-- php7.1-curl
-- php7.1-dba
-- php7.1-dev
-- php7.1-doc
-- php7.1-dom
-- php7.1-embed
-- php7.1-enchant
-- php7.1-exif
-- php7.1-fpm
-- php7.1-ftp
-- php7.1-gd
-- php7.1-gettext
-- php7.1-gmp
-- php7.1-iconv
-- php7.1-imap
-- php7.1-intl
-- php7.1-json
-- php7.1-ldap
-- php7.1-litespeed
-- php7.1-mbstring
-- php7.1-mcrypt
-- php7.1-mysqli
-- php7.1-mysqlnd
-- php7.1-odbc
-- php7.1-opcache
-- php7.1-openssl
-- php7.1-pcntl
-- php7.1-pdo
-- php7.1-pdo_dblib
-- php7.1-pdo_mysql
-- php7.1-pdo_odbc
-- php7.1-pdo_pgsql
-- php7.1-pdo_sqlite
-- php7.1-pear
-- php7.1-pgsql
-- php7.1-phar
-- php7.1-phpdbg
-- php7.1-posix
-- php7.1-pspell
-- php7.1-session
-- php7.1-shmop
-- php7.1-snmp
-- php7.1-soap
-- php7.1-sockets
-- php7.1-sqlite3
-- php7.1-sysvmsg
-- php7.1-sysvsem
-- php7.1-sysvshm
-- php7.1-tidy
-- php7.1-wddx
-- php7.1-xml
-- php7.1-xmlreader
-- php7.1-xmlrpc
-- php7.1-xsl
-- php7.1-zip
-- php7.1-zlib
+- Special Packages (Not needed at runtime)
+  `php7-doc` `php7-dev`
 
-
-#### PHP 7.0
-- php7.0
-- php7.0-apache2
-- php7.0-bcmath
-- php7.0-bz2
-- php7.0-calendar
-- php7.0-cgi
-- php7.0-common
-- php7.0-ctype
-- php7.0-curl
-- php7.0-dba
-- php7.0-dev
-- php7.0-doc
-- php7.0-dom
-- php7.0-embed
-- php7.0-enchant
-- php7.0-exif
-- php7.0-fpm
-- php7.0-ftp
-- php7.0-gd
-- php7.0-gettext
-- php7.0-gmp
-- php7.0-iconv
-- php7.0-imap
-- php7.0-intl
-- php7.0-json
-- php7.0-ldap
-- php7.0-litespeed
-- php7.0-mbstring
-- php7.0-mcrypt
-- php7.0-mysqli
-- php7.0-mysqlnd
-- php7.0-odbc
-- php7.0-opcache
-- php7.0-openssl
-- php7.0-pcntl
-- php7.0-pdo
-- php7.0-pdo_dblib
-- php7.0-pdo_mysql
-- php7.0-pdo_odbc
-- php7.0-pdo_pgsql
-- php7.0-pdo_sqlite
-- php7.0-pear
-- php7.0-pgsql
-- php7.0-phar
-- php7.0-phpdbg
-- php7.0-posix
-- php7.0-pspell
-- php7.0-session
-- php7.0-shmop
-- php7.0-snmp
-- php7.0-soap
-- php7.0-sockets
-- php7.0-sqlite3
-- php7.0-sysvmsg
-- php7.0-sysvsem
-- php7.0-sysvshm
-- php7.0-tidy
-- php7.0-wddx
-- php7.0-xml
-- php7.0-xmlreader
-- php7.0-xmlrpc
-- php7.0-xsl
-- php7.0-zip
-- php7.0-zlib
-
-
-
-
-
-#### Additional Extensions
-
-@TBF / Coming Soon
+- Core Extensions
+  `php7-bcmath` `php7-bz2` `php7-calendar` `php7-ctype` `php7-curl` `php7-dba` 
+  `php7-dom` `php7-embed` `php7-enchant` `php7-exif` `php7-ftp` `php7-gd` 
+  `php7-gettext` `php7-gmp` `php7-iconv` `php7-imap` `php7-intl` `php7-json`
+  `php7-ldap` `php7-litespeed` `php7-mbstring` `php7-mcrypt` `php7-mysqli`
+  `php7-mysqlnd` `php7-odbc` `php7-opcache` `php7-openssl` `php7-pcntl`
+  `php7-pdo` `php7-pdo_dblib` `php7-pdo_mysql` `php7-pdo_pgsql` `php7-pdo_sqlite`
+  `php7-pear` `php7-pgsql` `php7-phar` `php7-phpdbg` `php7-posix` `php7-pspell`
+  `php7-session` `php7-shmop` `php7-snmp` `php7-soap` `php7-sockets` `php7-sqlite3`
+  `php7-sysvmsg` `php7-sysvsem` `php7-sysvshm` `php7-tidy` `php7-wddx` `php7-xml` 
+  `php7-xmlreader` `php7-xmlrpc` `php7-xsl` `php7-zip` `php7-zlib`
+  
+- Additional Extensions
+  @TBD / Coming soon
