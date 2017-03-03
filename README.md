@@ -90,4 +90,8 @@ The following packages are available for install, on both 7.0 and 7.1 repositori
   
 - **Additional Extensions**
 
-@TBD / Coming soon
+This section will keep being updated as more extension are added.
+
+`php7-xdebug`
+
+`php7-libsodium`

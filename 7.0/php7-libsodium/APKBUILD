@@ -1,15 +1,15 @@
 #MAINTAINER="Diego Hernandes <diego@hernandev.com>"
-pkgname=php7-xdebug
-_pkgreal=xdebug
-pkgver=2.5.1
+pkgname=php7-libsodium
+_pkgreal=libsodium
+pkgver=1.0.6
 pkgrel=0
 _phpver=7
 pkgdesc="xDebug Profiler"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
-license="XDEBUG-1"
-depends="php7-common>7.0.0"
-makedepends="php7-dev>7.0.0 autoconf"
+license="BSD-2"
+depends="php7-common>7.0.0 libsodium"
+makedepends="php7-dev>7.0.0 autoconf libsodium-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -31,9 +31,9 @@ package() {
 	install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
 	install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+    echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-md5sums="6167b1e104f1108d77f08eb561a12b22  xdebug-2.5.1.tgz"
-sha256sums="7fda9020fd5a2c549ae5a692fcabbb00f74e39dda81d53d25e622bdab4880ec2  xdebug-2.5.1.tgz"
-sha512sums="9a59ded76ce0cbf130151c0781c377a725b2684067402fabd47f88ca827bea00789cb3ca9b32e646b202af2d85b33deaa43ccc3a4b91c8cbd1ac4df4c312cac2  xdebug-2.5.1.tgz"
+md5sums="ad76fd81a44a7122dae9683ca18f3be6  libsodium-1.0.6.tgz"
+sha256sums="987df388210b498f3acf8ada368e56bece5b2b5ffe64564ecfffc27f17f1242f  libsodium-1.0.6.tgz"
+sha512sums="ef0039a97f6e87eef368d2fb6b4d1824e54c37f30a159a1a77d2360f3f54aa208e76efc7708f89ed4cbfef0731ce1a3079f14adb58ca8f5321b455c5c88e75da  libsodium-1.0.6.tgz"
