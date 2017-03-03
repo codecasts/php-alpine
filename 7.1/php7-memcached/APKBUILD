@@ -1,15 +1,15 @@
 # Maintainer: "Diego Hernandes <diego@hernandev.com>"
-pkgname=php7-redis
-_pkgreal=redis
-pkgver=3.1.1
+pkgname=php7-memcached
+_pkgreal=memcached
+pkgver=3.0.3
 pkgrel=0
 _phpver=7
-pkgdesc="Redis extension for PHP"
+pkgdesc="Memcached extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
-depends="php7-common>7.0.0 php7-session>7.0.0"
-makedepends="php7-dev>7.0.0 autoconf"
+depends="php7-common>7.1.0 php7-session>7.1.0"
+makedepends="php7-dev>7.1.0 autoconf zlib-dev libmemcached-dev cyrus-sasl-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -34,6 +34,6 @@ package() {
     echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-md5sums="6fb69b97a7db4efb5503fa844a3193d5  redis-3.1.1.tgz"
-sha256sums="aa1a30f2c5e1f532289b9b90af71b42db86bb85e9f8c344a455a4312c79d917e  redis-3.1.1.tgz"
-sha512sums="a9bf74342dbaec518623f99a958130d61ae643111448dd16c974fcf96ec722d34c1f7d2e7b09e786abe7432bff1d34e2d8bd895c8b6c5f9b88faac701eb77b2a  redis-3.1.1.tgz"
+md5sums="001341afeded3724c19a740148737444  memcached-3.0.3.tgz"
+sha256sums="5d1c29a1d5e391d6bb7b736a07e063d2f0834800673dd246d64ce1b73e47645d  memcached-3.0.3.tgz"
+sha512sums="cb24d76f82ce8c1fdd8877bbb46131545bba5011cfff965e3c190b7c0f71f754b47ded6289d3125724d9de781b916971aaadfa0b247c6fe2f51aab77dce61b61  memcached-3.0.3.tgz"
