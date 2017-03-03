@@ -1,0 +1,14 @@
+# use base image
+FROM codecasts/php-alpine:base
+
+# Projects's maintainer
+MAINTAINER Diego Hernandes <diego@hernandev.com>
+
+USER root
+
+ADD php-alpine.pub /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub
+
+RUN echo "/home/sandbox/packages/7.0" >> /etc/apk/repositories
+
+USER sandbox
+
