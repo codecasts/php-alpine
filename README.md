@@ -58,15 +58,15 @@ apk search php7*
 
 The following packages are available for install, on both 7.0 and 7.1 repositories:
 
-- Core Packages (Provide Binaries or Modules)
+- **Core Packages (Provide Binaries or Modules)**
 
 `php7` `php7-common` `php7-fpm` `php7-cgi` `php7-apache2`
 
-- Special Packages (Not needed at runtime)
+- **Special Packages (Not needed at runtime)**
 
 `php7-doc` `php7-dev`
 
-- Core Extensions
+- **Core Extensions**
 
 `php7-bcmath` `php7-bz2` `php7-calendar` `php7-ctype` `php7-curl` `php7-dba` 
 `php7-dom` `php7-embed` `php7-enchant` `php7-exif` `php7-ftp` `php7-gd` 
@@ -79,5 +79,6 @@ The following packages are available for install, on both 7.0 and 7.1 repositori
 `php7-sysvmsg` `php7-sysvsem` `php7-sysvshm` `php7-tidy` `php7-wddx` `php7-xml` 
 `php7-xmlreader` `php7-xmlrpc` `php7-xsl` `php7-zip` `php7-zlib`
   
-- Additional Extensions
-  @TBD / Coming soon
+- **Additional Extensions**
+
+@TBD / Coming soon
