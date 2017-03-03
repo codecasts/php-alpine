@@ -1,10 +1,9 @@
 # Contributor: Valery Kartel <valery.kartel@gmail.com>
 # Maintainer: Valery Kartel <valery.kartel@gmail.com>
-pkgname=php7.1
+pkgname=php7
 _pkgreal=php
-pkgconfname=php7
-pkgver=7.1.2
-pkgrel=0
+pkgver=7.0.16
+pkgrel=2
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
@@ -27,10 +26,11 @@ makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev 
 	libedit-dev paxmark gettext-dev
 	"
 source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.bz2/from/this/mirror
-	$pkgconfname-fpm.initd
-	$pkgconfname-fpm.logrotate
-	$pkgconfname-module.conf
+	$pkgname-fpm.initd
+	$pkgname-fpm.logrotate
+	$pkgname-module.conf
 	install-pear.patch
+	tidy-buffio.patch
 	includedir.patch
 	fix-asm-constraints-in-aarch64-multiply-macro.patch
 	pid_log.patch
@@ -53,7 +53,7 @@ for _ext in $_exts; do
 done
 subpackages="$subpackages $pkgname-common::noarch"
 
-_apiver="20160303"
+_apiver="20151012"
 
 prepare() {
 	cd "$builddir"
@@ -265,7 +265,7 @@ fpm() {
 	mkdir -p "$subpkgdir"/etc/$pkgname \
 		"$subpkgdir"/usr \
 		"$subpkgdir"/var/lib \
-		"$subpkgdir"/var/log/$pkgconfname
+		"$subpkgdir"/var/log/$pkgname
 
 	mv "$pkgdir"/usr/share/$pkgname/fpm "$subpkgdir"/var/lib/$pkgname/ || return 1
 	mv "$pkgdir"/usr/sbin "$subpkgdir"/usr/ || return 1
@@ -276,8 +276,8 @@ fpm() {
 			"$subpkgdir"/etc/$pkgname/$file || return 1
 	done
 
-	install -D -m755 "$srcdir"/$pkgconfname-fpm.initd "$subpkgdir"/etc/init.d/php-fpm7 || return 1
-	install -D -m644 "$srcdir"/$pkgconfname-fpm.logrotate "$subpkgdir"/etc/logrotate.d/php-fpm7
+	install -D -m755 "$srcdir"/$pkgname-fpm.initd "$subpkgdir"/etc/init.d/php-fpm7 || return 1
+	install -D -m644 "$srcdir"/$pkgname-fpm.logrotate "$subpkgdir"/etc/logrotate.d/php-fpm7
 }
 
 pear() {
@@ -338,27 +338,30 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-md5sums="ec1d51abaea07e4a84f9dca856a0fa81  php-7.1.2.tar.bz2
+md5sums="ef8efd33842f1b2e6ea60bb54b418a6e  php-7.0.16.tar.bz2
 6c73c17c4d424efb246bd8b4450ee008  php7-fpm.initd
 e956ffffcb5c0d7ca037218e6d2ab7bc  php7-fpm.logrotate
 d344ed9b87bd7ec727d07026f141a339  php7-module.conf
 c339b1e23816a424809bcd7762c8d071  install-pear.patch
+f5387ed9a732b4566b8bcc85aeb987e4  tidy-buffio.patch
 1bca7585bb5b38883f246189da51fc96  includedir.patch
 a0edfadafebfe6fe99814bab40ef5bec  fix-asm-constraints-in-aarch64-multiply-macro.patch
-dad1e9e663b0f2fa59717c12f758fcf7  pid_log.patch"
-sha256sums="e0f2214e2366434ee231156ba70cfefd0c59790f050d8727a3f1dc2affa67004  php-7.1.2.tar.bz2
+a76b2cd78e8c9e747131c463c93cf124  pid_log.patch"
+sha256sums="83c5f57575dc0feca563af529d6f1d60183bf9c2c13e98a6da131fbd0a3597ab  php-7.0.16.tar.bz2
 9df0e086771cbcb80a7f2e3aef6d49769d11077f09ec34f8505421c37050dd65  php7-fpm.initd
 60948eade9699372bc5305542286603b136ba5f7a2cf8a89dfe998dfe53f99c3  php7-fpm.logrotate
 359dfca2fb8d36c8ff81192e7a48684401682f28f6ce6331aad999c5a43ccb09  php7-module.conf
 eb16834a2a288fac36b4871fe747bde9b8407de38f3c7c7e103fb2c7c137359c  install-pear.patch
+07f3d62adf9801e595fc25a0584ddedb7c5588d8a313725ffa56b7abe9133296  tidy-buffio.patch
 04edc6953197d5c3086c3c63c3641f2d5a57b4b3a1034907a672cdb05d8981c1  includedir.patch
 2b9d499def6826a5e16f87b56ff3ceea501530851d6a71c09ace8bb3c418fc4d  fix-asm-constraints-in-aarch64-multiply-macro.patch
-7456d56aab7a2d47f96018df584eb4992bfa21e7031c8c96c3bfd743146490e3  pid_log.patch"
-sha512sums="b4a3492f4af92facd16e7dfb47ec16b43e4c5b25be193ff6e36418173893edb75ca4ca94767b643a6971d60578727fa1f67f20cc84b9a140cb1b9a367ec34a6f  php-7.1.2.tar.bz2
+2547ef0307891214c373c44ea4cf385456339cdbab5642c7a182149e369d66b9  pid_log.patch"
+sha512sums="b6f44fd1ba0bd97c2af13e74b750761561adc8f859607383a4927aa6924d5a2ef46a547c0d154261c9131d07d41e8c0d2ea153b32546b7122ec1ad7aa1fc19cd  php-7.0.16.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
 2f49a6e88662257ca7fb72cf0fba2e50785079b981def0ebc3d1403fb48278419e57ccf94f79ad2da1236b9bd4c75b6246b3f4bbd9c5394f5eaa1d3bd999eee7  install-pear.patch
+0cbbffee0770a1c83f8eba512ffce310db3b5e81b61af8aa4851b3458c470cd119d853785ea42a71f17f35f40394f892c8c177b47add6e43090036c8b77f3d03  tidy-buffio.patch
 7b2c240941ae1d409cab8bd8f05c763cbf84da1c2310cc42538e9bd39c67ffd9bc8eb8b28638fc08d0077ef0c2495fc89d3d9b048b3c2dcc1f8907348e9f626e  includedir.patch
 518cf130f30de5eb426f9b531f2f648e407630e98c0a74f73330f8f187c1dc22f65911e3a46feda6f4b000bb3d24ab41cd00e2aa982e59bb66826556b58d158a  fix-asm-constraints-in-aarch64-multiply-macro.patch
-326dabea0b6df83d8be36f8c0a8522eea8d0c8fd4d108db2e6aebb1b3cc23c4ee9842eb6fe56a2d32d4ab981ef7411106796c47d380d803646add50c8ab4ad9d  pid_log.patch"
+3bd0b08af64143d9ea14de506b0ee6ad8952a6319183b7c49a1cc9b739c0e4709b58ab7d299b869e9edfec73d3e6a131ec1ae50a0a89e49399d58538f40cbb34  pid_log.patch"
