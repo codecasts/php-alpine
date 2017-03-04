@@ -183,6 +183,10 @@ package() {
 			-e "s~PHP=php~PHP=php7~" \
 			"$pkgdir"/usr/bin/$file || return 1
 	done
+
+	# patch pecl problem with shared xml extension
+    sed -i 's/\(-C *\)[^ ]*/\1/' "$pkgdir"/usr/bin/pecl
+
 	paxmark -m "$pkgdir"/usr/bin/php7
 
 	find "$pkgdir" -name '.*' | xargs rm -rf || return 1
