@@ -15,8 +15,8 @@ Right now, the following PHP Versions are available:
 
 | Version | Current Patch Version | Repository URL  |
 |---------|-----------------------|-----------------|
-| 7.1     | 7.1.2                 | http://php-alpine.codecasts.rocks/repo/7.0 |
-| 7.0     | 7.0.16                | http://php-alpine.codecasts.rocks/repo/7.1 |
+| 7.1     | 7.1.2                 | http://php.codecasts.rocks/7.0 |
+| 7.0     | 7.0.16                | http://php.codecasts.rocks/7.1 |
 
 > Each version is available on a separate repository, choose the one you want on the instruction below
 
@@ -26,7 +26,7 @@ You make make this repositories available on two simple steps:
 
 #### 1) Trusting the repository
 ```bash
-wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub http://php-alpine.codecasts.rocks/repo/php-alpine.pub
+wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub http://php.codecasts.rocks/php-alpine.pub
 ```
 
 #### 2) Choosing and Registering the repository on APK
@@ -36,13 +36,13 @@ Before registering the repository, you should choose which version of PHP you wa
 For PHP 7.0:
 
 ```bash
-echo "http://php-alpine.codecasts.rocks/repo/7.0" >> /etc/apk/repositories
+echo "http://php.codecasts.rocks/7.0" >> /etc/apk/repositories
 ```
 
 For PHP 7.1:
 
 ```bash
-echo "http://php-alpine.codecasts.rocks/repo/7.1" >> /etc/apk/repositories
+echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories
 ```
 
 ### Usage
