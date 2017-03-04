@@ -108,7 +108,7 @@ FROM alpine:3.5
 
 RUN wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub \
     http://php-alpine.codecasts.rocks/repo/php-alpine.pub && \
-    echo "http://php-alpine.codecasts.rocks/repo/7.1" >> /etc/apk/repositories && \
+    echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
     apk add --update php7 php7-mbstring php7-any-other-extenions-you-may-want
 
 ```
