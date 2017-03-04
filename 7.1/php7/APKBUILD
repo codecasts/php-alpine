@@ -325,7 +325,7 @@ _package_ext() {
 	local elo=00
 	[ -z "$extdepends" ] || elo=01
     if [ "$extname" = "pdo_mysql" ]; then
-      elo=20
+        elo=20
     fi
 
 	# extension prefix

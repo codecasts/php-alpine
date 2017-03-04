@@ -12,6 +12,7 @@ options=""
 depends="$pkgname-common"
 depends_dom="$pkgname-xml"
 depends_mysqlnd="$pkgname-mysqli"
+depends_pdo_mysql="$pkgname-mysqlnd"
 depends_phar="$pkgname"
 depends_soap="$pkgname-xml"
 depends_wddx="$pkgname-xml"
@@ -114,7 +115,7 @@ _build() {
 		--with-sqlite3=shared,/usr --with-pdo-sqlite=shared,/usr \
 		--with-pdo-dblib=shared \
 		--with-mysqli=shared,/usr/bin/mysql_config \
-		--enable-mysqlnd=shared --with-pdo-mysql=shared,/usr/bin/mysql_config --with-mysql-sock=/run/mysqld/mysqld.sock \
+		--enable-mysqlnd=shared --with-pdo-mysql=shared,mysqlnd --with-mysql-sock=/run/mysqld/mysqld.sock \
 		--with-pgsql=shared --with-pdo-pgsql=shared \
 		--with-unixODBC=shared,/usr -with-pdo-odbc=shared,unixODBC,/usr \
 		--with-dbmaker=shared \
@@ -324,6 +325,9 @@ _package_ext() {
 	# extension dependencies and loading order
 	local elo=00
 	[ -z "$extdepends" ] || elo=01
+    if [ "$extname" = "pdo_mysql" ]; then
+        elo=20
+    fi
 
 	# extension prefix
 	local prefix=
