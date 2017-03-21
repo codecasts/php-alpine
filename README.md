@@ -15,14 +15,14 @@ Right now, the following PHP Versions are available:
 
 | Version | Current Patch Version | Repository URL  |
 |---------|-----------------------|-----------------|
-| 7.1     | 7.1.3                 | http://php.codecasts.rocks/7.0 |
-| 7.0     | 7.0.17                | http://php.codecasts.rocks/7.1 |
+| 7.1     | 7.1.3                 | http://php.codecasts.rocks/7.1 |
+| 7.0     | 7.0.17                | http://php.codecasts.rocks/7.0 |
 
-> Each version is available on a separate repository, choose the one you want on the instruction below
+> Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
 ## Setting UP
 
-You make make this repositories available on two simple steps:
+You make this repository available in two simple steps:
 
 #### 1) Trusting the repository
 ```bash
@@ -47,7 +47,7 @@ echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories
 
 ### Usage
 
-For installing PHP and other available extension, you can simply search for the ones you want:
+For installing PHP and other available extensions you can simply search for the ones you want:
 
 ```bash
 apk search php7*
@@ -56,7 +56,7 @@ apk search php7*
 
 ## Available Packages
 
-The following packages are available for install, on both 7.0 and 7.1 repositories:
+The following packages are available for installation on both 7.0 and 7.1 repositories:
 
 - **Core Packages (Provide Binaries or Modules)**
 
@@ -90,7 +90,7 @@ The following packages are available for install, on both 7.0 and 7.1 repositori
   
 - **Additional Extensions**
 
-This section will keep being updated as more extension are added.
+This section will be updated as more extension are added.
 
 `php7-apcu` `php7-imagick` `php7-libsodium` `php7-memcached`
 `php7-mongodb` `php7-redis` `php7-xdebug`
@@ -98,7 +98,7 @@ This section will keep being updated as more extension are added.
 
 ### Usage on Docker
 
-If you're looking into this, you probably want to create some Rockstar Docker images right?
+If you're looking into this, you probably want to create some Rockstar Docker images, right?
 
 Here is a very basic example for installing PHP 7.1:
 
@@ -107,9 +107,9 @@ Here is a very basic example for installing PHP 7.1:
 FROM alpine:3.5
 
 RUN wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub \
-    http://php-alpine.codecasts.rocks/repo/php-alpine.pub && \
-    echo "http://php-alpine.codecasts.rocks/repo/7.1" >> /etc/apk/repositories && \
-    apk add --update php7 php7-mbstring php7-any-other-extenions-you-may-want
+    http://php.codecasts.rocks/php-alpine.pub && \
+    echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
+    apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
 
 ```
 
