@@ -15,8 +15,8 @@ Right now, the following PHP Versions are available:
 
 | Version | Current Patch Version | Repository URL  |
 |---------|-----------------------|-----------------|
-| 7.1     | 7.1.2                 | http://php.codecasts.rocks/7.0 |
-| 7.0     | 7.0.16                | http://php.codecasts.rocks/7.1 |
+| 7.1     | 7.1.3                 | http://php.codecasts.rocks/7.0 |
+| 7.0     | 7.0.17                | http://php.codecasts.rocks/7.1 |
 
 > Each version is available on a separate repository, choose the one you want on the instruction below
 
