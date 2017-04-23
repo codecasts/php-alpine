@@ -24,6 +24,8 @@ Right now, the following PHP Versions are available:
 
 You make this repository available in two simple steps:
 
+*Notice:* Be sure to enable `main` and `community` Alpine repositories first.
+
 #### 1) Trusting the repository
 ```bash
 wget -O /etc/apk/keys/php-alpine.rsa.pub http://php.codecasts.rocks/php-alpine.rsa.pub
