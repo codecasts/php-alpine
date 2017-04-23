@@ -1,7 +1,7 @@
 # Maintainer: "Diego Hernandes <diego@hernandev.com>"
 pkgname=php7-redis
 _pkgreal=redis
-pkgver=3.1.1
+pkgver=3.1.2
 pkgrel=0
 _phpver=7
 pkgdesc="Redis extension for PHP"
@@ -34,6 +34,6 @@ package() {
     echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-md5sums="6fb69b97a7db4efb5503fa844a3193d5  redis-3.1.1.tgz"
-sha256sums="aa1a30f2c5e1f532289b9b90af71b42db86bb85e9f8c344a455a4312c79d917e  redis-3.1.1.tgz"
-sha512sums="a9bf74342dbaec518623f99a958130d61ae643111448dd16c974fcf96ec722d34c1f7d2e7b09e786abe7432bff1d34e2d8bd895c8b6c5f9b88faac701eb77b2a  redis-3.1.1.tgz"
+md5sums="90dbb6388c886356adea361df3c5c413  redis-3.1.2.tgz"
+sha256sums="a7687d007e48bef92049b8f53b425244d663da57d6b646d139248839e01f4ea3  redis-3.1.2.tgz"
+sha512sums="14b6321072f8ab41b8293b40ea8e1e2bdac1bb694c4566467ea4e6ced37c8fc41bf5712bd27cebf509f25fda0492765cd2c8d2fe61395bcb0b0d9cbbceebe684  redis-3.1.2.tgz"
