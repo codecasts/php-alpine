@@ -15,8 +15,8 @@ Right now, the following PHP Versions are available:
 
 | Version | Current Patch Version | Repository URL  |
 |---------|-----------------------|-----------------|
-| 7.1     | 7.1.3                 | http://php.codecasts.rocks/7.1 |
-| 7.0     | 7.0.17                | http://php.codecasts.rocks/7.0 |
+| 7.1     | 7.1.4                 | http://php.codecasts.rocks/7.1 |
+| 7.0     | 7.0.18                | http://php.codecasts.rocks/7.0 |
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
@@ -26,7 +26,7 @@ You make this repository available in two simple steps:
 
 #### 1) Trusting the repository
 ```bash
-wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub http://php.codecasts.rocks/php-alpine.pub
+wget -O /etc/apk/keys/php-alpine.rsa.pub http://php.codecasts.rocks/php-alpine.rsa.pub
 ```
 
 #### 2) Choosing and Registering the repository on APK
@@ -90,11 +90,17 @@ The following packages are available for installation on both 7.0 and 7.1 reposi
   
 - **Additional Extensions**
 
-This section will be updated as more extension are added.
+Some additional PECL extensions are provided so you don't need to build them.
 
-`php7-apcu` `php7-imagick` `php7-libsodium` `php7-memcached`
-`php7-mongodb` `php7-redis` `php7-xdebug`
-
+| Extension | Package Name   | Current Version | Available on 7.0 | Available on 7.1 |
+|-----------|----------------|-----------------|------------------|------------------|
+| APCu      | php7-apcu      | 5.1.8           | Yes              | Yes              |
+| Imagick   | php7-imagick   | 3.4.3           | Yes              | Yes              |
+| libsodium | php7-libsodium | 1.0.6           | Yes              | Yes              |
+| memcached | php7-memcached | 3.0.3           | Yes              | Yes              |
+| MongoDB   | php7-mongodb   | 1.2.8           | Yes              | Yes              |
+| Redis     | php7-redis     | 3.1.2           | Yes              | Yes              |
+| xDebug    | php7-xdebug    | 2.5.3           | Yes              | Yes              |
 
 ### Usage on Docker
 
@@ -106,8 +112,8 @@ Here is a very basic example for installing PHP 7.1:
 
 FROM alpine:3.5
 
-RUN wget -O /etc/apk/keys/diego@hernandev.com-58b4c2e0.rsa.pub \
-    http://php.codecasts.rocks/php-alpine.pub && \
+RUN wget -O /etc/apk/keys/php-alpine.rsa.pub \
+    http://php.codecasts.rocks/php-alpine.rsa.pub && \
     echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
     apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
 
