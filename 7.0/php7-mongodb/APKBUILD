@@ -1,7 +1,8 @@
 # Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
 pkgname=php7-mongodb
 _pkgreal=mongodb
-pkgver=1.2.5
+pkgver=1.2.8
 pkgrel=0
 _phpver=7
 pkgdesc="MongoDB extension for PHP"
@@ -33,6 +34,6 @@ package() {
     echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-md5sums="8b2fc409f1f28a559a93c83ca5f98c27  mongodb-1.2.5.tgz"
-sha256sums="1d43c5038cd8cb7e6db57620c40f2cc6385bd538db002c60f61f44376d829848  mongodb-1.2.5.tgz"
-sha512sums="d046caeb0a7018c926006efeceac4b7554ece947d7df6b919a42caf6fb271a9e4a147ad12bee5ccee5294fc02b7367f481fd3596d2b717ba13bac6ec184b1fbc  mongodb-1.2.5.tgz"
+md5sums="7c871c22fe7c8afdbe055e24075e95cf  mongodb-1.2.8.tgz"
+sha256sums="38090c38f0d52dd0a4c41c4f7f7e4e4a86a6375b6c5009e754b19451212d0bdd  mongodb-1.2.8.tgz"
+sha512sums="ef174fad777a139bd0a4b0b53ba30ea1614e5ebb72ef4dc3c2f1a99f3c17caa237563d9e93906f0516dabfb81c738a0ea6e02421e9605908613925839c5cb7ff  mongodb-1.2.8.tgz"
