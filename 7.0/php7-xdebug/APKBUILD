@@ -1,7 +1,8 @@
 # Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
 pkgname=php7-xdebug
 _pkgreal=xdebug
-pkgver=2.5.1
+pkgver=2.5.3
 pkgrel=0
 _phpver=7
 pkgdesc="xDebug Profiler"
@@ -34,6 +35,6 @@ package() {
     echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-md5sums="6167b1e104f1108d77f08eb561a12b22  xdebug-2.5.1.tgz"
-sha256sums="7fda9020fd5a2c549ae5a692fcabbb00f74e39dda81d53d25e622bdab4880ec2  xdebug-2.5.1.tgz"
-sha512sums="9a59ded76ce0cbf130151c0781c377a725b2684067402fabd47f88ca827bea00789cb3ca9b32e646b202af2d85b33deaa43ccc3a4b91c8cbd1ac4df4c312cac2  xdebug-2.5.1.tgz"
+md5sums="daefc2b4dc85c47ddd3a3d50b258342e  xdebug-2.5.3.tgz"
+sha256sums="4cce3d495243e92cd2e1d764a33188d60c85f0d2087d94d4203c354ea03530f4  xdebug-2.5.3.tgz"
+sha512sums="b301a5abb92e123bbe2b36f7838b56d370a0f2c0c4d3c350b5014f4b86d31daa66e9bff995eed67a570558f6a72ca46a097266e6ab94c413f1dcb99c0fbd4f22  xdebug-2.5.3.tgz"
