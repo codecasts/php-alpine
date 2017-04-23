@@ -1,8 +1,11 @@
-# Contributor: Valery Kartel <valery.kartel@gmail.com>
-# Maintainer: Valery Kartel <valery.kartel@gmail.com>
+# Contributor: Diego Hernandes <diego@hernandev.com>
+# Maintainer: Diego Hernandes <diego@hernandev.com>
+
+# Based on the scripts of: Valery Kartel <valery.kartel@gmail.com>
+
 pkgname=php7
 _pkgreal=php
-pkgver=7.1.3
+pkgver=7.1.4
 pkgrel=0
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
@@ -353,7 +356,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-md5sums="1306085cf74ba682dbcbfb4dff67b650  php-7.1.3.tar.bz2
+md5sums="1ecde862aa4fad6b66f3fd2f6b386a1e  php-7.1.4.tar.bz2
 6c73c17c4d424efb246bd8b4450ee008  php7-fpm.initd
 e956ffffcb5c0d7ca037218e6d2ab7bc  php7-fpm.logrotate
 d344ed9b87bd7ec727d07026f141a339  php7-module.conf
@@ -361,7 +364,7 @@ c339b1e23816a424809bcd7762c8d071  install-pear.patch
 1bca7585bb5b38883f246189da51fc96  includedir.patch
 a0edfadafebfe6fe99814bab40ef5bec  fix-asm-constraints-in-aarch64-multiply-macro.patch
 dad1e9e663b0f2fa59717c12f758fcf7  pid_log.patch"
-sha256sums="c145924d91b7a253eccc31f8d22f15b61589cd24d78105e56240c1bb6413b94f  php-7.1.3.tar.bz2
+sha256sums="39bf697836e2760b3a44ea322e9e5f1f5b1f07abeb0111f6495eff7538e25805  php-7.1.4.tar.bz2
 9df0e086771cbcb80a7f2e3aef6d49769d11077f09ec34f8505421c37050dd65  php7-fpm.initd
 60948eade9699372bc5305542286603b136ba5f7a2cf8a89dfe998dfe53f99c3  php7-fpm.logrotate
 359dfca2fb8d36c8ff81192e7a48684401682f28f6ce6331aad999c5a43ccb09  php7-module.conf
@@ -369,7 +372,7 @@ eb16834a2a288fac36b4871fe747bde9b8407de38f3c7c7e103fb2c7c137359c  install-pear.p
 04edc6953197d5c3086c3c63c3641f2d5a57b4b3a1034907a672cdb05d8981c1  includedir.patch
 2b9d499def6826a5e16f87b56ff3ceea501530851d6a71c09ace8bb3c418fc4d  fix-asm-constraints-in-aarch64-multiply-macro.patch
 7456d56aab7a2d47f96018df584eb4992bfa21e7031c8c96c3bfd743146490e3  pid_log.patch"
-sha512sums="90dd06348d5884a2bb4a22ab80bb4f50e603751a1787096f447762fe00e5b4f36deafda045ecf6345883d9f4b711755a854a2e7043f27702acfe78ade90b42d9  php-7.1.3.tar.bz2
+sha512sums="a1dd5ffd756176e6ba600dd850510033d0d6f07aff314de69fec0c42437e6a006449e3f4f98679146a2f2645caa65ea351e31a8e1da7c14cc5260856ad40eaff  php-7.1.4.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
