@@ -112,9 +112,8 @@ Here is a very basic example for installing PHP 7.1:
 
 FROM alpine:3.5
 
-RUN wget -O /etc/apk/keys/php-alpine.rsa.pub \
-    http://php.codecasts.rocks/php-alpine.rsa.pub && \
-    echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
+ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+RUN echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
     apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
 
 ```
