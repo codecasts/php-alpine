@@ -5,7 +5,7 @@ By [CODECASTS](https://codecasts.com.br) - **Based on the work of [Valery Kartel
 ---
 The main goal of this repository (both code and packages) is to provide the latest versions of PHP as they are released on http://php.net.
 
-Additionally, we will include extensions many packaged extensions from PECL.
+Additionally, we will include many packaged extensions from PECL.
 
 ---
 
@@ -114,9 +114,8 @@ Here is a very basic example for installing PHP 7.1:
 
 FROM alpine:3.5
 
-RUN wget -O /etc/apk/keys/php-alpine.rsa.pub \
-    http://php.codecasts.rocks/php-alpine.rsa.pub && \
-    echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
+ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+RUN echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
     apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
 
 ```
