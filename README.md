@@ -13,9 +13,9 @@ Additionally, we will include many packaged extensions from PECL.
 
 Right now, the following PHP Versions are available:
 
-| Version | Current Patch Version | Repository URL  |
-|---------|-----------------------|-----------------|
-| 7.1     | 7.1.4                 | http://php.codecasts.rocks/7.1 |
+| Version | Current Patch Version | Repository URL                 |
+|---------|-----------------------|--------------------------------|
+| 7.1     | 7.1.5                 | http://php.codecasts.rocks/7.1 |
 | 7.0     | 7.0.18                | http://php.codecasts.rocks/7.0 |
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
