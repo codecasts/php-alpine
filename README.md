@@ -5,7 +5,7 @@ By [CODECASTS](https://codecasts.com.br) - **Based on the work of [Valery Kartel
 ---
 The main goal of this repository (both code and packages) is to provide the latest versions of PHP as they are released on http://php.net.
 
-Additionally, we will include extensions many packaged extensions from PECL.
+Additionally, we will include many packaged extensions from PECL.
 
 ---
 
