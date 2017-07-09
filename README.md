@@ -23,16 +23,29 @@ The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT R
 Right now, the following PHP Versions are available:
 
 ### Alpine 3.6 (STABLE)
+
+Only PHP 7.1 will be available for Alpine 3.6. That's because PHP 7.0 is too old now.
+
 | PHP Version | Current PHP Minor Version | Repository URL                            |
 |-------------|---------------------------|-------------------------------------------|
 | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
-| 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.6/php-7.0   |
 
 ### Alpine 3.5 (OLD STABLE) (LEGACY)
+
+PHP 7.0 and 7.1 are available for Alpine 3.5. Only because that is how this repository started.
+
 | PHP Version | Current PHP Minor Version | Repository URL                            |
 |-------------|---------------------------|-------------------------------------------|
 | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
 | 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
+
+### Alpine Edge (3.7 - November Release)
+
+This is the development version of alpine, that will be released on November.
+PHP 7.2 will also be released a few days after Alpine 3.7 gets stable, so PHP 7.2 will be available only on Alpine 3.7
+
+When builds are available, they will be included here.
+
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
