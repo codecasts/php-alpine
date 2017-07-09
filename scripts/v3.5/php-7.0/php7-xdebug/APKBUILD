@@ -1,0 +1,39 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-xdebug
+_pkgreal=xdebug
+pkgver=2.5.5
+pkgrel=0
+_phpver=7
+pkgdesc="xDebug Profiler"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="XDEBUG-1"
+depends="php7-common>7.0.0"
+makedepends="php7-dev>7.0.0 autoconf"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+	install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+	install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+md5sums="81bca42ea6a1f7080f501b00d8122a01  xdebug-2.5.5.tgz"
+sha256sums="72108bf2bc514ee7198e10466a0fedcac3df9bbc5bd26ce2ec2dafab990bf1a4  xdebug-2.5.5.tgz"
+sha512sums="9faab421bd90c03734c047d8c6dcc021c8bc665eb36781c692f194d04c7dca24fe1eb920ca8dc407e5bf4ae0912c4b917587f940f34b07171a8881d4cf8695d1  xdebug-2.5.5.tgz"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## THIS WILL PRE-CONFIGURE REPOSITORIES WHEN THE CONTAINER STARTS
+sudo sed -i -e "s/"PHP_VERSION"/$PHP_VERSION/g" /etc/apk/repositories
+
+## EXEC THE ORIGINAL COMMAND.
+exec "$@"
