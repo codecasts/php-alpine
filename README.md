@@ -11,12 +11,24 @@ Additionally, we will include many packaged extensions from PECL.
 
 ## Available PHP Versions
 
+Alpine Versions are supported as they're being released. 
+
+You should always use the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.6`.
+
+The `v3.6` repositories are intended for alpine `v3.6` version [STABLE RECOMMENTED VERSION].
+The `v3.5` repositories are intended for alpine `v3.5` version [LEGACY].
+The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT RELEASE].
+
+
 Right now, the following PHP Versions are available:
 
-| Version | Current Patch Version | Repository URL                 |
-|---------|-----------------------|--------------------------------|
-| 7.1     | 7.1.5                 | http://php.codecasts.rocks/7.1 |
-| 7.0     | 7.0.19                | http://php.codecasts.rocks/7.0 |
+| Alpine Version   | PHP Version | Current PHP Minor Version | Repository URL                            |
+|------------------|-------------|---------------------------|-------------------------------------------|
+| 3.6 (stable)     | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
+| 3.6 (stable)     | 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.6/php-7.0   |
+|                  |             |                           |                                           | 
+| 3.5 (old stable) | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
+| 3.5 (old stable  | 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
