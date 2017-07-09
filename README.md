@@ -22,13 +22,17 @@ The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT R
 
 Right now, the following PHP Versions are available:
 
-| Alpine Version   | PHP Version | Current PHP Minor Version | Repository URL                            |
-|------------------|-------------|---------------------------|-------------------------------------------|
-| 3.6 (stable)     | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
-| 3.6 (stable)     | 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.6/php-7.0   |
-|                  |             |                           |                                           | 
-| 3.5 (old stable) | 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
-| 3.5 (old stable  | 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
+### Alpine 3.6 (STABLE)
+| PHP Version | Current PHP Minor Version | Repository URL                            |
+|-------------|---------------------------|-------------------------------------------|
+| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
+| 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.6/php-7.0   |
+
+### Alpine 3.5 (OLD STABLE) (LEGACY)
+| PHP Version | Current PHP Minor Version | Repository URL                            |
+|-------------|---------------------------|-------------------------------------------|
+| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
+| 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
