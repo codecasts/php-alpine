@@ -11,12 +11,41 @@ Additionally, we will include many packaged extensions from PECL.
 
 ## Available PHP Versions
 
+Alpine Versions are supported as they're being released. 
+
+You should always use the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.6`.
+
+The `v3.6` repositories are intended for alpine `v3.6` version [STABLE RECOMMENTED VERSION].
+The `v3.5` repositories are intended for alpine `v3.5` version [LEGACY].
+The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT RELEASE].
+
+
 Right now, the following PHP Versions are available:
 
-| Version | Current Patch Version | Repository URL                 |
-|---------|-----------------------|--------------------------------|
-| 7.1     | 7.1.5                 | http://php.codecasts.rocks/7.1 |
-| 7.0     | 7.0.19                | http://php.codecasts.rocks/7.0 |
+### Alpine 3.6 (STABLE)
+
+Only PHP 7.1 will be available for Alpine 3.6. That's because PHP 7.0 is too old now.
+
+| PHP Version | Current PHP Minor Version | Repository URL                            |
+|-------------|---------------------------|-------------------------------------------|
+| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
+
+### Alpine 3.5 (OLD STABLE) (LEGACY)
+
+PHP 7.0 and 7.1 are available for Alpine 3.5. Only because that is how this repository started.
+
+| PHP Version | Current PHP Minor Version | Repository URL                            |
+|-------------|---------------------------|-------------------------------------------|
+| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
+| 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
+
+### Alpine Edge (3.7 - November Release)
+
+This is the development version of alpine, that will be released on November.
+PHP 7.2 will also be released a few days after Alpine 3.7 gets stable, so PHP 7.2 will be available only on Alpine 3.7
+
+When builds are available, they will be included here.
+
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
@@ -35,16 +64,16 @@ wget -O /etc/apk/keys/php-alpine.rsa.pub http://php.codecasts.rocks/php-alpine.r
 
 Before registering the repository, you should choose which version of PHP you want.
 
-For PHP 7.0:
-
-```bash
-echo "http://php.codecasts.rocks/7.0" >> /etc/apk/repositories
-```
-
 For PHP 7.1:
 
 ```bash
-echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories
+echo "http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories
+```
+
+For PHP 7.0:
+
+```bash
+echo "http://php.codecasts.rocks/v3.6/php-7.0" >> /etc/apk/repositories
 ```
 
 ### Usage
@@ -115,7 +144,7 @@ Here is a very basic example for installing PHP 7.1:
 FROM alpine:3.5
 
 ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "http://php.codecasts.rocks/7.1" >> /etc/apk/repositories && \
+RUN echo "http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories && \
     apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
 
 ```
