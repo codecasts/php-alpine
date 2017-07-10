@@ -46,7 +46,9 @@ PHP 7.0 and 7.1 are available for Alpine 3.5. Only because that is how this repo
 This is the development version of alpine, that will be released on November.
 PHP 7.2 will also be released a few days after Alpine 3.7 gets stable, so PHP 7.2 will be available only on Alpine 3.7
 
-When builds are available, they will be included here.
+| PHP Version | Current PHP Minor Version | Repository URL                            |
+|-------------|---------------------------|-------------------------------------------|
+| 7.1         | 7.1.7                     | http://php.codecasts.rocks/edge/php-7.1   |
 
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
