@@ -16,7 +16,9 @@ Alpine Versions are supported as they're being released.
 You should always use the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.6`.
 
 The `v3.6` repositories are intended for alpine `v3.6` version [STABLE RECOMMENTED VERSION].
+
 The `v3.5` repositories are intended for alpine `v3.5` version [LEGACY].
+
 The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT RELEASE].
 
 
