@@ -139,9 +139,9 @@ Some additional PECL extensions are provided so you don't need to build them.
 | Imagick   | php7-imagick   | 3.4.3           | Yes              | Yes              |
 | libsodium | php7-libsodium | 1.0.6           | Yes              | Yes              |
 | memcached | php7-memcached | 3.0.3           | Yes              | Yes              |
-| MongoDB   | php7-mongodb   | 1.2.8           | Yes              | Yes              |
+| MongoDB   | php7-mongodb   | 1.2.9           | Yes              | Yes              |
 | Redis     | php7-redis     | 3.1.2           | Yes              | Yes              |
-| xDebug    | php7-xdebug    | 2.5.3           | Yes              | Yes              |
+| xDebug    | php7-xdebug    | 2.5.5           | Yes              | Yes              |
 
 ### Usage on Docker
 
