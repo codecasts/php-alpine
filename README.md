@@ -151,7 +151,7 @@ Here is a very basic example for installing PHP 7.1:
 
 ```dockerfile
 
-FROM alpine:3.5
+FROM alpine:3.6
 
 ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 RUN echo "http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories && \
