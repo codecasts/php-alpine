@@ -67,13 +67,13 @@ Before registering the repository, you should choose which version of PHP you wa
 For PHP 7.1:
 
 ```bash
-echo "http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories
+echo "@php http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories
 ```
 
 For PHP 7.0:
 
 ```bash
-echo "http://php.codecasts.rocks/v3.6/php-7.0" >> /etc/apk/repositories
+echo "@php http://php.codecasts.rocks/v3.6/php-7.0" >> /etc/apk/repositories
 ```
 
 ### Usage
@@ -82,6 +82,16 @@ For installing PHP and other available extensions you can simply search for the 
 
 ```bash
 apk search php7*
+```
+
+### Package Conflicts
+
+If official PHP packages conflicts and you endup installing a offical version istead of the ones on this repo, please install packages
+by using `@php` at the end of package name.
+
+```
+# i.e.
+apk add --update php7-redis@php
 ```
 
 
