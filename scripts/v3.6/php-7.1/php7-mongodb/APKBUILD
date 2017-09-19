@@ -2,7 +2,7 @@
 
 pkgname=php7-mongodb
 _pkgreal=mongodb
-pkgver=1.2.9
+pkgver=1.2.10
 pkgrel=0
 _phpver=7
 pkgdesc="MongoDB extension for PHP"
@@ -34,4 +34,4 @@ package() {
     echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="7eff5cfce08f3d69bc7acdb9ab5f8f55d02dab67593e5d03402c8bb6b6611fd703e8dfda89b99e8d3de387ed58cb9eea096fe68e0c9657ec3f8b1b7f622cfe58  mongodb-1.2.9.tgz"
+sha512sums="cd0a3c00e48f2a6f7286a58ac5ed71fce87962cc5de3abb53f6ef97979fdfc4469c05b6148ce9a48f8c8598cdb10bf0abd1899ffba11edefd681d98256154b34  mongodb-1.2.10.tgz"
