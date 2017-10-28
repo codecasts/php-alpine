@@ -30,7 +30,7 @@ Only PHP 7.1 will be available for Alpine 3.6. That's because PHP 7.0 is too old
 
 | PHP Version | Current PHP Minor Version | Repository URL                            |
 |-------------|---------------------------|-------------------------------------------|
-| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.6/php-7.1   |
+| 7.1         | 7.1.11                    | http://php.codecasts.rocks/v3.6/php-7.1   |
 
 ### Alpine 3.5 (OLD STABLE) (LEGACY)
 
