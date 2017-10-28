@@ -5,7 +5,7 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.1.9
+pkgver=7.1.11
 pkgrel=0
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
@@ -260,7 +260,7 @@ litespeed() {
 	depends="$pkgname-common"
 
 	mkdir -p "$subpkgdir"/usr/bin
-	mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
+	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
 }
 
 cgi() {
@@ -356,7 +356,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="6b7ad28868af904f24f68a062670561841399a2213ff5ad0408bf49ac08cdfe7aa0e5e250815a875ec558dc619c452247d731f48570ce6a8b1bb9fa4082aabff  php-7.1.9.tar.bz2
+sha512sums="7ff898940f25bbe9c398b186afb36e7f8aed875d10374ab998ca99ab0c8d6ed3e20461e3f174de6ddc32623a4f97cd51a95bdba59f4473671ab1ab0ac3c6736a  php-7.1.11.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
