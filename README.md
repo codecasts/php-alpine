@@ -9,6 +9,18 @@ Additionally, we will include many packaged extensions from PECL.
 
 ---
 
+## Release Cycle
+Currently, we will support 2 stable minor versions of Alpine and PHP.
+Testing Alpine releases (`edge`) will be available for testing but should not be used in production.
+
+Everytime Alpine gets a new stable release, we will support the current minor stable version of PHP and it's previous release.
+
+If a new PHP version becomes available before a new release of Alpine, it will be supported on the current stable, but on on the old stable.
+
+Some examples:
+
+Current stable alpine version is `v3.7`, and the stable release of PHP is 7.2. Alpine v3.7 gets support for PHP `v7.2` and `v7.1`
+
 ## Available PHP Versions
 
 Alpine Versions are supported as they're being released. 
