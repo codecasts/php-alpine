@@ -4,9 +4,7 @@
 
 -- 
 
-Maintained by **[@hernandev](https://github.com/hernandev)**.
-
-Based on **[Valery Kartel](https://github.com/vakartel)** scripts.
+Maintained by **[@hernandev](https://github.com/hernandev)**. Based on **[Valery Kartel](https://github.com/vakartel)** scripts.
 
 ---
 
