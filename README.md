@@ -1,37 +1,34 @@
 # PHP Repositories for Alpine
 
-By [CODECASTS](https://codecasts.com.br) - **Based on the work of [Valery Kartel](https://github.com/vakartel)**
+By [CODECASTS](https://codecasts.com.br) - **Based scripts from [Valery Kartel](https://github.com/vakartel)**
 
 ---
-The main goal of this repository (both code and packages) is to provide the latest versions of PHP as they are released on http://php.net.
+**"Up-to-date, PHP packages for Alpine Linux."**
 
-Additionally, we will include many packaged extensions from PECL.
+
+This project provides a simple alternative for running updated PHP on Alpine Linux.
+
+We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
+
+Additionally, many PECL extensions are also available as packages as well.
 
 ---
 
 ## Release Cycle
-Currently, we will support 2 stable minor versions of Alpine and PHP.
-Testing Alpine releases (`edge`) will be available for testing but should not be used in production.
 
-Everytime Alpine gets a new stable release, we will support the current minor stable version of PHP and it's previous release.
-
-If a new PHP version becomes available before a new release of Alpine, it will be supported on the current stable, but on on the old stable.
-
-Some examples:
-
-Current stable alpine version is `v3.7`, and the stable release of PHP is 7.2. Alpine v3.7 gets support for PHP `v7.2` and `v7.1`
+For short, this project will support **2 minor version of both PHP and Alpine**  at time.
 
 ## Available PHP Versions
 
-Alpine Versions are supported as they're being released. 
+Always prefer the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.7`.
 
-You should always use the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.6`.
+The `v3.7` repositories are intended for alpine `v3.7` version **[STABLE]** **[RECOMMENTED VERSION]**.
 
-The `v3.6` repositories are intended for alpine `v3.6` version [STABLE RECOMMENTED VERSION].
+The `v3.6` repositories are intended for alpine `v3.6` version **[OLDSTABLE]** **[LEGACY]** **[UPGRADE_AS_SOON_AS_YOU_CAN]**.
 
-The `v3.5` repositories are intended for alpine `v3.5` version [LEGACY].
+For testing, there's the edge repository, but do not count on it.
 
-The `edge` repositories are intended for alpine `edge` version [TESTING / NEXT RELEASE].
+The `edge` repositories are intended for alpine `edge` version **[TESTING]** **[NEXT_RELEASE]** **[TESTING_ONLY]**.
 
 
 Right now, the following PHP Versions are available:
