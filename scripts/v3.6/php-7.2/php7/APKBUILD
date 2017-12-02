@@ -6,22 +6,22 @@
 pkgname=php7
 _pkgreal=php
 pkgver=7.2.0
-pkgrel=1
+pkgrel=3
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
 license="PHP-3"
 options=""
-depends="$pkgname-common"
-depends_dom="$pkgname-xml"
-depends_mysqlnd="$pkgname-mysqli"
-depends_pdo_mysql="$pkgname-mysqlnd"
-depends_phar="$pkgname"
-depends_soap="$pkgname-xml"
-depends_wddx="$pkgname-xml"
-depends_xmlreader="$pkgname-dom"
-depends_xmlrpc="$pkgname-xml"
-depends_xsl="$pkgname-dom"
+depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+depends_dom="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
+depends_mysqlnd="$pkgname-mysqli>=7.2.0 $pkgname-mysqli<7.3.0"
+depends_pdo_mysql="$pkgname-mysqlnd>=7.2.0 $pkgname-mysqlnd<7.3.0"
+depends_phar="$pkgname>=7.2.0 $pkgname<7.3.0"
+depends_soap="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
+depends_wddx="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
+depends_xmlreader="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
+depends_xmlrpc="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
+depends_xsl="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
 makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
 	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libsodium-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
@@ -325,7 +325,7 @@ _package_ext() {
 	depends="$depends $extdepends"
 
 	case "$extname" in
-	pdo_*) depends="$depends $pkgname-pdo"
+	pdo_*) depends="$depends $pkgname-pdo>=7.2.0 $pkgname-pdo<7.3.0"
 	esac
 
 	# extension dependencies and loading order
