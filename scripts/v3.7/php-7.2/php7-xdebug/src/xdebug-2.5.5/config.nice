@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+# Created by configure
+
+CFLAGS='-Os -fomit-frame-pointer' \
+CXXFLAGS='-Os -fomit-frame-pointer' \
+CPPFLAGS='-Os -fomit-frame-pointer' \
+LDFLAGS='-Wl,--as-needed' \
+CC='gcc' \
+'./configure' \
+'--prefix=/usr' \
+'--with-php-config=/usr/bin/php-config7' \
+"$@"

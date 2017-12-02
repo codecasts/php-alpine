@@ -17,5 +17,5 @@ docker run -it --rm \
     -v $(pwd)/scripts/$ALPINE_VERSION/$PHP_VERSION:/home/sandbox/$PHP_VERSION \
     -v $(pwd)/.abuild:/home/sandbox/.abuild \
     -v $(pwd)/repo/$ALPINE_VERSION/$PHP_VERSION:/home/sandbox/packages/$PHP_VERSION \
-    -v $(pwd)/cache:/var/cache/apk \
+    -v $(pwd)/cache/$ALPINE_VERSION:/var/cache/apk \
     codecasts/php-alpine:$ALPINE_VERSION

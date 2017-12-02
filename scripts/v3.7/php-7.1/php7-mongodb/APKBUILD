@@ -1,0 +1,37 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-mongodb
+_pkgreal=mongodb
+pkgver=1.2.10
+pkgrel=0
+_phpver=7
+pkgdesc="MongoDB extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="Apache"
+depends="php7-common>7.1.0 php7-json>7.1.0"
+makedepends="php7-dev>7.1.0 autoconf openssl-dev pcre-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="cd0a3c00e48f2a6f7286a58ac5ed71fce87962cc5de3abb53f6ef97979fdfc4469c05b6148ce9a48f8c8598cdb10bf0abd1899ffba11edefd681d98256154b34  mongodb-1.2.10.tgz"

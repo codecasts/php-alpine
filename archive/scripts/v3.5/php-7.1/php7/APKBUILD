@@ -1,0 +1,382 @@
+# Contributor: Diego Hernandes <diego@hernandev.com>
+# Maintainer: Diego Hernandes <diego@hernandev.com>
+
+# Based on the scripts of: Valery Kartel <valery.kartel@gmail.com>
+
+pkgname=php7
+_pkgreal=php
+pkgver=7.1.11
+pkgrel=0
+pkgdesc="The PHP language runtime engine - 7th branch"
+url="http://www.php.net/"
+arch="all"
+license="PHP-3"
+options=""
+depends="$pkgname-common"
+depends_dom="$pkgname-xml"
+depends_mysqlnd="$pkgname-mysqli"
+depends_pdo_mysql="$pkgname-mysqlnd"
+depends_phar="$pkgname"
+depends_soap="$pkgname-xml"
+depends_wddx="$pkgname-xml"
+depends_xmlreader="$pkgname-dom"
+depends_xmlrpc="$pkgname-xml"
+depends_xsl="$pkgname-dom"
+makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
+	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
+	libical-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
+	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
+	libpng-dev libwebp-dev libjpeg-turbo-dev libmcrypt-dev gsoap-dev recode-dev
+	libedit-dev paxmark gettext-dev
+	"
+makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
+	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
+	libical-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
+	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
+	libpng-dev libwebp-dev libjpeg-turbo-dev libmcrypt-dev gsoap-dev recode-dev
+	libedit-dev paxmark gettext-dev
+	"
+
+source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.bz2/from/this/mirror
+	$pkgname-fpm.initd
+	$pkgname-fpm.logrotate
+	$pkgname-module.conf
+	install-pear.patch
+	includedir.patch
+	fix-asm-constraints-in-aarch64-multiply-macro.patch
+	pid_log.patch
+	"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+_exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl json
+	ldap mbstring mcrypt mysqli mysqlnd odbc opcache openssl pcntl pdo pdo_dblib pdo_mysql
+	pdo_odbc pdo_pgsql pdo_sqlite pgsql phar:phar posix pspell session shmop snmp soap
+	sockets sqlite3 sysvmsg sysvsem sysvshm tidy wddx xml xmlreader xmlrpc xsl zip zlib
+	"
+subpackages="$pkgname-dev $pkgname-doc $pkgname-apache2 $pkgname-phpdbg $pkgname-embed
+	$pkgname-litespeed $pkgname-cgi $pkgname-fpm $pkgname-pear::noarch
+	"
+for _ext in $_exts; do
+	case "$_ext" in
+	*:*) subpackages="$subpackages $pkgname-$_ext";;
+	*) subpackages="$subpackages $pkgname-$_ext:_package_ext";;
+	esac
+done
+subpackages="$subpackages $pkgname-common::noarch"
+
+_apiver="20160303"
+
+prepare() {
+	cd "$builddir"
+
+	default_prepare || return 1
+	update_config_sub || return 1
+
+	local vapi=$(sed -n '/#define PHP_API_VERSION/{s/.* //;p}' main/php.h)
+	if [ "$vapi" != "$_apiver" ]; then
+		error "Upstreram API version is now $vapi. Expecting $_apiver"
+		return 1
+	fi
+	autoconf
+}
+
+_build() {
+	export EXTENSION_DIR=/usr/lib/$pkgname/modules
+	./configure \
+		--build=$CBUILD \
+		--host=$CHOST \
+		--prefix=/usr \
+		--program-suffix=7 \
+		--libdir=/usr/lib/$pkgname \
+		--datadir=/usr/share/$pkgname \
+		--sysconfdir=/etc/$pkgname \
+		--localstatedir=/var \
+		--with-layout=GNU \
+		--with-pic \
+		--with-pear=/usr/share/$pkgname \
+		--with-config-file-path=/etc/$pkgname \
+		--with-config-file-scan-dir=/etc/$pkgname/conf.d \
+		--disable-short-tags \
+		--with-openssl=shared --with-kerberos --with-system-ciphers \
+		--with-pcre-regex --with-pcre-dir \
+		--with-zlib=shared --with-zlib-dir \
+		--enable-bcmath=shared \
+		--with-bz2=shared \
+		--enable-calendar=shared \
+		--enable-ctype=shared \
+		--with-curl=shared \
+		--enable-dba=shared --with-gdbm --with-db4 \
+		--enable-dom=shared \
+		--with-enchant=shared \
+		--enable-exif=shared \
+		--enable-ftp=shared \
+		--with-gd=shared --with-webp-dir=shared --with-jpeg-dir=shared --with-png-dir=shared --with-xpm-dir=shared \
+		--with-freetype-dir=shared --enable-gd-native-ttf --enable-gd-jis-conv \
+		--with-gettext=shared \
+		--with-gmp=shared \
+		--with-iconv=shared \
+		--with-imap=shared --with-imap-ssl \
+		--enable-intl=shared --with-icu-dir=/usr \
+		--enable-json=shared \
+		--enable-libxml=shared --with-libxml-dir=shared --with-libexpat-dir=shared \
+		--with-ldap=shared --with-ldap-sasl \
+		--enable-mbstring=shared --enable-mbregex \
+		--with-mcrypt=shared \
+		--with-sqlite3=shared,/usr --with-pdo-sqlite=shared,/usr \
+		--with-pdo-dblib=shared \
+		--with-mysqli=shared,/usr/bin/mysql_config \
+		--enable-mysqlnd=shared --with-pdo-mysql=shared,mysqlnd --with-mysql-sock=/run/mysqld/mysqld.sock \
+		--with-pgsql=shared --with-pdo-pgsql=shared \
+		--with-unixODBC=shared,/usr -with-pdo-odbc=shared,unixODBC,/usr \
+		--with-dbmaker=shared \
+		--enable-opcache=shared \
+		--enable-pdo=shared \
+		--enable-pcntl=shared \
+		--enable-posix=shared \
+		--enable-phar=shared \
+		--with-pspell=shared \
+		--without-readline \
+		--with-libedit \
+		--enable-session=shared \
+		--enable-shmop=shared \
+		--with-snmp=shared \
+		--enable-soap=shared \
+		--enable-sockets=shared \
+		--enable-sysvmsg=shared \
+		--enable-sysvsem=shared \
+		--enable-sysvshm=shared \
+		--with-tidy=shared \
+		--enable-xml=shared \
+		--enable-xmlreader=shared \
+		--with-xmlrpc=shared \
+		--with-xsl=shared \
+		--enable-wddx=shared \
+		--enable-zip=shared --with-libzip=shared \
+		$@ || return 1
+	sed -ri "s/^(EXTRA_LDFLAGS[ ]*\=.*)/\1 -lpthread/" Makefile  # see #183 (from main/php)
+	make || return 1
+}
+
+build() {
+	cd "$builddir"
+
+	# phpdbg
+	_build --enable-phpdbg \
+		--enable-phpdbg \
+		--enable-phpdbg-webhelper \
+		--disable-cgi \
+		--disable-cli \
+		|| return 1
+	# apache2 module
+	_build --disable-phpdbg \
+		--disable-cgi \
+		--disable-cli \
+		--with-apxs2 \
+		|| return 1
+	mv libs/libphp7.so sapi/apache2handler/mod_php7.so
+	# cgi,cli,fpm,embed,litespeed
+	_build --disable-phpdbg \
+		--enable-fpm \
+		--enable-embed \
+		--with-litespeed \
+		|| return 1
+}
+
+package() {
+	cd "$builddir"
+
+	make -j1 INSTALL_ROOT="$pkgdir" install || return 1
+
+	install -Dm644 php.ini-production "$pkgdir"/etc/$pkgname/php.ini || return 1
+
+	local file; for file in pear peardev pecl; do
+		sed -i -e "s~/usr/bin/php~/usr/bin/php7~g" \
+			-e "s~PHP=php~PHP=php7~" \
+			"$pkgdir"/usr/bin/$file || return 1
+	done
+
+	# patch pecl problem with shared xml extension
+    sed -i 's/\(-C *\)[^ ]*/\1/' "$pkgdir"/usr/bin/pecl
+
+	paxmark -m "$pkgdir"/usr/bin/php7
+
+	find "$pkgdir" -name '.*' | xargs rm -rf || return 1
+	rmdir "$pkgdir"/var/run
+}
+
+dev() {
+	default_dev
+	depends="$depends $pkgname $pkgname-pear"
+
+	mkdir -p "$subpkgdir"/usr/bin \
+		"$subpkgdir"/usr/lib/$pkgname
+
+	mv "$pkgdir"/usr/bin/php-config7 "$pkgdir"/usr/bin/peardev \
+		"$subpkgdir"/usr/bin/ || return 1
+	mv "$pkgdir"/usr/lib/$pkgname/build \
+		"$subpkgdir"/usr/lib/$pkgname/
+}
+
+doc() {
+	default_doc
+
+	mkdir -p "$subpkgdir"/usr/share/doc/$pkgname
+
+	local file
+	for file in CODING_STANDARDS CREDITS EXTENSIONS INSTALL LICENSE NEWS README* UPGRADING*; do
+		cp "$builddir"/$file "$subpkgdir"/usr/share/doc/$pkgname/ || return 1
+	done
+}
+
+apache2() {
+	pkgdesc="PHP Module for Apache2"
+	depends="$pkgname-common apache2"
+
+	install -D -m755 "$builddir"/sapi/apache2handler/mod_php7.so \
+		"$subpkgdir"/usr/lib/apache2/mod_php7.so || return 1
+
+	install -D -m644 "$srcdir"/php7-module.conf \
+		"$subpkgdir"/etc/apache2/conf.d/php7-module.conf
+}
+
+phpdbg() {
+	pkgdesc="Interactive PHP debugger"
+	depends="$pkgname-common"
+
+	install -Dm755 "$builddir"/sapi/phpdbg/phpdbg \
+		 "$subpkgdir"/usr/bin/phpdbg7
+}
+
+embed() {
+	pkgdesc="PHP Embedded Library"
+	depends="$pkgname-common"
+
+	mkdir -p "$subpkgdir"/usr/lib
+	mv "$pkgdir"/usr/lib/libphp*.so "$subpkgdir"/usr/lib/
+}
+
+litespeed() {
+	pkgdesc="PHP LiteSpeed SAPI"
+	depends="$pkgname-common"
+
+	mkdir -p "$subpkgdir"/usr/bin
+	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
+}
+
+cgi() {
+	pkgdesc="PHP Common Gateway Interface"
+	depends="$pkgname-common"
+
+	mkdir -p "$subpkgdir"/usr/bin
+	mv "$pkgdir"/usr/bin/php-cgi7 "$subpkgdir"/usr/bin/
+}
+
+fpm() {
+	pkgdesc="PHP FastCGI Process Manager"
+	depends="$pkgname-common"
+
+	mv "$pkgdir"/var "$subpkgdir"/ || return 1
+
+	mkdir -p "$subpkgdir"/etc/$pkgname \
+		"$subpkgdir"/usr \
+		"$subpkgdir"/var/lib \
+		"$subpkgdir"/var/log/$pkgname
+
+	mv "$pkgdir"/usr/share/$pkgname/fpm "$subpkgdir"/var/lib/$pkgname/ || return 1
+	mv "$pkgdir"/usr/sbin "$subpkgdir"/usr/ || return 1
+	mv "$pkgdir"/etc/$pkgname/php-fpm* "$subpkgdir"/etc/$pkgname/ || return 1
+
+	local file; for file in php-fpm.conf php-fpm.d/www.conf; do
+		mv "$subpkgdir"/etc/$pkgname/$file.default \
+			"$subpkgdir"/etc/$pkgname/$file || return 1
+	done
+
+	install -D -m755 "$srcdir"/$pkgname-fpm.initd "$subpkgdir"/etc/init.d/php-fpm7 || return 1
+	install -D -m644 "$srcdir"/$pkgname-fpm.logrotate "$subpkgdir"/etc/logrotate.d/php-fpm7
+}
+
+pear() {
+	pkgdesc="PHP Extension and Application Repository"
+	depends="$pkgname $pkgname-xml"
+
+	mkdir -p "$subpkgdir"/usr/bin \
+		"$subpkgdir"/etc/$pkgname
+
+	local file; for file in phpize7 pecl pear; do
+		mv "$pkgdir"/usr/bin/$file "$subpkgdir"/usr/bin/
+	done
+	mv "$pkgdir"/etc/$pkgname/pear.conf "$subpkgdir"/etc/$pkgname/ || return 1
+	mv "$pkgdir"/usr/share "$subpkgdir"/usr/
+}
+
+common() {
+	pkgdesc="$pkgdesc (common config)"
+	depends=""
+
+	mkdir -p "$subpkgdir"/usr
+	mv "$pkgdir"/usr/lib "$subpkgdir"/usr/ || return 1
+	mv "$pkgdir"/etc "$subpkgdir"/ || return 1
+
+	mkdir "$subpkgdir"/etc/$pkgname/conf.d
+}
+
+phar() {
+	_package_ext || return 1
+	mkdir -p "$subpkgdir"/usr/bin
+	mv "$pkgdir"/usr/bin/phar* "$subpkgdir"/usr/bin/
+}
+
+_package_ext() {
+	local extname="${subpkgname#$pkgname-}"
+	local extdepends="$(eval "echo \$depends_$extname")"
+	pkgdesc="PHP7 extension: $extname"
+	depends="$depends $extdepends"
+
+	case "$extname" in
+	pdo_*) depends="$depends $pkgname-pdo"
+	esac
+
+	# extension dependencies and loading order
+	local elo=00
+	[ -z "$extdepends" ] || elo=01
+    if [ "$extname" = "pdo_mysql" ]; then
+        elo=20
+    fi
+
+	# extension prefix
+	local prefix=
+	[ "$extname" != "opcache" ] || prefix="zend_"
+
+	mkdir -p "$subpkgdir"/usr/lib/$pkgname/modules \
+		"$subpkgdir"/etc/$pkgname/conf.d
+	mv "$pkgdir"/usr/lib/$pkgname/modules/$extname.so \
+		"$subpkgdir"/usr/lib/$pkgname/modules/ || return 1
+
+	echo "${prefix}extension=$extname.so" \
+		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
+}
+
+md5sums="22e11a372f99afbbbf3f46a31e8a82ca  php-7.1.7.tar.bz2
+6c73c17c4d424efb246bd8b4450ee008  php7-fpm.initd
+e956ffffcb5c0d7ca037218e6d2ab7bc  php7-fpm.logrotate
+d344ed9b87bd7ec727d07026f141a339  php7-module.conf
+c339b1e23816a424809bcd7762c8d071  install-pear.patch
+1bca7585bb5b38883f246189da51fc96  includedir.patch
+a0edfadafebfe6fe99814bab40ef5bec  fix-asm-constraints-in-aarch64-multiply-macro.patch
+dad1e9e663b0f2fa59717c12f758fcf7  pid_log.patch"
+sha256sums="079b6792987f38dc485f92258c04f9e02dedd593f9d260ebe725343f812d1ff8  php-7.1.7.tar.bz2
+9df0e086771cbcb80a7f2e3aef6d49769d11077f09ec34f8505421c37050dd65  php7-fpm.initd
+60948eade9699372bc5305542286603b136ba5f7a2cf8a89dfe998dfe53f99c3  php7-fpm.logrotate
+359dfca2fb8d36c8ff81192e7a48684401682f28f6ce6331aad999c5a43ccb09  php7-module.conf
+eb16834a2a288fac36b4871fe747bde9b8407de38f3c7c7e103fb2c7c137359c  install-pear.patch
+04edc6953197d5c3086c3c63c3641f2d5a57b4b3a1034907a672cdb05d8981c1  includedir.patch
+2b9d499def6826a5e16f87b56ff3ceea501530851d6a71c09ace8bb3c418fc4d  fix-asm-constraints-in-aarch64-multiply-macro.patch
+7456d56aab7a2d47f96018df584eb4992bfa21e7031c8c96c3bfd743146490e3  pid_log.patch"
+sha512sums="a505f8d1e140edff3f5bf6407adecf07cba1223fc905a978249684e9106832bcac0e9879ed07eed271c3bccd8204823d0e5ce2712dcb4432f50a3cf026e7bc84  php-7.1.7.tar.bz2
+5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
+100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
+7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
+2f49a6e88662257ca7fb72cf0fba2e50785079b981def0ebc3d1403fb48278419e57ccf94f79ad2da1236b9bd4c75b6246b3f4bbd9c5394f5eaa1d3bd999eee7  install-pear.patch
+7b2c240941ae1d409cab8bd8f05c763cbf84da1c2310cc42538e9bd39c67ffd9bc8eb8b28638fc08d0077ef0c2495fc89d3d9b048b3c2dcc1f8907348e9f626e  includedir.patch
+518cf130f30de5eb426f9b531f2f648e407630e98c0a74f73330f8f187c1dc22f65911e3a46feda6f4b000bb3d24ab41cd00e2aa982e59bb66826556b58d158a  fix-asm-constraints-in-aarch64-multiply-macro.patch
+326dabea0b6df83d8be36f8c0a8522eea8d0c8fd4d108db2e6aebb1b3cc23c4ee9842eb6fe56a2d32d4ab981ef7411106796c47d380d803646add50c8ab4ad9d  pid_log.patch"
