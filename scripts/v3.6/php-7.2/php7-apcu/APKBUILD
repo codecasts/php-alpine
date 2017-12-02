@@ -31,7 +31,7 @@ package() {
     install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
     install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
 sha512sums="4f377389e713bcae5534c64ea28f72c20ab2176aa758188c4d956c1f2370be49bc33dd2a1db43941fff5344a164aaeebc4e73e6d579f62d17334bcc520171526  apcu-5.1.8.tgz"

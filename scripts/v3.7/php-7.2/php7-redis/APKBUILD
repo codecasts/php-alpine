@@ -2,7 +2,7 @@
 pkgname=php7-redis
 _pkgreal=redis
 pkgver=3.1.4
-pkgrel=0
+pkgrel=1
 _phpver=7
 pkgdesc="Redis extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
@@ -30,7 +30,7 @@ package() {
     install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
     install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
 sha512sums="dbf3eecfa761d0d3e97781968378d8bcc74e79bf4a0f85d6c2e8338180755e503179bc78b03ae6ee26a5619f439ead77068db3ab18d1b2dbf58e1643bea3a49f  redis-3.1.4.tgz"

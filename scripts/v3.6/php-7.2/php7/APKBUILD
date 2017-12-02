@@ -6,7 +6,7 @@
 pkgname=php7
 _pkgreal=php
 pkgver=7.2.0
-pkgrel=0
+pkgrel=1
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
@@ -344,7 +344,7 @@ _package_ext() {
 	mv "$pkgdir"/usr/lib/$pkgname/modules/$extname.so \
 		"$subpkgdir"/usr/lib/$pkgname/modules/ || return 1
 
-	echo "${prefix}extension=$extname.so" \
+	echo "${prefix}extension=$extname" \
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 

@@ -3,7 +3,7 @@
 pkgname=php7-xdebug
 _pkgreal=xdebug
 pkgver=2.5.5
-pkgrel=0
+pkgrel=1
 _phpver=7
 pkgdesc="xDebug Profiler"
 url="http://pecl.php.net/package/$_pkgreal"
@@ -31,7 +31,7 @@ package() {
     install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
     install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+    echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
 sha512sums="9faab421bd90c03734c047d8c6dcc021c8bc665eb36781c692f194d04c7dca24fe1eb920ca8dc407e5bf4ae0912c4b917587f940f34b07171a8881d4cf8695d1  xdebug-2.5.5.tgz"
