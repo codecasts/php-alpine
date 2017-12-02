@@ -39,9 +39,11 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 The following code snippets are intended for quick usage on either shell scripts or Dockerfile
 
+> Notice that `main` and `community` official repositories must be enabled.
+
 ### Dockerfile
 
-Notice that `main` and `community` official repositories must be enabled.
+You may skil the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
 # change to Alpine 3.6 you like.
@@ -60,43 +62,34 @@ RUN echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositorie
 
 # install php and some extensions
 # notice the @php is required to avoid getting default php packages from alpine instead.
-RUN apk add --update php7@php php7-mbstring@php php7-you-extension-name-here@php
+RUN apk add --update php7@php
+RUN apk add --update php7-mbstring@php
+RUN apk add --update php7-you-extension-name-here@php
 ```
 
-You make this repository available in two simple steps:
+### Bash / Shell scripting
 
-*Notice:* Be sure to enable `main` and `community` Alpine repositories first.
-
-#### 1) Trusting the repository
-```bash
-apk add --update curl && curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
-```
-
-#### 2) Choosing and Registering the repository on APK
-
-Before registering the repository, make sure you update the example url from the table on this documentation.
+> You may skil the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 
-```bash
-echo "@php http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
-```
+```sh
+#!/usr/bin/env sh
 
-### Usage
+# install curl and certificates to download the key
+apk add --update curl ca-certificates
 
-For installing PHP and other available extensions you can simply search for the ones you want:
+# download the repository public key
+curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
 
-```bash
-apk search php7*
-```
+# add the repository for the php / alpine version corresponding
+echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
 
-### Package Conflicts
-
-If official PHP packages conflicts and you endup installing a offical version istead of the ones on this repo, please install packages
-by using `@php` at the end of package name.
-
-```
-# i.e.
+# install packages
+# notice that @php is required so you don't end up with default outdated php packages from community repository.
+apk add --update php7@php
 apk add --update php7-redis@php
+apk add --update php7-any-other-extension@php
+
 ```
 
 
@@ -157,19 +150,4 @@ Some additional PECL extensions are provided so you don't need to build them.
 
 > **Notifice that xDebug is not yet compatible with PHP 7.2, so the exteion is not yet avaiable but the extension maintainers may release it on the next days**
 
-### Usage on Docker
-
-If you're looking into this, you probably want to create some Rockstar Docker images, right?
-
-Here is a very basic example for installing PHP 7.1:
-
-```dockerfile
-
-FROM alpine:3.7
-
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "@php http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories && \
-    apk add --update php7@php php7-mbstring@php php7-any-other-extensions-you-may-want@php
-
-```
-
+## Enjoy Life
