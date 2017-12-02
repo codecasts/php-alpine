@@ -1,10 +1,14 @@
-# PHP Repositories for Alpine
+# PHP Repositories for Alpine - by CODECASTS
 
-By [CODECASTS](https://codecasts.com.br) - **Based scripts from [Valery Kartel](https://github.com/vakartel)**
-
----
 **"Up-to-date, PHP packages for Alpine Linux."**
 
+-- 
+
+Maintained by **[@hernandev](https://github.com/hernandev)**.
+
+Based on **[Valery Kartel](https://github.com/vakartel)** scripts.
+
+---
 
 This project provides a simple alternative for running updated PHP on Alpine Linux.
 
@@ -18,47 +22,18 @@ Additionally, many PECL extensions are also available as packages as well.
 
 For short, this project will support **2 minor version of both PHP and Alpine**  at time.
 
-## Available PHP Versions
+## Available Repositores
 
-Always prefer the lastest **STABLE** Alpine version, Right now, that means `Alpine Version 3.7`.
+| Alpine Version  | PHP Version           | Status                              | Repository URL 
+| -               | -                     | -                                   | -
+| **`3.7`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.9 release  | `http://php.codecasts.rocks/v3.7/php-7.2`
+| **`3.7`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.9 release  | `http://php.codecasts.rocks/v3.7/php-7.1` 
+| **`3.6`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.8 release  | `http://php.codecasts.rocks/v3.6/php-7.2`
+| **`3.6`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.8 release  | `http://php.codecasts.rocks/v3.6/php-7.1`
 
-The `v3.7` repositories are intended for alpine `v3.7` version **[STABLE]** **[RECOMMENTED VERSION]**.
+> PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
-The `v3.6` repositories are intended for alpine `v3.6` version **[OLDSTABLE]** **[LEGACY]** **[UPGRADE_AS_SOON_AS_YOU_CAN]**.
-
-For testing, there's the edge repository, but do not count on it.
-
-The `edge` repositories are intended for alpine `edge` version **[TESTING]** **[NEXT_RELEASE]** **[TESTING_ONLY]**.
-
-
-Right now, the following PHP Versions are available:
-
-### Alpine 3.6 (STABLE)
-
-Only PHP 7.1 will be available for Alpine 3.6. That's because PHP 7.0 is too old now.
-
-| PHP Version | Current PHP Minor Version | Repository URL                            |
-|-------------|---------------------------|-------------------------------------------|
-| 7.1         | 7.1.11                    | http://php.codecasts.rocks/v3.6/php-7.1   |
-
-### Alpine 3.5 (OLD STABLE) (LEGACY)
-
-PHP 7.0 and 7.1 are available for Alpine 3.5. Only because that is how this repository started.
-
-| PHP Version | Current PHP Minor Version | Repository URL                            |
-|-------------|---------------------------|-------------------------------------------|
-| 7.1         | 7.1.7                     | http://php.codecasts.rocks/v3.5/php-7.1   |
-| 7.0         | 7.0.21                    | http://php.codecasts.rocks/v3.5/php-7.0   |
-
-### Alpine Edge (3.7 - November Release)
-
-This is the development version of alpine, that will be released on November.
-PHP 7.2 will also be released a few days after Alpine 3.7 gets stable, so PHP 7.2 will be available only on Alpine 3.7
-
-| PHP Version | Current PHP Minor Version | Repository URL                            |
-|-------------|---------------------------|-------------------------------------------|
-| 7.1         | 7.1.7                     | http://php.codecasts.rocks/edge/php-7.1   |
-
+---
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
@@ -75,18 +50,11 @@ wget -O /etc/apk/keys/php-alpine.rsa.pub http://php.codecasts.rocks/php-alpine.r
 
 #### 2) Choosing and Registering the repository on APK
 
-Before registering the repository, you should choose which version of PHP you want.
+Before registering the repository, make sure you update the example url from the table on this documentation.
 
-For PHP 7.1:
-
-```bash
-echo "@php http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories
-```
-
-For PHP 7.0:
 
 ```bash
-echo "@php http://php.codecasts.rocks/v3.6/php-7.0" >> /etc/apk/repositories
+echo "@php http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
 ```
 
 ### Usage
@@ -110,7 +78,7 @@ apk add --update php7-redis@php
 
 ## Available Packages
 
-The following packages are available for installation on both 7.0 and 7.1 repositories:
+The following packages are available for installation on both 7.2 and 7.1 repositories:
 
 - **Core Packages (Provide Binaries or Modules)**
 
@@ -119,6 +87,13 @@ The following packages are available for installation on both 7.0 and 7.1 reposi
 - **Special Packages (Not needed at runtime)**
 
 `php7-doc` `php7-dev`
+
+- **PHP 7.2 only extensions**
+
+`php7-sodium`
+
+> `libsodium` extension is now part of PHP 7.2, it got renamed to `sodium` only and it reflects the version 2 of the extension.
+> The original extension, at version 1 was kept built for PHP 7.2 for legacy purposes, be sure to not install the two extensions together and hope it will work (it actually may but I don't adivise you to try). 
 
 - **Core Extensions**
 
@@ -146,15 +121,17 @@ The following packages are available for installation on both 7.0 and 7.1 reposi
 
 Some additional PECL extensions are provided so you don't need to build them.
 
-| Extension | Package Name   | Current Version | Available on 7.0 | Available on 7.1 |
+| Extension | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
 |-----------|----------------|-----------------|------------------|------------------|
 | APCu      | php7-apcu      | 5.1.8           | Yes              | Yes              |
 | Imagick   | php7-imagick   | 3.4.3           | Yes              | Yes              |
-| libsodium | php7-libsodium | 1.0.6           | Yes              | Yes              |
-| memcached | php7-memcached | 3.0.3           | Yes              | Yes              |
-| MongoDB   | php7-mongodb   | 1.2.9           | Yes              | Yes              |
-| Redis     | php7-redis     | 3.1.2           | Yes              | Yes              |
-| xDebug    | php7-xdebug    | 2.5.5           | Yes              | Yes              |
+| libsodium | php7-libsodium | 1.0.7           | Yes              | Yes              |
+| memcached | php7-memcached | 3.0.4           | Yes              | Yes              |
+| MongoDB   | php7-mongodb   | 1.3.4           | Yes              | Yes              |
+| Redis     | php7-redis     | 3.1.4           | Yes              | Yes              |
+| xDebug    | php7-xdebug    | 2.5.5           | `No`             | Yes              |
+
+> **Notifice that xDebug is not yet compatible with PHP 7.2, so the exteion is not yet avaiable but the extension maintainers may release it on the next days**
 
 ### Usage on Docker
 
@@ -164,11 +141,11 @@ Here is a very basic example for installing PHP 7.1:
 
 ```dockerfile
 
-FROM alpine:3.6
+FROM alpine:3.7
 
 ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "http://php.codecasts.rocks/v3.6/php-7.1" >> /etc/apk/repositories && \
-    apk add --update php7 php7-mbstring php7-any-other-extensions-you-may-want
+RUN echo "http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories && \
+    apk add --update php7@php php7-mbstring@php php7-any-other-extensions-you-may-want@php
 
 ```
 
