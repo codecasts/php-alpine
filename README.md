@@ -24,10 +24,10 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 | Alpine Version  | PHP Version           | Status                              | Repository URL 
 | -               | -                     | -                                   | -
-| **`3.7`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.9 release  | `http://php.codecasts.rocks/v3.7/php-7.2`
-| **`3.7`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.9 release  | `http://php.codecasts.rocks/v3.7/php-7.1` 
-| **`3.6`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.8 release  | `http://php.codecasts.rocks/v3.6/php-7.2`
-| **`3.6`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.8 release  | `http://php.codecasts.rocks/v3.6/php-7.1`
+| **`3.7`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.2
+| **`3.7`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.1 
+| **`3.6`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.2
+| **`3.6`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.1
 
 > PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
@@ -35,7 +35,33 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
-## Setting UP
+## Snippets
+
+The following code snippets are intended for quick usage on either shell scripts or Dockerfile
+
+### Dockerfile
+
+Notice that `main` and `community` official repositories must be enabled.
+
+```dockerfile
+# change to Alpine 3.6 you like.
+FROM alpine:3.7
+
+# trust this project public key to trust the packages.
+ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+
+## you may join the multiple run lines here to make it a single layer
+
+# make sure you can use HTTPS
+RUN apk --update add ca-certificates
+
+# add the repository, make sure you replace the correct versions if you want.
+RUN echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
+
+# install php and some extensions
+# notice the @php is required to avoid getting default php packages from alpine instead.
+RUN apk add --update php7@php php7-mbstring@php php7-you-extension-name-here@php
+```
 
 You make this repository available in two simple steps:
 
@@ -43,7 +69,7 @@ You make this repository available in two simple steps:
 
 #### 1) Trusting the repository
 ```bash
-wget -O /etc/apk/keys/php-alpine.rsa.pub http://php.codecasts.rocks/php-alpine.rsa.pub
+apk add --update curl && curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
 ```
 
 #### 2) Choosing and Registering the repository on APK
@@ -142,7 +168,7 @@ Here is a very basic example for installing PHP 7.1:
 FROM alpine:3.7
 
 ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-RUN echo "http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories && \
+RUN echo "@php http://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories && \
     apk add --update php7@php php7-mbstring@php php7-any-other-extensions-you-may-want@php
 
 ```
