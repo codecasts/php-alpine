@@ -72,7 +72,7 @@ RUN apk add --update php7-you-extension-name-here@php
 > You may skil the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 
-```sh
+```bash
 #!/usr/bin/env sh
 
 # install curl and certificates to download the key
