@@ -147,6 +147,7 @@ Some additional PECL extensions are provided so you don't need to build them.
 | memcached | php7-memcached | 3.0.4           | Yes              | Yes              |
 | MongoDB   | php7-mongodb   | 1.3.4           | Yes              | Yes              |
 | Redis     | php7-redis     | 3.1.4           | Yes              | Yes              |
+| SSH2      | php7-ssh2      | 1.1.2           | Yes              | Yes              |
 | xDebug    | php7-xdebug    | 2.5.5           | `No`             | Yes              |
 
 > **Notifice that xDebug is not yet compatible with PHP 7.2, so the exteion is not yet avaiable but the extension maintainers may release it on the next days**
