@@ -3,14 +3,14 @@
 pkgname=php7-apcu
 _pkgreal=apcu
 pkgver=5.1.8
-pkgrel=1
+pkgrel=3
 _phpver=7
 pkgdesc="APCu - APC User Cache extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
-depends="php7-common>7.1.0"
-makedepends="php7-dev>7.1.0 autoconf pcre-dev"
+depends="php7-common>=7.1.0 php7-common<7.2.0"
+makedepends="php7-dev>=7.1.0 php7-dev<7.2.0 autoconf pcre-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 

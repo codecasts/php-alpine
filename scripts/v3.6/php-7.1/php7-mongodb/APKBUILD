@@ -3,14 +3,14 @@
 pkgname=php7-mongodb
 _pkgreal=mongodb
 pkgver=1.3.4
-pkgrel=0
+pkgrel=2
 _phpver=7
 pkgdesc="MongoDB extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="Apache"
-depends="php7-common>7.1.0 php7-json>7.1.0"
-makedepends="php7-dev>7.1.0 autoconf openssl-dev pcre-dev"
+depends="php7-common>=7.1.0 php7-common<7.2.0 php7-json>=7.1.0 php7-json<7.2.0"
+makedepends="php7-dev>=7.1.0 php7-dev<7.2.0 autoconf openssl-dev pcre-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
