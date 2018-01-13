@@ -5,8 +5,8 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.2.0
-pkgrel=3
+pkgver=7.2.1
+pkgrel=1
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
@@ -22,7 +22,7 @@ depends_wddx="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
 depends_xmlreader="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
 depends_xmlrpc="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
 depends_xsl="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
-makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
+makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
 	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libsodium-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
 	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
@@ -85,6 +85,7 @@ _build() {
 		--localstatedir=/var \
 		--with-layout=GNU \
 		--with-pic \
+		--with-password-argon2 \
 		--with-pear=/usr/share/$pkgname \
 		--with-config-file-path=/etc/$pkgname \
 		--with-config-file-scan-dir=/etc/$pkgname/conf.d \
@@ -348,7 +349,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="f4b4d97a0b662cab9ed47a549453ad522da45fa5aa34e3ece49a8b85b49b7a5921d2d7cdd0a6766b09d63c4f7fd022502222656ce112fc80f85e8f2409c5c826  php-7.2.0.tar.bz2
+sha512sums="e9b6c013a06a771c2fa7581e49e6d6e019fe8fc6f8881a43905f7e87df5fc05420559fe40fb663d272ffc5cc188c4ef7c3ca835f5c542a28ca8de1cd42782865  php-7.2.1.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
