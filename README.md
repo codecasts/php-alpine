@@ -25,9 +25,9 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 | Alpine Version  | PHP Version             | Status                               | Repository URL 
 | -               | -                       | -                                    | -
 | **`3.7`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
-| **`3.7`**       | **`7.1`** / `7.1.12`    | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1) 
+| **`3.7`**       | **`7.1`** / `7.1.15`    | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1) 
 | **`3.6`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.2](https://php.codecasts.rocks/v3.6/php-7.2)
-| **`3.6`**       | **`7.1`** / `7.1.12`    | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.1](https://php.codecasts.rocks/v3.6/php-7.1)
+| **`3.6`**       | **`7.1`** / `7.1.15`    | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.1](https://php.codecasts.rocks/v3.6/php-7.1)
 
 > PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
