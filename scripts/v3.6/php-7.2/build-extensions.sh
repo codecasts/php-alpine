@@ -2,7 +2,7 @@
 
 
 # SUB-PACKAGES TO BUILD
-PACKAGES="php7-apcu php7-imagick php7-libsodium php7-memcached php7-mongodb php7-redis php7-ssh2"
+PACKAGES="argon2 php7-apcu php7-imagick php7-libsodium php7-memcached php7-mongodb php7-redis php7-ssh2 php7-xdebug"
 
 # ROOT PATH
 ROOT_PATH=$(pwd)
@@ -10,6 +10,7 @@ ROOT_PATH=$(pwd)
 # cd $ROOT_PATH/php7
 # abuild -r
 
+# update packages.
 sudo apk update
 
 for PACKAGE in $PACKAGES; do
