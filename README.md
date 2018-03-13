@@ -97,6 +97,12 @@ apk add --update php7-any-other-extension@php
 
 The following packages are available for installation on both 7.2 and 7.1 repositories:
 
+- **[NEW]** **Backported Packages**
+
+`argon2` `argon2-dev` `libargon2`
+
+Argon2 was backported from EDGE branch of `ports` to allow PHP to be compiled with Argon2 password hashing support.
+
 - **Core Packages (Provide Binaries or Modules)**
 
 `php7` `php7-common` `php7-fpm` `php7-cgi` `php7-apache2`
