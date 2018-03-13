@@ -5,7 +5,7 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.1.12
+pkgver=7.1.15
 pkgrel=0
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
@@ -43,7 +43,6 @@ source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.
 	$pkgname-module.conf
 	install-pear.patch
 	includedir.patch
-	fix-asm-constraints-in-aarch64-multiply-macro.patch
 	pid_log.patch
 	"
 builddir="$srcdir/$_pkgreal-$pkgver"
@@ -356,11 +355,10 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="5753ccea57e0e4f23321f3a583369c91a747dfc85875f2817c219437e53c1924e25ecba129f35230df2fc35ca1288a31ceaf146815cca54f4c66425388183db5  php-7.1.12.tar.bz2
+sha512sums="db10c0138a74165c6373f0d6cc7f5ca1f6b1ae26359cc2e2a9dec8895a491b8adccee59601cb9325e54768e9cca643e9f73858fef5cbe6502c683131f9cc8ccf  php-7.1.15.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
 2f49a6e88662257ca7fb72cf0fba2e50785079b981def0ebc3d1403fb48278419e57ccf94f79ad2da1236b9bd4c75b6246b3f4bbd9c5394f5eaa1d3bd999eee7  install-pear.patch
 7b2c240941ae1d409cab8bd8f05c763cbf84da1c2310cc42538e9bd39c67ffd9bc8eb8b28638fc08d0077ef0c2495fc89d3d9b048b3c2dcc1f8907348e9f626e  includedir.patch
-518cf130f30de5eb426f9b531f2f648e407630e98c0a74f73330f8f187c1dc22f65911e3a46feda6f4b000bb3d24ab41cd00e2aa982e59bb66826556b58d158a  fix-asm-constraints-in-aarch64-multiply-macro.patch
 326dabea0b6df83d8be36f8c0a8522eea8d0c8fd4d108db2e6aebb1b3cc23c4ee9842eb6fe56a2d32d4ab981ef7411106796c47d380d803646add50c8ab4ad9d  pid_log.patch"

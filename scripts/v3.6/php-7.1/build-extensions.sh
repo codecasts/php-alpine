@@ -12,6 +12,7 @@ ROOT_PATH=$(pwd)
 
 sudo apk update
 
+# update packages.
 for PACKAGE in $PACKAGES; do
     echo "----> Building $PACKAGE"
     cd $ROOT_PATH/$PACKAGE
