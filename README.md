@@ -22,12 +22,12 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 ## Available Repositores
 
-| Alpine Version  | PHP Version           | Status                              | Repository URL 
-| -               | -                     | -                                   | -
-| **`3.7`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.2
-| **`3.7`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.1 
-| **`3.6`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.2
-| **`3.6`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.1
+| Alpine Version  | PHP Version             | Status                               | Repository URL 
+| -               | -                       | -                                    | -
+| **`3.7`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
+| **`3.7`**       | **`7.1`** / `7.1.12`    | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1) 
+| **`3.6`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.2](https://php.codecasts.rocks/v3.6/php-7.2)
+| **`3.6`**       | **`7.1`** / `7.1.12`    | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.1](https://php.codecasts.rocks/v3.6/php-7.1)
 
 > PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
@@ -139,17 +139,16 @@ The following packages are available for installation on both 7.2 and 7.1 reposi
 
 Some additional PECL extensions are provided so you don't need to build them.
 
-| Extension | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
-|-----------|----------------|-----------------|------------------|------------------|
-| APCu      | php7-apcu      | 5.1.8           | Yes              | Yes              |
-| Imagick   | php7-imagick   | 3.4.3           | Yes              | Yes              |
-| libsodium | php7-libsodium | 1.0.7           | Yes              | Yes              |
-| memcached | php7-memcached | 3.0.4           | Yes              | Yes              |
-| MongoDB   | php7-mongodb   | 1.3.4           | Yes              | Yes              |
-| Redis     | php7-redis     | 3.1.4           | Yes              | Yes              |
-| SSH2      | php7-ssh2      | 1.1.2           | Yes              | Yes              |
-| xDebug    | php7-xdebug    | 2.5.5           | `No`             | Yes              |
+| Extension                | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
+|--------------------------|----------------|-----------------|------------------|------------------|
+| APCu                     | php7-apcu      | 5.1.11          | Yes              | Yes              |
+| Imagick                  | php7-imagick   | 3.4.3           | Yes              | Yes              |
+| libsodium _(legacy v1)_  | php7-libsodium | 1.0.7           | Yes              | Yes              |
+| memcached                | php7-memcached | 3.0.4           | Yes              | Yes              |
+| MongoDB                  | php7-mongodb   | 1.4.2           | Yes              | Yes              |
+| Redis                    | php7-redis     | 3.1.6           | Yes              | Yes              |
+| SSH2                     | php7-ssh2      | 1.1.2           | Yes              | Yes              |
+| xDebug                   | php7-xdebug    | 2.6.0           | Yes              | Yes              |
 
-> **Notifice that xDebug is not yet compatible with PHP 7.2, so the exteion is not yet avaiable but the extension maintainers may release it on the next days**
 
 ## Enjoy Life
