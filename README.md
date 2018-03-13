@@ -24,7 +24,7 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 | Alpine Version  | PHP Version           | Status                              | Repository URL 
 | -               | -                     | -                                   | -
-| **`3.7`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.2
+| **`3.7`**       | **`7.2`** _(7.2.1)_   | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.2
 | **`3.7`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.9 release  | https://php.codecasts.rocks/v3.7/php-7.1 
 | **`3.6`**       | **`7.2`** _(7.2.0)_   | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.2
 | **`3.6`**       | **`7.1`** _(7.1.12)_  | supported until Alpine 3.8 release  | https://php.codecasts.rocks/v3.6/php-7.1
@@ -96,6 +96,12 @@ apk add --update php7-any-other-extension@php
 ## Available Packages
 
 The following packages are available for installation on both 7.2 and 7.1 repositories:
+
+- **[NEW]** **Backported Packages**
+
+`argon2` `argon2-dev` `libargon2`
+
+Argon2 was backported from EDGE branch of `ports` to allow PHP to be compiled with Argon2 password hashing support.
 
 - **Core Packages (Provide Binaries or Modules)**
 
