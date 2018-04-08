@@ -12,16 +12,16 @@ url="http://www.php.net/"
 arch="all"
 license="PHP-3"
 options=""
-depends="$pkgname-common"
-depends_dom="$pkgname-xml"
-depends_mysqlnd="$pkgname-mysqli"
-depends_pdo_mysql="$pkgname-mysqlnd"
-depends_phar="$pkgname"
-depends_soap="$pkgname-xml"
-depends_wddx="$pkgname-xml"
-depends_xmlreader="$pkgname-dom"
-depends_xmlrpc="$pkgname-xml"
-depends_xsl="$pkgname-dom"
+depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
+depends_dom="$pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
+depends_mysqlnd="$pkgname-mysqli>=7.1.0 $pkgname-mysqli<7.2.0"
+depends_pdo_mysql="$pkgname-mysqlnd>=7.1.0 $pkgname-mysqlnd<7.2.0"
+depends_phar="$pkgname>=7.1.0 $pkgname<7.2.0"
+depends_soap="$pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
+depends_wddx="$pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
+depends_xmlreader="$pkgname-dom>=7.1.0 $pkgname-dom<7.2.0"
+depends_xmlrpc="$pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
+depends_xsl="$pkgname-dom>=7.1.0 $pkgname-dom<7.2.0"
 makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
 	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
@@ -205,7 +205,7 @@ package() {
 
 dev() {
 	default_dev
-	depends="$depends $pkgname $pkgname-pear"
+	depends="$depends $pkgname>=7.1.0 $pkgname<7.2.0 $pkgname-pear>=7.1.0 $pkgname-pear<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/usr/lib/$pkgname
@@ -229,7 +229,7 @@ doc() {
 
 apache2() {
 	pkgdesc="PHP Module for Apache2"
-	depends="$pkgname-common apache2"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0 apache2"
 
 	install -D -m755 "$builddir"/sapi/apache2handler/mod_php7.so \
 		"$subpkgdir"/usr/lib/apache2/mod_php7.so || return 1
@@ -240,7 +240,7 @@ apache2() {
 
 phpdbg() {
 	pkgdesc="Interactive PHP debugger"
-	depends="$pkgname-common"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	install -Dm755 "$builddir"/sapi/phpdbg/phpdbg \
 		 "$subpkgdir"/usr/bin/phpdbg7
@@ -248,7 +248,7 @@ phpdbg() {
 
 embed() {
 	pkgdesc="PHP Embedded Library"
-	depends="$pkgname-common"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/lib
 	mv "$pkgdir"/usr/lib/libphp*.so "$subpkgdir"/usr/lib/
@@ -256,7 +256,7 @@ embed() {
 
 litespeed() {
 	pkgdesc="PHP LiteSpeed SAPI"
-	depends="$pkgname-common"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin
 	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
@@ -264,7 +264,7 @@ litespeed() {
 
 cgi() {
 	pkgdesc="PHP Common Gateway Interface"
-	depends="$pkgname-common"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin
 	mv "$pkgdir"/usr/bin/php-cgi7 "$subpkgdir"/usr/bin/
@@ -272,7 +272,7 @@ cgi() {
 
 fpm() {
 	pkgdesc="PHP FastCGI Process Manager"
-	depends="$pkgname-common"
+	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mv "$pkgdir"/var "$subpkgdir"/ || return 1
 
@@ -296,7 +296,7 @@ fpm() {
 
 pear() {
 	pkgdesc="PHP Extension and Application Repository"
-	depends="$pkgname $pkgname-xml"
+	depends="$pkgname>=7.1.0 $pkgname<7.2.0 $pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/etc/$pkgname
@@ -332,7 +332,7 @@ _package_ext() {
 	depends="$depends $extdepends"
 
 	case "$extname" in
-	pdo_*) depends="$depends $pkgname-pdo"
+	pdo_*) depends="$depends $pkgname-pdo>=7.1.0 $pkgname-pdo<7.2.0"
 	esac
 
 	# extension dependencies and loading order
