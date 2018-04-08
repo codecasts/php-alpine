@@ -43,7 +43,7 @@ The following code snippets are intended for quick usage on either shell scripts
 
 ### Dockerfile
 
-You may skil the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
+You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
 # change to Alpine 3.6 you like.
