@@ -3,8 +3,9 @@
 pkgname=php7-apcu
 _pkgreal=apcu
 pkgver=5.1.11
-pkgrel=0
+pkgrel=10
 _phpver=7
+provides="php-apcu=7.2"
 pkgdesc="APCu - APC User Cache extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
