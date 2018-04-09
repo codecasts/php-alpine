@@ -5,13 +5,14 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.1.15
-pkgrel=0
+pkgver=7.1.16
+pkgrel=100
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
 license="PHP-3"
 options=""
+provides="$_pkgreal=7.1"
 depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 depends_dom="$pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
 depends_mysqlnd="$pkgname-mysqli>=7.1.0 $pkgname-mysqli<7.2.0"
