@@ -5,13 +5,14 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.2.3
-pkgrel=0
+pkgver=7.2.4
+pkgrel=100
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
 license="PHP-3"
 options=""
+provides="$_pkgreal=7.2"
 depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
 depends_dom="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
 depends_mysqlnd="$pkgname-mysqli>=7.2.0 $pkgname-mysqli<7.3.0"
@@ -22,7 +23,7 @@ depends_wddx="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
 depends_xmlreader="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
 depends_xmlrpc="$pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
 depends_xsl="$pkgname-dom>=7.2.0 $pkgname-dom<7.3.0"
-makedepends="autoconf bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
+makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
 	aspell-dev enchant-dev expat-dev pcre-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libsodium-dev libressl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
 	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
@@ -85,6 +86,7 @@ _build() {
 		--localstatedir=/var \
 		--with-layout=GNU \
 		--with-pic \
+		--with-password-argon2 \
 		--with-pear=/usr/share/$pkgname \
 		--with-config-file-path=/etc/$pkgname \
 		--with-config-file-scan-dir=/etc/$pkgname/conf.d \
@@ -198,7 +200,8 @@ package() {
 
 dev() {
 	default_dev
-	depends="$depends $pkgname $pkgname-pear"
+	provides="$_pkgreal-dev=7.2"
+	depends="$depends $pkgname>=7.2.0 $pkgname<7.3.0 $pkgname-pear>=7.2.0 $pkgname-pear<7.3.0"
 
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/usr/lib/$pkgname
@@ -211,7 +214,7 @@ dev() {
 
 doc() {
 	default_doc
-
+    provides="$_pkgreal-doc=7.2"
 	mkdir -p "$subpkgdir"/usr/share/doc/$pkgname
 
 	local file
@@ -222,8 +225,8 @@ doc() {
 
 apache2() {
 	pkgdesc="PHP Module for Apache2"
-	depends="$pkgname-common apache2"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0 apache2"
+    provides="$_pkgreal-apache2=7.2"
 	install -D -m755 "$builddir"/sapi/apache2handler/mod_php7.so \
 		"$subpkgdir"/usr/lib/apache2/mod_php7.so || return 1
 
@@ -233,40 +236,40 @@ apache2() {
 
 phpdbg() {
 	pkgdesc="Interactive PHP debugger"
-	depends="$pkgname-common"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+    provides="$_pkgreal-phpdbg=7.2"
 	install -Dm755 "$builddir"/sapi/phpdbg/phpdbg \
 		 "$subpkgdir"/usr/bin/phpdbg7
 }
 
 embed() {
 	pkgdesc="PHP Embedded Library"
-	depends="$pkgname-common"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+    provides="$_pkgreal-embed=7.2"
 	mkdir -p "$subpkgdir"/usr/lib
 	mv "$pkgdir"/usr/lib/libphp*.so "$subpkgdir"/usr/lib/
 }
 
 litespeed() {
 	pkgdesc="PHP LiteSpeed SAPI"
-	depends="$pkgname-common"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+    provides="$_pkgreal-litespeed=7.2"
 	mkdir -p "$subpkgdir"/usr/bin
 	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
 }
 
 cgi() {
 	pkgdesc="PHP Common Gateway Interface"
-	depends="$pkgname-common"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+    provides="$_pkgreal-cgi=7.2"
 	mkdir -p "$subpkgdir"/usr/bin
 	mv "$pkgdir"/usr/bin/php-cgi7 "$subpkgdir"/usr/bin/
 }
 
 fpm() {
 	pkgdesc="PHP FastCGI Process Manager"
-	depends="$pkgname-common"
-
+	depends="$pkgname-common>=7.2.0 $pkgname-common<7.3.0"
+    provides="$_pkgreal-fpm=7.2"
 	mv "$pkgdir"/var "$subpkgdir"/ || return 1
 
 	mkdir -p "$subpkgdir"/etc/$pkgname \
@@ -289,8 +292,8 @@ fpm() {
 
 pear() {
 	pkgdesc="PHP Extension and Application Repository"
-	depends="$pkgname $pkgname-xml"
-
+	depends="$pkgname>=7.2.0 $pkgname<7.3.0 $pkgname-xml>=7.2.0 $pkgname-xml<7.3.0"
+    provides="$_pkgreal-pear=7.2"
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/etc/$pkgname
 
@@ -304,7 +307,7 @@ pear() {
 common() {
 	pkgdesc="$pkgdesc (common config)"
 	depends=""
-
+    provides="$_pkgreal-common=7.2"
 	mkdir -p "$subpkgdir"/usr
 	mv "$pkgdir"/usr/lib "$subpkgdir"/usr/ || return 1
 	mv "$pkgdir"/etc "$subpkgdir"/ || return 1
@@ -313,6 +316,7 @@ common() {
 }
 
 phar() {
+    provides="$_pkgreal-phar=7.2"
 	_package_ext || return 1
 	mkdir -p "$subpkgdir"/usr/bin
 	mv "$pkgdir"/usr/bin/phar* "$subpkgdir"/usr/bin/
@@ -323,7 +327,7 @@ _package_ext() {
 	local extdepends="$(eval "echo \$depends_$extname")"
 	pkgdesc="PHP7 extension: $extname"
 	depends="$depends $extdepends"
-
+    provides="$_pkgreal-$extname=7.2"
 	case "$extname" in
 	pdo_*) depends="$depends $pkgname-pdo>=7.2.0 $pkgname-pdo<7.3.0"
 	esac
@@ -348,7 +352,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="6b7e3e86ed42fb48762309a20c6a519202d2454fcb7be51e328ca47a3ca5fdbff8d21a435c31b4e73a9901b733cacd39d4a5287c16cced135799d2117a789e90  php-7.2.3.tar.bz2
+sha512sums="036348c7dd1b14cb8d843682a800c396a2a712db3113fb1443826171d4fc75e326b1e239807cd59cbc3c703ffdba3e2a48033052c01552dd1c9454c6abf20fe0  php-7.2.4.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf

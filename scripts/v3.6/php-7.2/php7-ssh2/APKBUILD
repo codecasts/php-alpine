@@ -3,8 +3,9 @@
 pkgname=php7-ssh2
 _pkgreal=ssh2
 pkgver=1.1.2
-pkgrel=6
+pkgrel=10
 _phpver=7
+provides="php-ssh2=7.2"
 pkgdesc="ssh2 - Bindings for the libssh2 library extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"

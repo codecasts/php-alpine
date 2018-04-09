@@ -20,7 +20,7 @@ Additionally, many PECL extensions are also available as packages as well.
 
 For short, this project will support **2 minor version of both PHP and Alpine**  at time.
 
-## Available Repositores
+## Available Repositories
 
 | Alpine Version  | PHP Version             | Status                               | Repository URL 
 | -               | -                       | -                                    | -
@@ -35,6 +35,18 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
+## Repository Conflicts
+
+In some cases, the packages on the repositories may present conflicts with official packages.
+
+To solve that, each page was aliases as `php-name`, without the `7` indicator.
+
+Considering this, all installs are now encouraged to reference the virtual names when installing.
+
+The examples on this documentation are now updated to reflect this decision.
+
+The original names are kept, and it should not break working scripts.
+
 ## Snippets
 
 The following code snippets are intended for quick usage on either shell scripts or Dockerfile
@@ -43,7 +55,7 @@ The following code snippets are intended for quick usage on either shell scripts
 
 ### Dockerfile
 
-You may skil the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
+You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
 # change to Alpine 3.6 you like.
@@ -62,9 +74,9 @@ RUN echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositorie
 
 # install php and some extensions
 # notice the @php is required to avoid getting default php packages from alpine instead.
-RUN apk add --update php7@php
-RUN apk add --update php7-mbstring@php
-RUN apk add --update php7-you-extension-name-here@php
+RUN apk add --update php@php
+RUN apk add --update php-mbstring@php
+RUN apk add --update php-you-extension-name-here@php
 ```
 
 ### Bash / Shell scripting
@@ -86,9 +98,9 @@ echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
 
 # install packages
 # notice that @php is required so you don't end up with default outdated php packages from community repository.
-apk add --update php7@php
-apk add --update php7-redis@php
-apk add --update php7-any-other-extension@php
+apk add --update php@php
+apk add --update php-redis@php
+apk add --update php-any-other-extension@php
 
 ```
 
@@ -105,15 +117,15 @@ Argon2 was backported from EDGE branch of `ports` to allow PHP to be compiled wi
 
 - **Core Packages (Provide Binaries or Modules)**
 
-`php7` `php7-common` `php7-fpm` `php7-cgi` `php7-apache2`
+`php` `php-common` `php-fpm` `php-cgi` `php-apache2`
 
 - **Special Packages (Not needed at runtime)**
 
-`php7-doc` `php7-dev`
+`php-doc` `php-dev`
 
 - **PHP 7.2 only extensions**
 
-`php7-sodium`
+`php-sodium`
 
 > `libsodium` extension is now part of PHP 7.2, it got renamed to `sodium` only and it reflects the version 2 of the extension.
 > The original extension, at version 1 was kept built for PHP 7.2 for legacy purposes, be sure to not install the two extensions together and hope it will work (it actually may but I don't adivise you to try). 
@@ -121,25 +133,25 @@ Argon2 was backported from EDGE branch of `ports` to allow PHP to be compiled wi
 - **Core Extensions**
 
 
-`php7-bcmath` `php7-bz2` `php7-calendar` `php7-ctype` `php7-curl` `php7-dba` 
+`php-bcmath` `php-bz2` `php-calendar` `php-ctype` `php-curl` `php-dba` 
 
-`php7-dom` `php7-embed` `php7-enchant` `php7-exif` `php7-ftp` `php7-gd` 
+`php-dom` `php-embed` `php-enchant` `php-exif` `php-ftp` `php-gd` 
 
-`php7-gettext` `php7-gmp` `php7-iconv` `php7-imap` `php7-intl` `php7-json`
+`php-gettext` `php-gmp` `php-iconv` `php-imap` `php-intl` `php-json`
 
-`php7-ldap` `php7-litespeed` `php7-mbstring` `php7-mcrypt` `php7-mysqli`
+`php-ldap` `php-litespeed` `php-mbstring` `php-mcrypt` `php-mysqli`
 
-`php7-mysqlnd` `php7-odbc` `php7-opcache` `php7-openssl` `php7-pcntl`
+`php-mysqlnd` `php-odbc` `php-opcache` `php-openssl` `php-pcntl`
 
-`php7-pdo` `php7-pdo_dblib` `php7-pdo_mysql` `php7-pdo_pgsql` `php7-pdo_sqlite`
+`php-pdo` `php-pdo_dblib` `php-pdo_mysql` `php-pdo_pgsql` `php-pdo_sqlite`
 
-`php7-pear` `php7-pgsql` `php7-phar` `php7-phpdbg` `php7-posix` `php7-pspell`
+`php-pear` `php-pgsql` `php-phar` `php-phpdbg` `php-posix` `php-pspell`
 
-`php7-session` `php7-shmop` `php7-snmp` `php7-soap` `php7-sockets` `php7-sqlite3`
+`php-session` `php-shmop` `php-snmp` `php-soap` `php-sockets` `php-sqlite3`
 
-`php7-sysvmsg` `php7-sysvsem` `php7-sysvshm` `php7-tidy` `php7-wddx` `php7-xml` 
+`php-sysvmsg` `php-sysvsem` `php-sysvshm` `php-tidy` `php-wddx` `php-xml` 
 
-`php7-xmlreader` `php7-xmlrpc` `php7-xsl` `php7-zip` `php7-zlib`
+`php-xmlreader` `php-xmlrpc` `php-xsl` `php-zip` `php-zlib`
   
 - **Additional Extensions**
 
@@ -147,14 +159,14 @@ Some additional PECL extensions are provided so you don't need to build them.
 
 | Extension                | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
 |--------------------------|----------------|-----------------|------------------|------------------|
-| APCu                     | php7-apcu      | 5.1.11          | Yes              | Yes              |
-| Imagick                  | php7-imagick   | 3.4.3           | Yes              | Yes              |
-| libsodium _(legacy v1)_  | php7-libsodium | 1.0.7           | Yes              | Yes              |
-| memcached                | php7-memcached | 3.0.4           | Yes              | Yes              |
-| MongoDB                  | php7-mongodb   | 1.4.2           | Yes              | Yes              |
-| Redis                    | php7-redis     | 3.1.6           | Yes              | Yes              |
-| SSH2                     | php7-ssh2      | 1.1.2           | Yes              | Yes              |
-| xDebug                   | php7-xdebug    | 2.6.0           | Yes              | Yes              |
+| APCu                     | php-apcu      | 5.1.11          | Yes              | Yes              |
+| Imagick                  | php-imagick   | 3.4.3           | Yes              | Yes              |
+| libsodium _(legacy v1)_  | php-libsodium | 1.0.7           | Yes              | Yes              |
+| memcached                | php-memcached | 3.0.4           | Yes              | Yes              |
+| MongoDB                  | php-mongodb   | 1.4.2           | Yes              | Yes              |
+| Redis                    | php-redis     | 3.1.6           | Yes              | Yes              |
+| SSH2                     | php-ssh2      | 1.1.2           | Yes              | Yes              |
+| xDebug                   | php-xdebug    | 2.6.0           | Yes              | Yes              |
 
 
 ## Enjoy Life

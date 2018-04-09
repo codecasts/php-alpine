@@ -3,8 +3,9 @@
 pkgname=php7-mongodb
 _pkgreal=mongodb
 pkgver=1.4.2
-pkgrel=0
+pkgrel=10
 _phpver=7
+provides="php-mongodb=7.2"
 pkgdesc="MongoDB extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"

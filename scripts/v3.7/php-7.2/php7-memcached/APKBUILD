@@ -3,8 +3,9 @@
 pkgname=php7-memcached
 _pkgreal=memcached
 pkgver=3.0.4
-pkgrel=6
+pkgrel=10
 _phpver=7
+provides="php-memcached=7.2"
 pkgdesc="Memcached extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
