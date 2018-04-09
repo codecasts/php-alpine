@@ -207,7 +207,7 @@ package() {
 dev() {
 	default_dev
 	depends="$depends $pkgname>=7.1.0 $pkgname<7.2.0 $pkgname-pear>=7.1.0 $pkgname-pear<7.2.0"
-
+    provides="$_pkgreal-dev=7.1"
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/usr/lib/$pkgname
 
@@ -219,7 +219,7 @@ dev() {
 
 doc() {
 	default_doc
-
+    provides="$_pkgreal-doc=7.1"
 	mkdir -p "$subpkgdir"/usr/share/doc/$pkgname
 
 	local file
@@ -230,6 +230,7 @@ doc() {
 
 apache2() {
 	pkgdesc="PHP Module for Apache2"
+	provides="$_pkgreal-apache2=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0 apache2"
 
 	install -D -m755 "$builddir"/sapi/apache2handler/mod_php7.so \
@@ -241,6 +242,7 @@ apache2() {
 
 phpdbg() {
 	pkgdesc="Interactive PHP debugger"
+	provides="$_pkgreal-phpdbg=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	install -Dm755 "$builddir"/sapi/phpdbg/phpdbg \
@@ -249,6 +251,7 @@ phpdbg() {
 
 embed() {
 	pkgdesc="PHP Embedded Library"
+	provides="$_pkgreal-embed=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/lib
@@ -257,6 +260,7 @@ embed() {
 
 litespeed() {
 	pkgdesc="PHP LiteSpeed SAPI"
+	provides="$_pkgreal-litespeed=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin
@@ -265,6 +269,7 @@ litespeed() {
 
 cgi() {
 	pkgdesc="PHP Common Gateway Interface"
+	provides="$_pkgreal-cgi=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin
@@ -273,6 +278,7 @@ cgi() {
 
 fpm() {
 	pkgdesc="PHP FastCGI Process Manager"
+	provides="$_pkgreal-fpm=7.1"
 	depends="$pkgname-common>=7.1.0 $pkgname-common<7.2.0"
 
 	mv "$pkgdir"/var "$subpkgdir"/ || return 1
@@ -297,6 +303,7 @@ fpm() {
 
 pear() {
 	pkgdesc="PHP Extension and Application Repository"
+	provides="$_pkgreal-pear=7.1"
 	depends="$pkgname>=7.1.0 $pkgname<7.2.0 $pkgname-xml>=7.1.0 $pkgname-xml<7.2.0"
 
 	mkdir -p "$subpkgdir"/usr/bin \
@@ -312,6 +319,7 @@ pear() {
 common() {
 	pkgdesc="$pkgdesc (common config)"
 	depends=""
+    provides="$_pkgreal-common=7.1"
 
 	mkdir -p "$subpkgdir"/usr
 	mv "$pkgdir"/usr/lib "$subpkgdir"/usr/ || return 1
@@ -321,6 +329,7 @@ common() {
 }
 
 phar() {
+    provides="$_pkgreal-phar=7.1"
 	_package_ext || return 1
 	mkdir -p "$subpkgdir"/usr/bin
 	mv "$pkgdir"/usr/bin/phar* "$subpkgdir"/usr/bin/
@@ -331,7 +340,7 @@ _package_ext() {
 	local extdepends="$(eval "echo \$depends_$extname")"
 	pkgdesc="PHP7 extension: $extname"
 	depends="$depends $extdepends"
-
+    provides="$_pkgreal-$extname=7.1"
 	case "$extname" in
 	pdo_*) depends="$depends $pkgname-pdo>=7.1.0 $pkgname-pdo<7.2.0"
 	esac
@@ -356,7 +365,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="db10c0138a74165c6373f0d6cc7f5ca1f6b1ae26359cc2e2a9dec8895a491b8adccee59601cb9325e54768e9cca643e9f73858fef5cbe6502c683131f9cc8ccf  php-7.1.15.tar.bz2
+sha512sums="c933275c41755d27562203972ee463ae6f009aa47d6c843ef19f945bcae8ec114a60d8f0daae326d3ed491c8f90c3097c96f30b3848cc06db51553ac262f1ef2  php-7.1.16.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
