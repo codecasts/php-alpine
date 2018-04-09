@@ -200,9 +200,8 @@ package() {
 
 dev() {
 	default_dev
-	provides="$_pkgreal-dev=7.2"
 	depends="$depends $pkgname>=7.2.0 $pkgname<7.3.0 $pkgname-pear>=7.2.0 $pkgname-pear<7.3.0"
-
+	provides="$_pkgreal-dev=7.2"
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/usr/lib/$pkgname
 
