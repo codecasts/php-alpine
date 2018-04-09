@@ -176,6 +176,7 @@ Some additional PECL extensions are provided so you don't need to build them.
 | APCu                     | php-apcu      | 5.1.11          | Yes              | Yes              |
 | Imagick                  | php-imagick   | 3.4.3           | Yes              | Yes              |
 | libsodium _(legacy v1)_  | php-libsodium | 1.0.7           | Yes              | Yes              |
+| mailparse                | php-mailparse | 3.0.2           | Yes              | Yes              |
 | memcached                | php-memcached | 3.0.4           | Yes              | Yes              |
 | MongoDB                  | php-mongodb   | 1.4.2           | Yes              | Yes              |
 | Redis                    | php-redis     | 3.1.6           | Yes              | Yes              |
