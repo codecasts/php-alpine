@@ -47,6 +47,20 @@ The examples on this documentation are now updated to reflect this decision.
 
 The original names are kept, and it should not break working scripts.
 
+
+## Base Images
+
+If you want, you can use the base images as your starting point on this repository:
+
+The available images are:
+
+| Image Name           | Tag     | FROM Example                       | Description
+| -                    | -       | -                                   | -
+| codecasts/alpine-3.7 | php-7.2 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.2 on Alpine v3.7 
+| codecasts/alpine-3.7 | php-7.1 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.1 on Alpine v3.7 
+| codecasts/alpine-3.6 | php-7.2 | `FROM codecasts/alpine-3.6:php-7.2` | PHP 7.2 on Alpine v3.6 
+| codecasts/alpine-3.6 | php-7.1 | `FROM codecasts/alpine-3.6:php-7.1` | PHP 7.1 on Alpine v3.6
+
 ## Snippets
 
 The following code snippets are intended for quick usage on either shell scripts or Dockerfile
