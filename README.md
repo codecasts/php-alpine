@@ -183,5 +183,10 @@ Some additional PECL extensions are provided so you don't need to build them.
 | SSH2                     | php-ssh2      | 1.1.2           | Yes              | Yes              |
 | xDebug                   | php-xdebug    | 2.6.0           | Yes              | Yes              |
 
+Non PECL extensions included:
+
+| Extension | Package Name  | Current Version | Available on 7.2 | Available on 7.1 |
+| -         | -             | -               | -                | -                |
+| secp256k1 | php-secp256k1 | 0.1.3           | Yes              | Yes              | 
 
 ## Enjoy Life
