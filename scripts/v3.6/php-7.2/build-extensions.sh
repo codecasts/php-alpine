@@ -10,7 +10,6 @@ ROOT_PATH=$(pwd)
 # cd $ROOT_PATH/php7
 # abuild -r
 
-# update packages.
 sudo apk update
 
 for PACKAGE in $PACKAGES; do
