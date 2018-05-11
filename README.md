@@ -57,7 +57,7 @@ The available images are:
 | Image Name           | Tag     | FROM Example                       | Description
 | -                    | -       | -                                   | -
 | codecasts/alpine-3.7 | php-7.2 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.2 on Alpine v3.7 
-| codecasts/alpine-3.7 | php-7.1 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.1 on Alpine v3.7 
+| codecasts/alpine-3.7 | php-7.1 | `FROM codecasts/alpine-3.7:php-7.1` | PHP 7.1 on Alpine v3.7 
 | codecasts/alpine-3.6 | php-7.2 | `FROM codecasts/alpine-3.6:php-7.2` | PHP 7.2 on Alpine v3.6 
 | codecasts/alpine-3.6 | php-7.1 | `FROM codecasts/alpine-3.6:php-7.1` | PHP 7.1 on Alpine v3.6
 
