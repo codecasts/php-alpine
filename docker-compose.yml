@@ -1,0 +1,40 @@
+# syntax version.
+version: "3"
+
+volumes:
+  php-alpine-cache-edge:
+  php-alpine-cache-v3.8:
+  php-alpine-cache-v3.7:
+
+# services list.
+services:
+
+  # sandbox base image
+  sandbox:
+    # target image.
+    image: "php-alpine-sandbox:alpine-${ALPINE_VERSION}-php-${PHP_VERSION}"
+    build:
+      context: "sandbox"
+      args:
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        PHP_VERSION: ${PHP_VERSION}
+    volumes:
+      - "./scripts/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
+      - "./.abuild:/home/sandbox/.abuild"
+      - "./repo/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
+      - "php-alpine-cache-v${ALPINE_VERSION}:/var/cache/apk"
+
+  # sandbox for building on alpine edge.
+  edge:
+    # target image.
+    image: "php-alpine-sandbox:alpine-edge-php-${PHP_VERSION}"
+    build:
+      context: "sandbox"
+      args:
+        ALPINE_VERSION: edge
+        PHP_VERSION: ${PHP_VERSION}
+    volumes:
+      - "./scripts/edge/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
+      - "./.abuild:/home/sandbox/.abuild"
+      - "./repo/edge/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
+      - "php-alpine-cache-edge:/var/cache/apk"
