@@ -22,12 +22,13 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 ## Available Repositories
 
-| Alpine Version  | PHP Version             | Status                               | Repository URL 
-| -               | -                       | -                                    | -
-| **`3.7`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
-| **`3.7`**       | **`7.1`** / `7.1.15`    | supported until Alpine v3.9 release  | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1) 
-| **`3.6`**       | **`7.2`** / `7.2.3`     | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.2](https://php.codecasts.rocks/v3.6/php-7.2)
-| **`3.6`**       | **`7.1`** / `7.1.15`    | supported until Alpine v3.8 release  | [https://php.codecasts.rocks/v3.6/php-7.1](https://php.codecasts.rocks/v3.6/php-7.1)
+| Alpine Version  | PHP Version               | Status                                | Repository URL
+| -               | -                         | -                                     | -
+| **`3.8`**       | **`7.3`** / `7.3.0-beta`  | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
+| **`3.8`**       | **`7.2`** / `7.2.9`       | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
+| **`3.7`**       | **`7.2`** / `7.2.9`       | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
+| **`3.7`**       | **`7.1`** / `7.1.21`      | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1)
+
 
 > PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
@@ -56,10 +57,10 @@ The available images are:
 
 | Image Name           | Tag     | FROM Example                       | Description
 | -                    | -       | -                                   | -
-| codecasts/alpine-3.7 | php-7.2 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.2 on Alpine v3.7 
-| codecasts/alpine-3.7 | php-7.1 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.1 on Alpine v3.7 
-| codecasts/alpine-3.6 | php-7.2 | `FROM codecasts/alpine-3.6:php-7.2` | PHP 7.2 on Alpine v3.6 
-| codecasts/alpine-3.6 | php-7.1 | `FROM codecasts/alpine-3.6:php-7.1` | PHP 7.1 on Alpine v3.6
+| codecasts/alpine-3.8 | php-7.3 | `FROM codecasts/alpine-3.8:php-7.3` | PHP 7.3 on Alpine v3.8
+| codecasts/alpine-3.8 | php-7.2 | `FROM codecasts/alpine-3.8:php-7.2` | PHP 7.2 on Alpine v3.8
+| codecasts/alpine-3.7 | php-7.2 | `FROM codecasts/alpine-3.7:php-7.2` | PHP 7.2 on Alpine v3.7
+| codecasts/alpine-3.7 | php-7.1 | `FROM codecasts/alpine-3.7:php-7.1` | PHP 7.1 on Alpine v3.7
 
 ## Snippets
 
@@ -72,8 +73,8 @@ The following code snippets are intended for quick usage on either shell scripts
 You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
-# change to Alpine 3.6 you like.
-FROM alpine:3.7
+# Versions 3.8 and 3.7 are current stable supported versions.
+FROM alpine:3.8
 
 # trust this project public key to trust the packages.
 ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
@@ -84,7 +85,7 @@ ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.
 RUN apk --update add ca-certificates
 
 # add the repository, make sure you replace the correct versions if you want.
-RUN echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
+RUN echo "@php https://php.codecasts.rocks/v3.8/php-7.2" >> /etc/apk/repositories
 
 # install php and some extensions
 # notice the @php is required to avoid getting default php packages from alpine instead.
@@ -108,7 +109,7 @@ apk add --update curl ca-certificates
 curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
 
 # add the repository for the php / alpine version corresponding
-echo "@php https://php.codecasts.rocks/v3.7/php-7.2" >> /etc/apk/repositories
+echo "@php https://php.codecasts.rocks/v3.8/php-7.2" >> /etc/apk/repositories
 
 # install packages
 # notice that @php is required so you don't end up with default outdated php packages from community repository.
@@ -173,15 +174,15 @@ Some additional PECL extensions are provided so you don't need to build them.
 
 | Extension                | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
 |--------------------------|----------------|-----------------|------------------|------------------|
-| APCu                     | php-apcu      | 5.1.11          | Yes              | Yes              |
-| Imagick                  | php-imagick   | 3.4.3           | Yes              | Yes              |
-| libsodium _(legacy v1)_  | php-libsodium | 1.0.7           | Yes              | Yes              |
-| mailparse                | php-mailparse | 3.0.2           | Yes              | Yes              |
-| memcached                | php-memcached | 3.0.4           | Yes              | Yes              |
-| MongoDB                  | php-mongodb   | 1.4.2           | Yes              | Yes              |
-| Redis                    | php-redis     | 3.1.6           | Yes              | Yes              |
-| SSH2                     | php-ssh2      | 1.1.2           | Yes              | Yes              |
-| xDebug                   | php-xdebug    | 2.6.0           | Yes              | Yes              |
+| APCu                     | php-apcu       | 5.1.12          | Yes              | Yes              |
+| Imagick                  | php-imagick    | 3.4.3           | Yes              | Yes              |
+| libsodium _(legacy v1)_  | php-libsodium  | 1.0.7           | Yes              | Yes              |
+| mailparse                | php-mailparse  | 3.0.2           | Yes              | Yes              |
+| memcached                | php-memcached  | 3.0.4           | Yes              | Yes              |
+| MongoDB                  | php-mongodb    | 1.5.2           | Yes              | Yes              |
+| Redis                    | php-redis      | 4.1.1           | Yes              | Yes              |
+| SSH2                     | php-ssh2       | 1.1.2           | Yes              | Yes              |
+| xDebug                   | php-xdebug     | 2.6.1           | Yes              | Yes              |
 
 Non PECL extensions included:
 
