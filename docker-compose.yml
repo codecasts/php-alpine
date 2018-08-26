@@ -38,3 +38,13 @@ services:
       - "./.abuild:/home/sandbox/.abuild"
       - "./repo/edge/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
       - "php-alpine-cache-edge:/var/cache/apk"
+
+    # sandbox for building on alpine edge.
+    base-images:
+      # target image.
+      image: "codecasts/alpine-${ALPINE_VERSION}:php-${PHP_VERSION}"
+      build:
+        context: "images"
+        args:
+          ALPINE_VERSION: ${ALPINE_VERSION}
+          PHP_VERSION: ${PHP_VERSION}
