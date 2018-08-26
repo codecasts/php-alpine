@@ -9,6 +9,8 @@ sudo chmod u=rw,go=r /etc/apk/keys/php-alpine.rsa.pub
 # fix owner permissions.
 sudo chown -R sandbox:sandbox /home/sandbox
 
+# update packages index before attempting any builds.
+sudo apk update
 
 # run the original command
 exec "$@"
