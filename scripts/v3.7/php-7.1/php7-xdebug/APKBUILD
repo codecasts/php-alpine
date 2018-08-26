@@ -2,7 +2,7 @@
 
 pkgname=php7-xdebug
 _pkgreal=xdebug
-pkgver=2.6.0
+pkgver=2.6.1
 pkgrel=10
 _phpver=7
 provides="php-$_pkgreal=7.1"

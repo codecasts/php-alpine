@@ -2,7 +2,7 @@
 
 pkgname=php7-apcu
 _pkgreal=apcu
-pkgver=5.1.11
+pkgver=5.1.12
 pkgrel=10
 _phpver=7
 provides="php-$_pkgreal=7.1"
