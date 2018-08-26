@@ -1,0 +1,38 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-mailparse
+_pkgreal=mailparse
+pkgver=3.0.2
+pkgrel=10
+_phpver=7
+provides="php-mailparse=7.2"
+pkgdesc="Mailparse extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.2.0 php7-common<7.3.0 php7-pear>=7.2.0 php7-pear<7.3.0 php7-mbstring>=7.2.0 php7-mbstring<7.3.0"
+makedepends="php7-dev>=7.2.0 php7-dev<7.3.0 autoconf zlib-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+}
+
+sha512sums="be04e15cf3577542447186d7ead4e31159c171c99de0a255d4ee2f6f760b80ecb44be056bd9089180601f622b9a71f4331f194e1adaa702d1d964009682896f6  mailparse-3.0.2.tgz"
