@@ -1,0 +1,38 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-imagick
+_pkgreal=imagick
+pkgver=3.4.3
+pkgrel=10
+_phpver=7
+provides="php-imagick=7.2"
+pkgdesc="ImageMagick extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.2.0 php7-common<7.3.0 imagemagick"
+makedepends="php7-dev>=7.2.0 php7-dev<7.3.0 autoconf imagemagick-dev libtool pcre-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="2cb2b856cf83a78d3542cdf7c69554dcc063a0541e9092b24e5e1fbd8928066a4a3de154049d0202c35addbc5055ccfbb5910ae92f2f13da80ddfc025340ddcd  imagick-3.4.3.tgz"

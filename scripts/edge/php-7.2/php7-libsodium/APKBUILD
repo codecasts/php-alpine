@@ -1,0 +1,38 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-libsodium
+_pkgreal=libsodium
+pkgver=1.0.7
+pkgrel=10
+_phpver=7
+provides="php-libsodium=7.2"
+pkgdesc="xDebug Profiler"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="BSD-2"
+depends="php7-common>=7.2.0 php7-common<7.3.0 libsodium"
+makedepends="php7-dev>=7.2.0 php7-dev<7.3.0 autoconf libsodium-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+	install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+	install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="f412def0519459be9cc9747ce29086caea4659362e18e9eae781555490945451435a9ec105a7983df3e5dfb80c207e3c409ce6449a7a1a0abd12b58aae76aa18  libsodium-1.0.7.tgz"
