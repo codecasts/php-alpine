@@ -15,7 +15,6 @@ ARG ALPINE_VERSION
 ARG PHP_VERSION
 ARG APK_PACKAGER
 ARG APK_MAINTAINER
-#ARG APK_PUB_KEY
 
 # ADD SDK AND BASIC TOOLS.
 RUN apk add --update alpine-sdk sudo git bash nano
@@ -27,6 +26,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/a
 
 # ADD THE START SCRIPT.
 ADD start.sh /bin/start.sh
+ADD bashrc /home/sandbox/.bashrc
 
 # ADD THE PUBLIC KEY FOR REPOS.
 # COPY ${APK_PUB_KEY} /etc/apk/keys/php-alpine.rsa.pub
@@ -42,6 +42,12 @@ RUN adduser -D -u 1000 sandbox && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
     chown -R sandbox:sandbox /home/sandbox
 
+# generate build env vars.
+RUN echo "ALPINE_VERSION=${ALPINE_VERSION}" >> /home/sandbox/.build_env && \
+    echo "PHP_VERSION=${PHP_VERSION}" >> /home/sandbox/.build_env && \
+    echo "APK_PACKAGER=${APK_PACKAGER}" >> /home/sandbox/.build_env && \
+    echo "APK_MAINTAINER=${APK_MAINTAINER}" >> /home/sandbox/.build_env
+
 # REMOVE TEMP FILES.
 RUN mkdir -p /var/cache/apk && \
     ln -s /var/cache/apk /etc/apk/cache
@@ -56,7 +62,7 @@ USER sandbox
 ENTRYPOINT ["/bin/start.sh"]
 
 # START ON SANDBOX USER HOME.
-WORKDIR "/home/sandbox"
+WORKDIR "/home/sandbox/php-${PHP_VERSION}"
 
 # START WITH BASH.
 CMD ["/bin/bash"]

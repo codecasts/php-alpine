@@ -1,0 +1,31 @@
+{
+  "name": "@codecasts/php-alpine",
+  "version": "0.0.1",
+  "description": "PHP Packages for Alpine Linux.",
+  "main": "invalid.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "clean": "find ./scripts -type d | grep -e 'php7-[a-z]' | xargs -I {a} rm -rf  {a}/src",
+    "sandbox:build": "source ./.env && docker-compose build sandbox",
+    "sandbox": "source ./.env && docker-compose run sandbox bash",
+    "build": "source ./.env && docker-compose run sandbox ./build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codecasts/php-alpine.git"
+  },
+  "keywords": [
+    "php",
+    "alpine",
+    "linux"
+  ],
+  "author": "Diego Hernandes <iamhernandev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codecasts/php-alpine/issues"
+  },
+  "homepage": "https://github.com/codecasts/php-alpine#readme"
+}

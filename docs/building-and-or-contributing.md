@@ -3,7 +3,20 @@
 This document includes simple instructions for building the packages at your own and/or locally testing for
 contributions on the project.
 
+### Required Tools.
 
+You must have present on the host system:
+
+- docker-compose
+- make (GNU make)
+- Docker (latest preferable)
+
+
+### TL;DR
+
+You can browse Makefile scripts to have a general idea of the build process, if you don't want to read this full guide.
+Although is very recommended.
+ 
 ### Security.
 
 For obvious reasons, the Alpine packaging private key, used to sign packages on this repository
@@ -56,7 +69,7 @@ To actually build the PHP packages, first we need to enter the sandbox environme
 
 Run the sandbox with the following command:
 ```
-env (cat .env) docker-compose run sandbox bash
+env $(cat .env) docker-compose run sandbox bash
 ```
 
 After entering the sandbox, you will notice two folders on `/home/sandbox`:

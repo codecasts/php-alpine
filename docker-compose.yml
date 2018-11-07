@@ -40,7 +40,7 @@ services:
       - "php-alpine-cache-edge:/var/cache/apk"
 
   # sandbox for building on alpine edge.
-  base-images:
+  starter-images:
     # target image.
     image: "codecasts/alpine-${ALPINE_VERSION}:php-${PHP_VERSION}"
     build:
