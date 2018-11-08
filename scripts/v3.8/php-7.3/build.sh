@@ -3,7 +3,7 @@
 # dependencies to build.
 PACKAGES="argon2 secp256k1"
 # extensions to build.
-EXTENSIONS="apcu ast imagick libsodium mailparse memcached mongodb redis secp256k1 ssh2 xdebug"
+EXTENSIONS="amqp apcu ast imagick libsodium memcached mongodb redis secp256k1 xdebug"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)

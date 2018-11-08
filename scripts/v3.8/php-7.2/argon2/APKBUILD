@@ -11,7 +11,7 @@ _pkgname=phc-winner-argon2
 pkgver=20161029
 provides="php-argon2=7.2"
 _soname=0.0.0
-pkgrel=10
+pkgrel=11
 pkgdesc="The password hash Argon2, winner of PHC"
 url="https://github.com/P-H-C/phc-winner-argon2"
 arch="all !armhf"

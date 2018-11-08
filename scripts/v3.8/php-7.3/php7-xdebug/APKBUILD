@@ -2,8 +2,9 @@
 
 pkgname=php7-xdebug
 _pkgreal=xdebug
-pkgver=2.6.1
-pkgrel=0
+pkgver=2.7.0
+pkgslug=2.7.0beta1
+pkgrel=0-beta-1
 _phpver=7
 provides="php-xdebug=7.3"
 pkgdesc="xDebug Profiler"
@@ -12,8 +13,8 @@ arch="all"
 license="XDEBUG-1"
 depends="php7-common>=7.3.0 php7-common<7.4.0"
 makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-builddir="$srcdir/$_pkgreal-$pkgver"
+source="http://pecl.php.net/get/$_pkgreal-$pkgslug.tgz"
+builddir="$srcdir/$_pkgreal-$pkgslug"
 
 prepare() {
 	default_prepare || return 1
@@ -24,7 +25,7 @@ build() {
 	phpize$_phpver || return 1
 	./configure --prefix=/usr \
 	    --with-php-config=/usr/bin/php-config$_phpver || return 1
-    make || return 1
+    make
 }
 
 package() {
@@ -35,4 +36,4 @@ package() {
     echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="31f26e592b3888d7cc74c6a7c51e0cc1151cf8a32100dda78098fb5b3e307cf8d0445b97247986c75b303a787f89b3937bc042dc52f19ca995753a6843bbd80b  xdebug-2.6.1.tgz"
+sha512sums="4872b4cec44eab8cd03309dad854c8a35e159474deb7d3fcbc8f12764fa88e761e3bdc04d7f94425aa14f0a57bdfd52f7a2c88715b2f3e385eacadadcfd79888  xdebug-2.7.0beta1.tgz"

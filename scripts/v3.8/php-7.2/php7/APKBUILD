@@ -5,8 +5,8 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.2.11
-pkgrel=100
+pkgver=7.2.12
+pkgrel=111
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"

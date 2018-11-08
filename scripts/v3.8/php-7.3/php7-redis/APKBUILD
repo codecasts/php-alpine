@@ -2,7 +2,7 @@
 pkgname=php7-redis
 _pkgreal=redis
 pkgver=4.1.1
-pkgrel=0
+pkgrel=0-rc5
 _phpver=7
 provides="php-redis=7.3"
 pkgdesc="Redis extension for PHP"
@@ -23,7 +23,7 @@ build() {
 	phpize$_phpver || return 1
 	./configure --prefix=/usr \
 	    --with-php-config=/usr/bin/php-config$_phpver || return 1
-    make || return 1
+    make
 }
 
 package() {

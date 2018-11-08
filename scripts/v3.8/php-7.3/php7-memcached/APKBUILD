@@ -3,7 +3,7 @@
 pkgname=php7-memcached
 _pkgreal=memcached
 pkgver=3.0.4
-pkgrel=0
+pkgrel=0-rc5
 _phpver=7
 provides="php-memcached=7.3"
 pkgdesc="Memcached extension for PHP"
@@ -11,7 +11,7 @@ url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
 depends="php7-common>=7.3.0 php7-common<7.4.0 php7-session>=7.3.0 php7-session<7.4.0"
-makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf zlib-dev libmemcached-dev cyrus-sasl-dev pcre-dev"
+makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf zlib-dev libmemcached-dev cyrus-sasl-dev pcre-dev pcre2-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -24,7 +24,7 @@ build() {
 	phpize$_phpver || return 1
 	./configure --prefix=/usr \
 	    --with-php-config=/usr/bin/php-config$_phpver || return 1
-    make || return 1
+    make
 }
 
 package() {

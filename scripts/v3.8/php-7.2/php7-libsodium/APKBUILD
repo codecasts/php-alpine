@@ -3,7 +3,7 @@
 pkgname=php7-libsodium
 _pkgreal=libsodium
 pkgver=1.0.7
-pkgrel=10
+pkgrel=11
 _phpver=7
 provides="php-libsodium=7.2"
 pkgdesc="xDebug Profiler"
