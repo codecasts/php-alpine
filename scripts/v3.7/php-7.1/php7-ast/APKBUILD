@@ -1,17 +1,17 @@
 # Maintainer: "Diego Hernandes <diego@hernandev.com>"
 
-pkgname=php7-mailparse
-_pkgreal=mailparse
-pkgver=3.0.2
-pkgrel=0
+pkgname=php7-ast
+_pkgreal=ast
+pkgver=1.0.0
+pkgrel=1
 _phpver=7
-provides="php-mailparse=7.3"
-pkgdesc="Mailparse extension for PHP"
+provides="php-ast=7.1"
+pkgdesc="ast - Extension exposing PHP 7 abstract syntax tree"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
-depends="php7-common>=7.3.0 php7-common<7.4.0 php7-pear>=7.3.0 php7-pear<7.4.0 php7-mbstring>=7.3.0 php7-mbstring<7.4.0"
-makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf zlib-dev"
+depends="php7-common>=7.1.0 php7-common<7.2.0"
+makedepends="php7-dev>=7.1.0 php7-dev<7.2.0 autoconf pcre-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -24,7 +24,8 @@ build() {
 	phpize$_phpver || return 1
 	./configure --prefix=/usr \
 	    --with-php-config=/usr/bin/php-config$_phpver || return 1
-    make || return 1
+    TEST_PHP_ARGS="-q" make test
+    make
 }
 
 package() {
@@ -32,7 +33,7 @@ package() {
     install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
     install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="be04e15cf3577542447186d7ead4e31159c171c99de0a255d4ee2f6f760b80ecb44be056bd9089180601f622b9a71f4331f194e1adaa702d1d964009682896f6  mailparse-3.0.2.tgz"
+sha512sums="22469190dff801ab39b5948cb071cfb03c43ba924fad49f3f2f0a1596ff6952cb0b8560f9815d86cc3a058b07fb3f49c92f7068a814de67c2fe6b934be42cdf4  ast-1.0.0.tgz"

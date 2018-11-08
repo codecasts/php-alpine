@@ -3,7 +3,7 @@
 # dependencies to build.
 PACKAGES="argon2 secp256k1"
 # extensions to build.
-EXTENSIONS="apcu imagick libsodium memcached mongodb redis secp256k1 ssh2 xdebug"
+EXTENSIONS="apcu ast imagick libsodium mailparse memcached mongodb redis secp256k1 ssh2 xdebug"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)
@@ -37,7 +37,7 @@ for PACKAGE in ${PACKAGES}; do
 done
 
 # when full flag is provided, build PHP itself first.
-if [ "$1" == "--full" ]; then
+if [[ "$1" == "--full" ]]; then
     # call the build function.
         build_package "php7"
 fi

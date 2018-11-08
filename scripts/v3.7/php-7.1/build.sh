@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # dependencies to build.
-PACKAGES="argon2 secp256k1"
+PACKAGES="secp256k1"
 # extensions to build.
 EXTENSIONS="apcu ast imagick libsodium mailparse memcached mongodb redis secp256k1 ssh2 xdebug"
 
