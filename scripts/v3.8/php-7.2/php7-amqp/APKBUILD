@@ -1,0 +1,39 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php7-amqp
+_pkgreal=amqp
+pkgver=1.9.3
+pkgrel=1
+_phpver=7
+provides="php-amqp=7.2"
+pkgdesc="AMQP - Communicate with any AMQP compliant server"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.2.0 php7-common<7.3.0"
+makedepends="php7-dev>=7.2.0 php7-dev<7.3.0 autoconf pcre-dev rabbitmq-c rabbitmq-c-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize7 || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config7 || return 1
+    # TEST_PHP_ARGS="-q" make test
+    make
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="d4731ed5dc760a01621889e8518b5d1258a8335f701d241c453fd553924d83507a0a918b9733e249955fa11b43a1bdacf65c1f1cb55b8ed3c5b661277f5798b9  amqp-1.9.3.tgz"

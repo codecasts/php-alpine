@@ -2,7 +2,7 @@
 
 pkgname=php7-secp256k1
 _pkgreal=secp256k1
-pkgver=0.1.3
+pkgver=0.2.1
 pkgrel=10
 _phpver=7
 provides="php-secp256k1=7.2"
