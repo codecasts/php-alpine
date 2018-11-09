@@ -24,9 +24,9 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 | Alpine Version  | PHP Version               | Status                                | Repository URL
 | -               | -                         | -                                     | -
-| **`3.8`**       | **`7.3`** / `7.3.0-beta`  | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
-| **`3.8`**       | **`7.2`** / `7.2.9`       | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
-| **`3.7`**       | **`7.2`** / `7.2.9`       | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
+| **`3.8`**       | **`7.3`** / `7.3.0-rc-5`  | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
+| **`3.8`**       | **`7.2`** / `7.2.12`      | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
+| **`3.7`**       | **`7.2`** / `7.2.12`      | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
 | **`3.7`**       | **`7.1`** / `7.1.21`      | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1)
 
 
@@ -175,6 +175,7 @@ Some additional PECL extensions are provided so you don't need to build them.
 | Extension                | Package Name   | Current Version | Available on 7.2 | Available on 7.1 |
 |--------------------------|----------------|-----------------|------------------|------------------|
 | APCu                     | php-apcu       | 5.1.12          | Yes              | Yes              |
+| AMQP                     | php-amqp       | 1.9.3           | Yes              | Yes              |
 | Imagick                  | php-imagick    | 3.4.3           | Yes              | Yes              |
 | libsodium _(legacy v1)_  | php-libsodium  | 1.0.7           | Yes              | Yes              |
 | mailparse                | php-mailparse  | 3.0.2           | Yes              | Yes              |
