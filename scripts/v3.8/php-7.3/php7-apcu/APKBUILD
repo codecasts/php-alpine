@@ -3,7 +3,7 @@
 pkgname=php7-apcu
 _pkgreal=apcu
 pkgver=5.1.12
-pkgrel=0-rc5
+pkgrel=1
 _phpver=7
 provides="php-apcu=7.3"
 pkgdesc="APCu - APC User Cache extension for PHP"
@@ -11,7 +11,7 @@ url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
 depends="php7-common>=7.3.0 php7-common<7.4.0"
-makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf pcre-dev pcre2-dev"
+makedepends="php7-dev>=7.3.0 php7-dev<7.4.0 autoconf pcre2-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -24,7 +24,7 @@ build() {
 	phpize$_phpver || return 1
 	./configure --prefix=/usr \
 	    --with-php-config=/usr/bin/php-config$_phpver || return 1
-    make
+    make || return 1
 }
 
 package() {

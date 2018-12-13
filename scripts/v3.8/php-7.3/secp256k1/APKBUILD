@@ -5,9 +5,10 @@
 
 pkgname=libsecp256k1
 _pkgname=secp256k1
-pkgver=20180409
+pkgver=20181108
 _soname=0.0.0
-pkgrel=0-rc5
+pkgrel=1
+pkggitrev=452d8e4d2a2f9f1b5be6b02e18f1ba102e5ca0b4
 pkgdesc="Optimized C library for EC operations on curve secp256k1"
 url="https://github.com/bitcoin-core/secp256k1"
 arch="all !armhf"
@@ -15,8 +16,8 @@ license="MIT"
 depends="libressl gmp"
 makedepends="autoconf automake git m4 make libtool libressl-dev gmp-dev"
 #subpackages="https://github.com/bitcoin-core/secp256k1"
-source="$_pkgname-$pkgver.zip::https://codeload.github.com/bitcoin-core/$_pkgname/zip/master"
-builddir="$srcdir/$_pkgname-master"
+source="$_pkgname-$pkgver.zip::https://github.com/bitcoin-core/secp256k1/archive/$pkggitrev.zip"
+builddir="$srcdir/$_pkgname-$pkggitrev"
 
 build() {
     cd "$builddir"
@@ -48,4 +49,4 @@ package() {
     find "$pkgdir" -type f -name .gitignore -exec rm -r '{}' +
 }
 
-sha512sums="1535fb0d6b8cc4a435abeec35e87c1e3da0c975aee6873ca45783b5f9fcd1de3102aea69acd2b9e536498c16270849c0795154060f4d805e09f5a07eba5bc125  secp256k1-20180409.zip"
+sha512sums="deb1f727894e17653386f759adc038ea99e85698a8b383abec71fc963a214e2ec04f234e71ef1b082a13912e53b4e4ccdab12547ab8f6120f6e3c7c9bb6d3a78  secp256k1-20181108.zip"

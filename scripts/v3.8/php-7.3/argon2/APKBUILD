@@ -1,4 +1,4 @@
-# This package is being back-ported to support PHp 7.2 Argon2 password_hash() algo.
+# This package is being back-ported to support PHp 7.3 Argon2 password_hash() algo.
 # Original file: https://github.com/alpinelinux/aports/blob/master/testing/argon2/APKBUILD
 
 # Any license indication here contained takes lesser precedence than the original
@@ -8,10 +8,10 @@
 # Maintainer: Corey Oliver <coreyjonoliver@gmail.com>
 pkgname=argon2
 _pkgname=phc-winner-argon2
-pkgver=20171227
+pkgver=20161029
 provides="php-argon2=7.3"
 _soname=0.0.0
-pkgrel=0-rc5
+pkgrel=1
 pkgdesc="The password hash Argon2, winner of PHC"
 url="https://github.com/P-H-C/phc-winner-argon2"
 arch="all !armhf"
@@ -40,4 +40,4 @@ libargon2() {
     mkdir -p "$subpkgdir"/usr
     mv "$pkgdir"/usr/lib "$subpkgdir"/usr
 }
-sha512sums="9c9e1a3905e61ac6913d1e073c104477e419ddd0506adc4487e88e98d19165ed8901fe8bb11246ed0cc71b3523c190da9692d5926642f86be09c3e67510afe4d  argon2-20171227.tar.gz"
+sha512sums="e1f947a97e8b5f292dd32a6f1ea0ef3f2e411629218653821886ec4e1d5f8289d5b8f4b8bf0a37e69c344a83b975c695947d6b49fd2001a0e4273bebd4792892  argon2-20161029.tar.gz"
