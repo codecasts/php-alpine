@@ -1,0 +1,38 @@
+# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+
+pkgname=php7-swoole
+_pkgreal=swoole
+pkgver=4.2.12
+pkgrel=1
+_phpver=7
+provides="php-swoole=7.2"
+pkgdesc="Event-driven asynchronous and concurrent networking engine with high performance for PHP."
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.2.0 php7-common<7.3.0"
+makedepends="php7-dev>=7.2.0 php7-dev<7.3.0 autoconf pcre-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="99d535ae3a132f8d26c9e7cbc58b35ad37203555859f7823096b853d17f2af43725a69b36e55ca46ada89de719882fbd40cbcec5e55b7b31b512f9e2447ca60f  swoole-4.2.12.tgz"
