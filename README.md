@@ -24,12 +24,12 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 | Alpine Version  | PHP Version               | Status                                | Repository URL
 | -               | -                         | -                                     | -
-| **`3.8`**       | **`7.3`** / `7.3.0-rc-5`  | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
-| **`3.8`**       | **`7.2`** / `7.2.12`      | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
-| **`3.7`**       | **`7.2`** / `7.2.12`      | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.2](https://php.codecasts.rocks/v3.7/php-7.2)
-| **`3.7`**       | **`7.1`** / `7.1.21`      | supported until Alpine v3.9 release   | [https://php.codecasts.rocks/v3.7/php-7.1](https://php.codecasts.rocks/v3.7/php-7.1)
+| **`3.9`**       | **`7.3`** / `7.3.1`       | supported until Alpine v3.11 release  | [https://php.codecasts.rocks/v3.9/php-7.3](https://php.codecasts.rocks/v3.9/php-7.3)
+| **`3.8`**       | **`7.3`** / `7.3.1`       | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
+| **`3.8`**       | **`7.2`** / `7.2.14`      | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
 
-
+> Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
+> PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 > PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
 ---
