@@ -1,3 +1,4 @@
 /tmp
 /.env
 instantclient*
+/repo/*
