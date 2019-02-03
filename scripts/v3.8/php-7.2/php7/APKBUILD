@@ -5,8 +5,8 @@
 
 pkgname=php7
 _pkgreal=php
-pkgver=7.2.13
-pkgrel=3
+pkgver=7.2.14
+pkgrel=1
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
 arch="all"
@@ -40,6 +40,9 @@ source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.
 	includedir.patch
 	pid_log.patch
 	"
+
+srcdir="/tmp/php-7.2-src"
+pkgdir="/tmp/php-7.2-pkg"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
 _exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl json
