@@ -24,9 +24,9 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 | Alpine Version  | PHP Version               | Status                                | Repository URL
 | -               | -                         | -                                     | -
-| **`3.9`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.11 release  | [https://php.codecasts.rocks/v3.9/php-7.3](https://php.codecasts.rocks/v3.9/php-7.3)
-| **`3.8`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.3](https://php.codecasts.rocks/v3.8/php-7.3)
-| **`3.8`**       | **`7.2`** / `7.2.15`      | supported until Alpine v3.10 release  | [https://php.codecasts.rocks/v3.8/php-7.2](https://php.codecasts.rocks/v3.8/php-7.2)
+| **`3.9`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.11 release  | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)
+| **`3.8`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)
+| **`3.8`**       | **`7.2`** / `7.2.15`      | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)
 
 > Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 > PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
@@ -76,7 +76,7 @@ You may skip the ca-certificates part if you replace HTTPS by HTTP but you shoul
 FROM alpine:3.9
 
 # trust this project public key to trust the packages.
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 ## you may join the multiple run lines here to make it a single layer
 
@@ -84,7 +84,7 @@ ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.
 RUN apk --update add ca-certificates
 
 # add the repository, make sure you replace the correct versions if you want.
-RUN echo "@php https://php.codecasts.rocks/v3.9/php-7.3" >> /etc/apk/repositories
+RUN echo "@php https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install php and some extensions
 # notice the @php is required to avoid getting default php packages from alpine instead.
@@ -105,10 +105,10 @@ RUN apk add --update php-you-extension-name-here@php
 apk add --update curl ca-certificates
 
 # download the repository public key
-curl https://php.codecasts.rocks/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
+curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
 
 # add the repository for the php / alpine version corresponding
-echo "@php https://php.codecasts.rocks/v3.9/php-7.3" >> /etc/apk/repositories
+echo "@php https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install packages
 # notice that @php is required so you don't end up with default outdated php packages from community repository.
