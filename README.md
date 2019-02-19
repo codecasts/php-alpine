@@ -22,11 +22,11 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 ## Available Repositories
 
-| Alpine Version  | PHP Version               | Status                                | Repository URL
-| -               | -                         | -                                     | -
-| **`3.9`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.11 release  | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)
-| **`3.8`**       | **`7.3`** / `7.3.2`       | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)
-| **`3.8`**       | **`7.2`** / `7.2.15`      | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)
+| Alpine Version  | PHP Version                                                                                                                                                           | Status                                | Repository URL
+| -               | -                                                                                                                                                                     | -                                     | -
+| **`3.9`**       | **`7.3`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.3/_latestVersion) | supported until Alpine v3.11 release  | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)
+| **`3.8`**       | **`7.3`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.3/_latestVersion) | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)
+| **`3.8`**       | **`7.2`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.2/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.2/_latestVersion) | supported until Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)
 
 > Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 > PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
