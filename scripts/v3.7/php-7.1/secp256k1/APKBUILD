@@ -1,7 +1,7 @@
 # secp256k1 for Alpine
 
-# Contributor: Diego Hernandes <diego@hernandev.com>
-# Maintainer: Diego Hernandes <diego@hernandev.com>
+# Contributor: Diego Hernandes <iamhernandev@gmail.com>
+# Maintainer: Diego Hernandes <iamhernandev@gmail.com>
 
 pkgname=libsecp256k1
 _pkgname=secp256k1

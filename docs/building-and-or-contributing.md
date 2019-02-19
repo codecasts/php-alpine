@@ -45,8 +45,8 @@ The `.env` should look like this:
 ```
 ALPINE_VERSION=3.7
 PHP_VERSION=7.2
-APK_PACKAGER="Diego Hernandes <diego@hernandev.com>"
-APK_MAINTAINER="Diego Hernandes <diego@hernandev.com>"
+APK_PACKAGER="Diego Hernandes <iamhernandev@gmail.com>"
+APK_MAINTAINER="Diego Hernandes <iamhernandev@gmail.com>"
 
 ```
 

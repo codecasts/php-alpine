@@ -8,7 +8,7 @@ ARG ALPINE_VERSION
 FROM alpine:$ALPINE_VERSION
 
 # MAINTAINER.
-MAINTAINER Diego Hernandes <diego@hernandev.com>
+MAINTAINER Diego Hernandes <iamhernandev@gmail.com>
 
 # AFTER IMAGE DEFINITION ARGUMENTS
 ARG ALPINE_VERSION

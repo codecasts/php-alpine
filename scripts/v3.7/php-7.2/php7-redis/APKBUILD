@@ -1,4 +1,4 @@
-# Maintainer: "Diego Hernandes <diego@hernandev.com>"
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
 pkgname=php7-redis
 _pkgreal=redis
 pkgver=4.1.1
