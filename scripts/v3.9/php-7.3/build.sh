@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
+# error handling mode.
+set -e
+
 # dependencies to build.
 PACKAGES="argon2 secp256k1"
 # extensions to build.
-EXTENSIONS="amqp apcu ast ds imagick libsodium mailparse memcached mongodb msgpack phalcon psr redis scalar_objects secp256k1 ssh2 swoole timecop xdebug"
+EXTENSIONS="amqp apcu ast ds imagick libsodium mailparse memcached mongodb msgpack phalcon psr redis
+            scalar_objects secp256k1 ssh2 swoole timecop xdebug"
+# build extensions.
+for EXTENSION in ${EXTENSIONS}; do
+    # call the build function, prefixing with "php7-".
+    echo "php7-"${EXTENSION}
+done
+
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)

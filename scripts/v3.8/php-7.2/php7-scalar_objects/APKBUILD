@@ -2,6 +2,8 @@
 
 pkgname=php7-scalar_objects
 _pkgreal=scalar_objects
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=0.1.1
 pkgrel=1
 _phpver=7

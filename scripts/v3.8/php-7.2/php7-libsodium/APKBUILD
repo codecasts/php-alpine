@@ -2,6 +2,8 @@
 
 pkgname=php7-libsodium
 _pkgreal=libsodium
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=1.0.7
 pkgrel=11
 _phpver=7

@@ -2,6 +2,8 @@
 
 pkgname=php7-swoole
 _pkgreal=swoole
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=4.2.12
 pkgrel=1
 _phpver=7

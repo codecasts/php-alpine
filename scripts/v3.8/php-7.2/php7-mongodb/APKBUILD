@@ -2,6 +2,8 @@
 
 pkgname=php7-mongodb
 _pkgreal=mongodb
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=1.5.2
 pkgrel=11
 _phpver=7

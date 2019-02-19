@@ -2,6 +2,8 @@
 
 pkgname=php7-imagick
 _pkgreal=imagick
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=3.4.3
 pkgrel=11
 _phpver=7

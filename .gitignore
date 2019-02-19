@@ -2,3 +2,4 @@
 /.env
 instantclient*
 /repo/*
+/repo-archive/*

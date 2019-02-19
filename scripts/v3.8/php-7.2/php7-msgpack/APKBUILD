@@ -2,6 +2,8 @@
 
 pkgname=php7-msgpack
 _pkgreal=msgpack
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=2.0.3
 pkgrel=1
 _phpver=7

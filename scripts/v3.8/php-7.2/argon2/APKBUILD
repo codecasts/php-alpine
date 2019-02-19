@@ -8,6 +8,8 @@
 # Maintainer: Corey Oliver <coreyjonoliver@gmail.com>
 pkgname=argon2
 _pkgname=phc-winner-argon2
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=20161029
 provides="php-argon2=7.2"
 _soname=0.0.0

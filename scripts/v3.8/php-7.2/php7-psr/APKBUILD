@@ -2,6 +2,8 @@
 
 pkgname=php7-psr
 _pkgreal=psr
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=0.6.1
 pkgrel=1
 _phpver=7

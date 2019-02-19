@@ -2,6 +2,8 @@
 
 pkgname=php7-secp256k1
 _pkgreal=secp256k1
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=0.2.1
 pkgrel=14
 _phpver=7

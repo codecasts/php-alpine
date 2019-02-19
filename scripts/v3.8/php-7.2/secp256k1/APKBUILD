@@ -5,6 +5,8 @@
 
 pkgname=libsecp256k1
 _pkgname=secp256k1
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=20181108
 _soname=0.0.0
 pkgrel=15

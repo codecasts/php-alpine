@@ -2,6 +2,8 @@
 
 pkgname=php7-memcached
 _pkgreal=memcached
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
 pkgver=3.0.4
 pkgrel=11
 _phpver=7
