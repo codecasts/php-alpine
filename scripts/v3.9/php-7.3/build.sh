@@ -6,14 +6,8 @@ set -e
 # dependencies to build.
 PACKAGES="argon2 secp256k1"
 # extensions to build.
-EXTENSIONS="amqp apcu ast ds imagick libsodium mailparse memcached mongodb msgpack phalcon psr redis
-            scalar_objects secp256k1 ssh2 swoole timecop xdebug"
-# build extensions.
-for EXTENSION in ${EXTENSIONS}; do
-    # call the build function, prefixing with "php7-".
-    echo "php7-"${EXTENSION}
-done
-
+EXTENSIONS="amqp apcu ast ds imagick libsodium memcached mongodb msgpack phalcon psr redis
+            scalar_objects secp256k1 swoole timecop xdebug"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)
@@ -47,9 +41,9 @@ for PACKAGE in ${PACKAGES}; do
 done
 
 # when full flag is provided, build PHP itself first.
-if [[ "$1" == "--full" ]]; then
+if [[ "$1" == "--full" ]] || [[ "$2" == "--full" ]]; then
     # call the build function.
-        build_package "php7"
+    build_package "php7"
 fi
 
 # build extensions.
