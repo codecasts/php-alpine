@@ -124,7 +124,7 @@ apk add --update php-any-other-extension@php
 This is the complete available packages list:
 
 | Package Name          | Type            | v3.9/php-7.3 | v3.8/php-7.2 | v3.8/php-7.2 |
-| - |                   | -               | -            | -            | -            |
+| -                     | -               | -            | -            | -            |
 | `php`                 | PHP Core        | Yes          | Yes          | Yes          |           
 | `php-common`          | PHP Core        | Yes          | Yes          | Yes          |    
 | `php-fpm`             | PHP Core        | Yes          | Yes          | Yes          |    
@@ -132,7 +132,7 @@ This is the complete available packages list:
 | `php-apache2`         | PHP Core        | Yes          | Yes          | Yes          |    
 | `php-doc`             | PHP Core        | Yes          | Yes          | Yes          |    
 | `php-dev`             | PHP Core        | Yes          | Yes          | Yes          |    
-|                       |                 |              |              |              |
+|  -                    |                 |              |              |              |
 | `php-sodium`          | Core Extension  | Yes          | Yes          | Yes          |    
 | `php-bcmath`          | Core Extension  | Yes          | Yes          | Yes          |    
 | `php-bz2`             | Core Extension  | Yes          | Yes          | Yes          |    
@@ -189,7 +189,7 @@ This is the complete available packages list:
 | `php-xsl`             | Core Extension  | Yes          | Yes          | Yes          |    
 | `php-zip`             | Core Extension  | Yes          | Yes          | Yes          |    
 | `php-zlib`            | Core Extension  | Yes          | Yes          | Yes          |    
-|                       |                 |              |              |              |
+|  -                    |                 |              |              |              |
 | `php-amqp`            | Extra Extension | Yes          | Yes          | Yes          |    
 | `php-apcu`            | Extra Extension | Yes          | Yes          | Yes          |    
 | `php-ast`             | Extra Extension | Yes          | Yes          | Yes          |    
@@ -209,7 +209,7 @@ This is the complete available packages list:
 | `php-scalar_objects`  | Extra Extension | Yes          | Yes          | Yes          |    
 | `php-secp256k1`       | Extra Extension | Yes          | Yes          | Yes          |    
 | `php-xdebug`          | Extra Extension | Yes          | Yes          | Yes          |
-|                       |                 |              |              |              |
+|  -                    |                 |              |              |              |
 | `argon2`              | Extra Package   | Yes          | Yes          | Yes          |      
 | `argon2-dev`          | Extra Package   | Yes          | Yes          | Yes          |      
 | `libargon2`           | Extra Package   | Yes          | Yes          | Yes          |      
