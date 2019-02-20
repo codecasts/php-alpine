@@ -22,11 +22,11 @@ For short, this project will support **2 minor version of both PHP and Alpine** 
 
 ## Available Repositories
 
-| Alpine Version  | PHP Version                                                                                                                                                           | Support End At        | Repository URL
-| -               | -                                                                                                                                                                     | -                     | -
-| **`3.9`**       | **`7.3`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.3/_latestVersion) | Alpine v3.11 release  | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)
-| **`3.8`**       | **`7.3`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.3/_latestVersion) | Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)
-| **`3.8`**       | **`7.2`** / [ ![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.2/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.2/_latestVersion) | Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)
+| Alpine Version  | PHP Version  | OK                                                                                                                                                       | Support End At        | Repository URL                                                                                   |
+| -               | -            | -                                                                                                                                                        | -                     | -                                                                                                |
+| **`3.9`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.3/_latestVersion) | Alpine v3.11 release  | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3) |
+| **`3.8`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.3/_latestVersion) | Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3) |
+| **`3.8`**       | **`7.2`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.2/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.2/_latestVersion) | Alpine v3.10 release  | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2) |
 
 > Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 > PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
@@ -121,78 +121,99 @@ apk add --update php-any-other-extension@php
 
 ## Available Packages
 
-The following packages are available for installation on both 7.2 and 7.1 repositories:
+This is the complete available packages list:
 
-- **[NEW]** **Backported Packages**
-
-`argon2` `argon2-dev` `libargon2`
-
-Argon2 was backported from EDGE branch of `ports` to allow PHP to be compiled with Argon2 password hashing support.
-
-- **Core Packages (Provide Binaries or Modules)**
-
-`php` `php-common` `php-fpm` `php-cgi` `php-apache2`
-
-- **Special Packages (Not needed at runtime)**
-
-`php-doc` `php-dev`
-
-- **PHP 7.2 only extensions**
-
-`php-sodium`
-
-> `libsodium` extension is now part of PHP 7.2, it got renamed to `sodium` only and it reflects the version 2 of the extension.
-> The original extension, at version 1 was kept built for PHP 7.2 for legacy purposes, be sure to not install the two extensions together and hope it will work (it actually may but I don't adivise you to try). 
-
-- **Core Extensions**
-
-
-`php-bcmath` `php-bz2` `php-calendar` `php-ctype` `php-curl` `php-dba` 
-
-`php-dom` `php-embed` `php-enchant` `php-exif` `php-ftp` `php-gd` 
-
-`php-gettext` `php-gmp` `php-iconv` `php-imap` `php-intl` `php-json`
-
-`php-ldap` `php-litespeed` `php-mbstring` `php-mcrypt` `php-mysqli`
-
-`php-mysqlnd` `php-odbc` `php-opcache` `php-openssl` `php-pcntl`
-
-`php-pdo` `php-pdo_dblib` `php-pdo_mysql` `php-pdo_pgsql` `php-pdo_sqlite`
-
-`php-pear` `php-pgsql` `php-phar` `php-phpdbg` `php-posix` `php-pspell`
-
-`php-session` `php-shmop` `php-snmp` `php-soap` `php-sockets` `php-sqlite3`
-
-`php-sysvmsg` `php-sysvsem` `php-sysvshm` `php-tidy` `php-wddx` `php-xml` 
-
-`php-xmlreader` `php-xmlrpc` `php-xsl` `php-zip` `php-zlib`
+| Package Name          | Type            | v3.9/php-7.3 | v3.8/php-7.2 | v3.8/php-7.2 |
+| - |                   | -               | -            | -            | -            |
+| `php`                 | PHP Core        | Yes          | Yes          | Yes          |           
+| `php-common`          | PHP Core        | Yes          | Yes          | Yes          |    
+| `php-fpm`             | PHP Core        | Yes          | Yes          | Yes          |    
+| `php-cgi`             | PHP Core        | Yes          | Yes          | Yes          |    
+| `php-apache2`         | PHP Core        | Yes          | Yes          | Yes          |    
+| `php-doc`             | PHP Core        | Yes          | Yes          | Yes          |    
+| `php-dev`             | PHP Core        | Yes          | Yes          | Yes          |    
+|                       |                 |              |              |              |
+| `php-sodium`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-bcmath`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-bz2`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-calendar`        | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-ctype`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-curl`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-dba`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-dom`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-embed`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-enchant`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-exif`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-ftp`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-gd`              | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-gettext`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-gmp`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-iconv`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-imap`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-intl`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-json`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-ldap`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-litespeed`       | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-mbstring`        | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-mcrypt`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-mysqli`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-mysqlnd`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-odbc`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-opcache`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-openssl`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pcntl`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pdo`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pdo_dblib`       | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pdo_mysql`       | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pdo_pgsql`       | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pdo_sqlite`      | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pear`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pgsql`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-phar`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-phpdbg`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-posix`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-pspell`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-session`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-shmop`           | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-snmp`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-soap`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-sockets`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-sqlite3`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-sysvmsg`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-sysvsem`         | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-tidy`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-wddx`            | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-xml`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-xmlreader`       | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-xmlrpc`          | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-xsl`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-zip`             | Core Extension  | Yes          | Yes          | Yes          |    
+| `php-zlib`            | Core Extension  | Yes          | Yes          | Yes          |    
+|                       |                 |              |              |              |
+| `php-amqp`            | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-apcu`            | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-ast`             | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-ds`              | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-imagick`         | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-mailparse`       | Extra Extension | **No**       | **No**       | Yes          |    
+| `php-memcached`       | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-mongodb`         | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-msgpack`         | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-psr`             | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-phalcon`         | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-redis`           | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-ssh2`            | Extra Extension | **No**       | **No**       | Yes          |    
+| `php-swoole`          | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-timecop`         | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-libsodium`       | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-scalar_objects`  | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-secp256k1`       | Extra Extension | Yes          | Yes          | Yes          |    
+| `php-xdebug`          | Extra Extension | Yes          | Yes          | Yes          |
+|                       |                 |              |              |              |
+| `argon2`              | Extra Package   | Yes          | Yes          | Yes          |      
+| `argon2-dev`          | Extra Package   | Yes          | Yes          | Yes          |      
+| `libargon2`           | Extra Package   | Yes          | Yes          | Yes          |      
+| `secp256k1`           | Extra Package   | Yes          | Yes          | Yes          |
   
 
-- **Additional Extensions**
-
-Some additional PECL extensions are provided so you don't need to build them.
-
-| Extension                | Package Name          | Available on 7.3 | Available on 7.2 |
-|--------------------------|-----------------------|------------------|------------------|
-| AMQP                     | php-amqp              | Yes              | Yes              |
-| APCu                     | php-apcu              | Yes              | Yes              |
-| Imagick                  | php-imagick           | Yes              | Yes              |
-| libsodium _(legacy v1)_  | php-libsodium         | Yes              | Yes              |
-| mailparse                | php-mailparse         | Yes              | Yes              |
-| memcached                | php-memcached         | Yes              | Yes              |
-| MongoDB                  | php-mongodb           | Yes              | Yes              |
-| Redis                    | php-redis             | Yes              | Yes              |
-| SSH2                     | php-ssh2              | Yes              | Yes              |
-| xDebug                   | php-xdebug            | Yes              | Yes              |
-| secp256k1                | php-secp256k1         | Yes              | Yes              |
-| ast                      | php-ast               | Yes              | Yes              |
-| ds                       | php-ds                | Yes              | Yes              |
-| MsgPack                  | php-msgpack           | Yes              | Yes              |
-| Phalcon                  | php-phalcon           | Yes              | Yes              |
-| PSR                      | php-psr               | Yes              | Yes              |
-| scalar_objects           | php-scalar_objects    | Yes              | Yes              |
-| swoole                   | php-swoole            | Yes              | Yes              |
-| timecop                  | php-timecop           | Yes              | Yes              |
-
-
-## Enjoy Life
+> Life's good!
