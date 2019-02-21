@@ -84,13 +84,12 @@ ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-a
 RUN apk --update add ca-certificates
 
 # add the repository, make sure you replace the correct versions if you want.
-RUN echo "@php https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
+RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install php and some extensions
-# notice the @php is required to avoid getting default php packages from alpine instead.
-RUN apk add --update php@php
-RUN apk add --update php-mbstring@php
-RUN apk add --update php-you-extension-name-here@php
+RUN apk add --update php
+RUN apk add --update php-mbstring
+RUN apk add --update php-you-extension-name-here
 ```
 
 ### Bash / Shell scripting
@@ -108,13 +107,12 @@ apk add --update curl ca-certificates
 curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
 
 # add the repository for the php / alpine version corresponding
-echo "@php https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
+echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install packages
-# notice that @php is required so you don't end up with default outdated php packages from community repository.
-apk add --update php@php
-apk add --update php-redis@php
-apk add --update php-any-other-extension@php
+apk add --update php
+apk add --update php-redis
+apk add --update php-any-other-extension
 
 ```
 
