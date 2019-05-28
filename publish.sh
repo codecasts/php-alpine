@@ -27,8 +27,16 @@ for FILENAME in ${PACKAGES}; do
     # endpoint name.
     ENDPOINT=https://api.bintray.com/content/php-alpine/${BASE_PACKAGE_SLUG}/${INTERNAL_VERSION}/php-${PHP_VERSION}
 
-    # upload to bin tray
-    echo curl -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} \
+    # delete first.
+    #curl -X DELETE -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} "${ENDPOINT}/x86_64/${FILENAME}"
+
+    # upload after delete.
+    curl -X PUT -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} \
+        -H "X-Bintray-Package: php-${PHP_VERSION}" \
+        -H "X-Bintray-Version: ${INTERNAL_VERSION}" \
+        -H "X-Bintray-Publish: 1" \
+        -H "X-Bintray-Override: 1" \
         -T ./repo/${BASE_PACKAGE_SLUG}/x86_64/${FILENAME}  \
-        "${ENDPOINT}/x86_64/${FILENAME}?publish=1&override=1"
+        https://api.bintray.com/content/php-alpine/${BASE_PACKAGE_SLUG}/x86_64/${FILENAME}
+        # "${ENDPOINT}/x86_64/${FILENAME}"
 done
