@@ -26,11 +26,11 @@ RUN apk --update add ca-certificates
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories && \
-    echo "@php https://dl.bintray.com/php-alpine/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
+    echo "https://dl.bintray.com/php-alpine/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
 
 RUN apk add --update \
-    php@php \
-    php-mbstring@php
+    php \
+    php-mbstring
 
 # START WITH BASH.
 CMD ["/bin/bash"]
