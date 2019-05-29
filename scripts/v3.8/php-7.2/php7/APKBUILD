@@ -7,7 +7,7 @@ pkgname=php7
 _pkgreal=php
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
-pkgver=7.2.16
+pkgver=7.2.18
 pkgrel=1
 pkgdesc="The PHP language runtime engine - 7th branch"
 url="http://www.php.net/"
@@ -360,7 +360,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="51713edeb273a808e0584453647c060599645916be19ce62ebf896ef2c24c39b3f15106c3dd6e755cea7147405bf68c9610b97c87409387127d7fd8e772fc8a6  php-7.2.15.tar.bz2
+sha512sums="38e1c7eb2051193665b6d19c9634827ce95cd801e95e9a60e8ed9b2675122821d86b32454a24fca02d451bfab25bc9b2567dd57e1bc1170cde31b7a4edfa348c  php-7.2.18.tar.bz2
 5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
 100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
 7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
