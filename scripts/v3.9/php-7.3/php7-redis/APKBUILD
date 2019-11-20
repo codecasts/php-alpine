@@ -3,7 +3,7 @@ pkgname=php7-redis
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=redis
-pkgver=4.2.0
+pkgver=4.3.0
 pkgrel=3
 _phpver=7
 provides="php-redis=7.3"
@@ -36,4 +36,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-sha512sums="b6325e5e1f9209a3431cbc236dab4578f796aa748481f9a3fcda6d297bf544b0f77269bc56c6e9ff32430dbe74bd08f6d22e9b04b0ecfb735aa562f680f56f8b  redis-4.2.0.tgz"
+sha512sums="30ce5863540485463704e6f90cff3a8d1f5bda34360c987e848ab290c8240f323b6eb2df1e90cc4c0922b3413652132d937488943f5db4e242c460c592da54ca  redis-4.3.0.tgz"

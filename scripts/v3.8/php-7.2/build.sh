@@ -41,11 +41,6 @@ for PACKAGE in ${PACKAGES}; do
 done
 
 # when full flag is provided, build PHP itself first.
-if [[ "$1" == "--reset" ]] || [[ "$2" == "--reset" ]]; then
-    echo "REMOVE SOURCES!"
-fi
-
-# when full flag is provided, build PHP itself first.
 if [[ "$1" == "--full" ]] || [[ "$2" == "--full" ]]; then
     # call the build function.
     build_package "php7"

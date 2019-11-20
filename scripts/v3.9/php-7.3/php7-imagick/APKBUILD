@@ -4,7 +4,7 @@ pkgname=php7-imagick
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=imagick
-pkgver=3.4.3
+pkgver=3.4.4
 pkgrel=1
 _phpver=7
 provides="php-imagick=7.3"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="2cb2b856cf83a78d3542cdf7c69554dcc063a0541e9092b24e5e1fbd8928066a4a3de154049d0202c35addbc5055ccfbb5910ae92f2f13da80ddfc025340ddcd  imagick-3.4.3.tgz"
+sha512sums="73145a1f095849c32760db2dfc4acc13c57d99a037d65eca9b0ddf8f8e81cf6d28a50f2614e44bae1d90b4f881a2e9a64926e0e3b9403e491fd903ffeb30c4b7  imagick-3.4.4.tgz"
