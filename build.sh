@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# source environment variables for the time being.
-source ./.env
-
 # determine task to build.
 TASK=${1}
 

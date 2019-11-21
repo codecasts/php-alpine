@@ -60,7 +60,7 @@ The sandbox is an special Docker image used for building the packages in an isol
 Build the sandbox with the following command:
 
 ```
-env $(cat .env) docker-compose build sandbox
+$ docker-compose build sandbox
 ```
 
 ### Building packages.
@@ -69,7 +69,7 @@ To actually build the PHP packages, first we need to enter the sandbox environme
 
 Run the sandbox with the following command:
 ```
-env $(cat .env) docker-compose run sandbox bash
+$ docker-compose run sandbox bash
 ```
 
 After entering the sandbox, you will notice two folders on `/home/sandbox`:
