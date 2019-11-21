@@ -4,7 +4,7 @@
 set -e
 
 # dependencies to build.
-PACKAGES="argon2 secp256k1"
+PACKAGES="wkhtmltopdf argon2 secp256k1"
 # extensions to build.
 EXTENSIONS="amqp apcu ast ds imagick libsodium memcached mongodb msgpack phalcon psr redis
             scalar_objects secp256k1 swoole timecop xdebug"
