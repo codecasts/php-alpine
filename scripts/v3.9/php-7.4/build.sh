@@ -6,8 +6,9 @@ set -e
 # dependencies to build.
 PACKAGES="argon2 secp256k1"
 # extensions to build.
-EXTENSIONS="amqp apcu ast ds imagick libsodium memcached mongodb msgpack phalcon psr redis
-            scalar_objects secp256k1 swoole timecop xdebug"
+# EXTENSIONS="amqp apcu ast ds imagick libsodium memcached mongodb msgpack phalcon psr redis scalar_objects secp256k1 swoole timecop xdebug"
+
+EXTENSIONS="redis"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)
@@ -47,10 +48,10 @@ if [[ "$1" == "--full" ]] || [[ "$2" == "--full" ]]; then
 fi
 
 # build extensions.
-# for EXTENSION in ${EXTENSIONS}; do
-#     # call the build function, prefixing with "php7-".
-#     # build_package "php7-"${EXTENSION}
-# done
+for EXTENSION in ${EXTENSIONS}; do
+    # call the build function, prefixing with "php7-".
+    build_package "php7-"${EXTENSION}
+done
 
 # ensure the final destination is the sources path.
 cd ${SOURCES_PATH}
