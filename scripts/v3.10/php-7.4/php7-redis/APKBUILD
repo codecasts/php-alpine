@@ -1,0 +1,39 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+pkgname=php7-redis
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=redis
+pkgver=5.1.1
+pkgrel=3
+_phpver=7
+provides="php-redis=7.4"
+pkgdesc="Redis extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.4.0 php7-common<7.5.0 php7-session>=7.4.0 php7-session<7.5.0"
+makedepends="php7-dev>=7.4.0 php7-dev<7.5.0 autoconf"
+source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+}
+
+sha512sums="eb6aa538d2ae4115634fd5841e3ccccf788cad13b99e0485fb2af43def85e93328012e5cef66d1be4bdd494be6f68de329a066e41b710e434f94f3ed3401bfee  redis-5.1.1.tgz"
