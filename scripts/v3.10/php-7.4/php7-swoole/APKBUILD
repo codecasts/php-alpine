@@ -1,19 +1,19 @@
 # Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
 
-pkgname=php7-xdebug
+pkgname=php7-swoole
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
-_pkgreal=xdebug
-pkgver=2.8.1
+_pkgreal=swoole
+pkgver=4.4.12
 pkgrel=1
 _phpver=7
-provides="php-xdebug=7.4"
-pkgdesc="xDebug Profiler"
+provides="php-swoole=7.4"
+pkgdesc="Event-driven asynchronous and concurrent networking engine with high performance for PHP."
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
-license="XDEBUG-1"
+license="PHP-3"
 depends="php7-common>=7.4.0 php7-common<7.5.0"
-makedepends="php7-dev>=7.4.0 php7-dev<7.5.0 autoconf"
+makedepends="php7-dev>=7.4.0 php7-dev<7.5.0 autoconf pcre2-dev"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
@@ -34,7 +34,7 @@ package() {
     install -d $pkgdir/ || return 1
     make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
     install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
-    echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="25188a36a226ed2f4a5f6ce1f511c2ed0b27422eb2f4583e6bae982c5157eb76b138e0b122d39d1706060e21eac1f85532f1eddf7f70778c143e9b5275843b97  xdebug-2.8.1.tgz"
+sha512sums="8899bb048b85c048903c80fe1af045ea4f82a25b3b4fd9995d51c8a2ab144306f9f5651276776e3f6a29c83322fb0aeee2822d131247070fe9e2e87b26f2e0e9  swoole-4.4.12.tgz"
