@@ -70,15 +70,15 @@ ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-a
 ## you may join the multiple run lines here to make it a single layer
 
 # make sure you can use HTTPS
-RUN apk --update add ca-certificates
+RUN apk --update-cache add ca-certificates
 
 # add the repository, make sure you replace the correct versions if you want.
 RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install php and some extensions
-RUN apk add --update php
-RUN apk add --update php-mbstring
-RUN apk add --update php-you-extension-name-here
+RUN apk add --update-cache php
+RUN apk add --update-cache php-mbstring
+RUN apk add --update-cache php-you-extension-name-here
 ```
 
 ### Bash / Shell scripting
@@ -90,7 +90,7 @@ RUN apk add --update php-you-extension-name-here
 #!/usr/bin/env sh
 
 # install curl and certificates to download the key
-apk add --update curl ca-certificates
+apk add --update-cache curl ca-certificates
 
 # download the repository public key
 curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
@@ -99,9 +99,9 @@ curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/p
 echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 # install packages
-apk add --update php
-apk add --update php-redis
-apk add --update php-any-other-extension
+apk add --update-cache php
+apk add --update-cache php-redis
+apk add --update-cache php-any-other-extension
 
 ```
 

@@ -15,20 +15,20 @@ ARG ALPINE_VERSION
 ARG PHP_VERSION
 
 # ADD SDK AND BASIC TOOLS.
-RUN apk add --update alpine-sdk sudo git bash nano
+RUN apk add --update-cache alpine-sdk sudo git bash nano
 
 # trust this project public key to trust the packages.
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 # make sure you can use HTTPS
-RUN apk --update add ca-certificates
+RUN apk --update-cache add ca-certificates
 
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories && \
     echo "https://dl.bintray.com/php-alpine/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
 
-RUN apk add --update \
+RUN apk add --update-cache \
     php \
     php-mbstring
 
