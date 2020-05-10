@@ -4,7 +4,7 @@ pkgname=php7-phalcon
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=phalcon
-pkgver=3.4.5
+pkgver=4.0.5
 pkgrel=1
 _phpver=7
 provides="php-phalcon=7.4"

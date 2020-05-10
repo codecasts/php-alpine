@@ -4,12 +4,12 @@ pkgname=php7-phalcon
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=phalcon
-pkgver=3.4.5
+pkgver=4.0.5
 pkgrel=1
 _phpver=7
 provides="php-phalcon=7.4"
 pkgdesc="Phalcon extension for PHP"
-url="https://github.com/Bit-Wasp/secp256k1-php"
+url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="MIT"
 depends="php7-common>=7.4.0 php7-common<7.5.0 php7-pdo>=7.4.0 php7-pdo<7.5.0 re2c"

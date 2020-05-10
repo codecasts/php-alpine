@@ -4,7 +4,7 @@ pkgname=php7-mongodb
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=mongodb
-pkgver=1.6.0
+pkgver=1.7.4
 pkgrel=1
 _phpver=7
 provides="php-mongodb=7.4"
