@@ -1,12 +1,8 @@
-# PHP Repositories for Alpine - by CODECASTS
+# PHP-ALPINE: PHP binaries repository for Alpine Linux (APK)
+PHP Repositories for AlpineFresh PHP binaries APK repository for Alpine Linux.
 
-**"Up-to-date, PHP packages for Alpine Linux."**
+> by [@hernandev](https://github.com/hernandev)
 
----
-
-Maintained by **[@hernandev](https://github.com/hernandev)**.
-
----
 
 This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 
@@ -14,16 +10,26 @@ We pack and release PHP versions as soon they are available on http://php.net. (
 
 Additionally, many PECL extensions are also available as packages as well.
 
+TL;DR:
+```dockerfile
+FROM alpine:3.11
+
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+
+# make sure you can use HTTPS
+RUN apk --update add ca-certificates
+
+# add the repository, make sure you replace the correct versions if you want.
+RUN echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
+
+# install php and some extensions
+RUN apk add php
+RUN apk add php-mbstring
+RUN apk add php-you-extension-name-here
+```
+
+
 ---
-
-## Repositories / Release Cycle / End of Support (EOS)
-
-This project supports releases that are simultaneously in active support.
-
-This means, PHP and Alpine must both be in active support.
-
-Check end of life for each project on the following links:
-
 
 
 ## Enf of Support / Release Cycle Chart
@@ -57,17 +63,6 @@ Active support reference:
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
-## Repository Conflicts
-
-In some cases, the packages on the repositories may present conflicts with official packages.
-
-To solve that, each page was aliases as `php-name`, without the `7` indicator.
-
-Considering this, all installs are now encouraged to reference the virtual names when installing.
-
-The examples on this documentation are now updated to reflect this decision.
-
-The original names are kept, and it should not break working scripts.
 
 ## Snippets
 
@@ -80,48 +75,20 @@ The following code snippets are intended for quick usage on either shell scripts
 You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
-# Versions 3.8 and 3.7 are current stable supported versions.
-FROM alpine:3.9
+FROM alpine:3.11
 
-# trust this project public key to trust the packages.
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
-## you may join the multiple run lines here to make it a single layer
-
-# make sure you can use HTTPS
-RUN apk --update add ca-certificates
-
-# add the repository, make sure you replace the correct versions if you want.
-RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
+RUN apk --update add ca-certificates && \
+    echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
 
 # install php and some extensions
-RUN apk add --update php
-RUN apk add --update php-mbstring
-RUN apk add --update php-you-extension-name-here
-```
-
-### Bash / Shell scripting
-
-> You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
-
-
-```bash
-#!/usr/bin/env sh
-
-# install curl and certificates to download the key
-apk add --update curl ca-certificates
-
-# download the repository public key
-curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
-
-# add the repository for the php / alpine version corresponding
-echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
-
-# install packages
-apk add --update php
-apk add --update php-redis
-apk add --update php-any-other-extension
-
+RUN apk add --update \
+    php \
+    php-bz2 \
+    php-json \
+    php-mysql \
+    php-any-other-available-package... 
 ```
 
 
