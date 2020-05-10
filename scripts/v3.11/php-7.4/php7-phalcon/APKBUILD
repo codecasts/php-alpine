@@ -1,0 +1,40 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php7-phalcon
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=phalcon
+pkgver=4.0.5
+pkgrel=1
+_phpver=7
+provides="php-phalcon=7.4"
+pkgdesc="Phalcon extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="MIT"
+depends="php7-common>=7.4.0 php7-common<7.5.0 php7-pdo>=7.4.0 php7-pdo<7.5.0 re2c"
+makedepends="php7-dev>=7.4.0 php7-dev<7.5.0 g++ pcre-dev file libtool autoconf autoconf pcre2-dev re2c make"
+source="$_pkgreal-$pkgver.zip::https://github.com/phalcon/c$_pkgreal/archive/v$pkgver.zip"
+builddir="$srcdir/c$_pkgreal-$pkgver/build/php7/64bits"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	# make clean
+	phpize7
+	./configure --prefix=/usr --with-php-config=/usr/bin/php-config7
+    make
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+}
+
+sha512sums="b1abd3c6a79b3def44f4969b8381572cde842c5a3a19561176a6ef427e6dd0fa0960f395dc275a365a9cb1797c5a18abb9eef19e08616fe63ed3aa04b9acf1f9  phalcon-3.4.5.zip"

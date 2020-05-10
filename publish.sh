@@ -28,7 +28,7 @@ for FILENAME in ${PACKAGES}; do
     ENDPOINT=https://api.bintray.com/content/php-alpine/${BASE_PACKAGE_SLUG}/${INTERNAL_VERSION}/php-${PHP_VERSION}
 
     # delete first.
-    curl -X DELETE -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} https://api.bintray.com/content/php-alpine/${BASE_PACKAGE_SLUG}/x86_64/${FILENAME}
+    # curl -X DELETE -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} https://api.bintray.com/content/php-alpine/${BASE_PACKAGE_SLUG}/x86_64/${FILENAME}
 
     # upload after delete.
     curl -X PUT -u ${BINTRAY_USERNAME}:${BINTRAY_API_KEY} \

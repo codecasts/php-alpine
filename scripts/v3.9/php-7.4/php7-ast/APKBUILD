@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="7f56816553894849b539233209c57df9f9239ddc8a172c924a1f72c57ba474228e6f82779787a40ed1d78cac890dcd3d49bbb1aa2f7d4c29b95ae9809c836141  ast-1.0.5.tgz"
+sha512sums="42ee07ee082ea3c6dcfd86ba25aa3d5bf188f277684acd63f5013b3da6b9ea5eafa2ac55a630ffe43aaf2d7366f055a372e61912a426e1413710658b1d9e4013  ast-1.0.6.tgz"

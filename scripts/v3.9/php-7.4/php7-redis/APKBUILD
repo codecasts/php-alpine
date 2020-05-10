@@ -36,4 +36,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-sha512sums="eb6aa538d2ae4115634fd5841e3ccccf788cad13b99e0485fb2af43def85e93328012e5cef66d1be4bdd494be6f68de329a066e41b710e434f94f3ed3401bfee  redis-5.1.1.tgz"
+sha512sums="0020c572bcd24cdb479046727fba2d30ca87c9a7111c51e5fe3be0b85459e3e7dfc8892b690650de0a7dc80c1a8921f9de45590f6e60257fbf0534729c6e6f4f  redis-5.2.2.tgz"

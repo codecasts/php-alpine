@@ -37,4 +37,4 @@ package() {
     echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="25188a36a226ed2f4a5f6ce1f511c2ed0b27422eb2f4583e6bae982c5157eb76b138e0b122d39d1706060e21eac1f85532f1eddf7f70778c143e9b5275843b97  xdebug-2.8.1.tgz"
+sha512sums="a0b6c96f4230c86b7df6ae99434473bcdbfbf7e53706cc103f2fef0538a5c4bf8180cf02819deaadff7aa0e50559f98f9f363167686db12c5d226e451ba2a098  xdebug-2.9.5.tgz"

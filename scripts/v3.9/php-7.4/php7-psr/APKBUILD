@@ -38,4 +38,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="1daa9e847e1970482bca400a9f08549552a4f64f06b6b55a6f141dce18085ec48aeb57d8fd3fd49f7c7e3fb461f54ee0f083b48ae42f3576a2321c750e677c3f  php7-psr.tar.gz"
+sha512sums="6b65bd7ddb3fe02705f9b8568e9bad036f6131a17c623dfddfc312963383d2f0e0ffd93563ef4ca43bc95c0f8b116bc8783926ccab77853e5223132c236e1b4a  php7-psr.tar.gz"
