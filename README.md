@@ -1,8 +1,6 @@
-# PHP-ALPINE: PHP binaries repository for Alpine Linux (APK)
-PHP Repositories for AlpineFresh PHP binaries APK repository for Alpine Linux.
+## PHP-ALPINE: Fresh PHP binaries APK repository for Alpine Linux.
 
-> by [@hernandev](https://github.com/hernandev)
-
+ > Maintainer: [@hernandev](https://github.com/hernandev)
 
 This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 
@@ -10,35 +8,10 @@ We pack and release PHP versions as soon they are available on http://php.net. (
 
 Additionally, many PECL extensions are also available as packages as well.
 
-TL;DR:
-```dockerfile
-FROM alpine:3.11
-
-ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-
-# make sure you can use HTTPS
-RUN apk --update add ca-certificates
-
-# add the repository, make sure you replace the correct versions if you want.
-RUN echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
-
-# install php and some extensions
-RUN apk add php
-RUN apk add php-mbstring
-RUN apk add php-you-extension-name-here
-```
-
-
 ---
 
 
-## Enf of Support / Release Cycle Chart
-
-Builds for new versions of Alpine and PHP are available as soon as possible.
-
-If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
-
-Support for both PHP and Alpine are estimated for around 2 years from release date.
+## APK Repositories & Release Cycle
 
 <!-- ### PHP End of Support -->
 <!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
@@ -56,12 +29,16 @@ Support for both PHP and Alpine are estimated for around 2 years from release da
 | ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=for-the-badge)  | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.4)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.9/php-7.4  |
 | ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=for-the-badge)  | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.3)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.9/php-7.3  |
 
+Builds are available as soon as possible, and EOS is determined by:
+- If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
+- Support for both PHP and Alpine are estimated for around 2 years from release date.
+
 Active support reference:
 
 - PHP: https://www.php.net/supported-versions.php
 - Alpine: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases  
 
-> Each version is available on a separate repository, choose the one you want and follow the instructions below:
+> Replace examples below with desired Alpine and PHP versions.
 
 
 ## Snippets
