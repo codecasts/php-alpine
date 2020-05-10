@@ -1,14 +1,14 @@
 # PHP Repositories for Alpine - by CODECASTS
 
-**"Maybe Up-to-date, PHP packages for Alpine Linux."**
+**"Up-to-date, PHP packages for Alpine Linux."**
 
 ---
 
-Maintained by **[@hernandev](https://github.com/hernandev)**. Based on **[Valery Kartel](https://github.com/vakartel)** scripts.
+Maintained by **[@hernandev](https://github.com/hernandev)**.
 
 ---
 
-This project provides a simple alternative for running updated PHP on Alpine Linux.
+This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 
 We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
 
@@ -16,25 +16,44 @@ Additionally, many PECL extensions are also available as packages as well.
 
 ---
 
-## Release Cycle
+## Repositories / Release Cycle / End of Support (EOS)
 
-For short, this project will support **2 minor version of both PHP and Alpine**  at time.
+This project supports releases that are simultaneously in active support.
 
-## Available Repositories
+This means, PHP and Alpine must both be in active support.
 
-| Alpine Version  | PHP Version  | Current Release                                                                                                                                            | Repository URL                                                                                     |
-| -               | -            | -                                                                                                                                                          | -                                                                                                  |
-| **`3.10`**      | **`7.4`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.10/php-7.4/images/download.svg) ](https://bintray.com/php-alpine/v3.10/php-7.4/_latestVersion) | [https://dl.bintray.com/php-alpine/v3.10/php-7.4](https://dl.bintray.com/php-alpine/v3.10/php-7.4) |
-| **`3.9`**       | **`7.4`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.4/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.4/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.9/php-7.4](https://dl.bintray.com/php-alpine/v3.9/php-7.4)   |
-| **`3.9`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.3/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)   |
-| **`3.8`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.3/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)   |
-| **`3.8`**       | **`7.2`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.2/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.2/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)   |
+Check end of life for each project on the following links:
 
-> Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
-> PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
-> PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
 
----
+
+## Enf of Support / Release Cycle Chart
+
+Builds for new versions of Alpine and PHP are available as soon as possible.
+
+If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
+
+Support for both PHP and Alpine are estimated for around 2 years from release date.
+
+<!-- ### PHP End of Support -->
+<!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
+<!-- PHP 7.3     | 2020-12-06 | 1607212800-->
+<!-- Alpine 3.11 | 2021-11-01 | 1635724800-->
+<!-- Alpine 3.10 | 2021-05-01 | 1619827200-->
+<!-- Alpine 3.9  | 2020-11-01 | 1604188800-->
+
+| Alpine      | PHP                                                                                          |  End of Support  | Repository URL                                                                                |
+| -           | -                                                                                            | -                | -                                                                                             |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.11/php-7.4/images/download.svg) | ![](https://img.shields.io/date/1635724800?label=2021-11-01) | https://dl.bintray.com/php-alpine/v3.11/php-7.4 |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.11/php-7.3/images/download.svg) | ![](https://img.shields.io/date/1607212800?label=2020-12-06) | https://dl.bintray.com/php-alpine/v3.11/php-7.3 |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.10/php-7.4/images/download.svg?style=for-the-badge) | ![](https://img.shields.io/date/1619827200?label=2021-05-01) | https://dl.bintray.com/php-alpine/v3.10/php-7.4 |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.10/php-7.3/images/download.svg) | ![](https://img.shields.io/date/1607212800?label=2020-12-06) | https://dl.bintray.com/php-alpine/v3.10/php-7.3 |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge)  | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.9/php-7.4/images/download.svg)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01) | https://dl.bintray.com/php-alpine/v3.9/php-7.4  |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge)  | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) - ![](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01) | https://dl.bintray.com/php-alpine/v3.9/php-7.4  |
+
+Active support reference:
+
+- PHP: https://www.php.net/supported-versions.php
+- Alpine: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases  
 
 > Each version is available on a separate repository, choose the one you want and follow the instructions below:
 
