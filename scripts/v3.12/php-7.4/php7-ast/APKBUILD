@@ -1,0 +1,40 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php7-ast
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=ast
+pkgver=1.0.6
+pkgrel=1
+_phpver=7
+provides="php-ast=7.4"
+pkgdesc="ast - Extension exposing PHP 7 abstract syntax tree"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php7-common>=7.4.0 php7-common<7.5.0"
+makedepends="php7-dev>=7.4.0 php7-dev<7.5.0 autoconf pcre-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+	make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="42ee07ee082ea3c6dcfd86ba25aa3d5bf188f277684acd63f5013b3da6b9ea5eafa2ac55a630ffe43aaf2d7366f055a372e61912a426e1413710658b1d9e4013  ast-1.0.6.tgz"

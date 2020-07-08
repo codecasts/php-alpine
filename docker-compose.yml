@@ -3,6 +3,7 @@ version: "3"
 
 volumes:
   php-alpine-cache-edge:
+  php-alpine-cache-v3.12:
   php-alpine-cache-v3.11:
   php-alpine-cache-v3.10:
   php-alpine-cache-v3.9:
