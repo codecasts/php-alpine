@@ -168,7 +168,7 @@ This is the complete available packages list:
 | `enchant-doc`         | Extra Package   |
 | `enchant-dev`         | Extra Package   |
 | `libargon2`           | Extra Package   |
-| `secp256k1`           | Extra Package   |
+| `libsecp256k1`        | Extra Package   |
 
 
 > Life's good!
