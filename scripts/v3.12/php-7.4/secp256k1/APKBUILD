@@ -7,10 +7,10 @@ pkgname=libsecp256k1
 _pkgname=secp256k1
 srcdir="/tmp/src-$_pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
-pkgver=20200509
+pkgver=20200629
 _soname=0.0.0
 pkgrel=1
-pkggitrev=95e99f196fd08a8b2c236ab99d7e7fec8f6dc78f
+pkggitrev=3f4a5a10e43bfc8dae5b978cb39aa2dfbaf4d713
 pkgdesc="Optimized C library for EC operations on curve secp256k1"
 url="https://github.com/bitcoin-core/secp256k1"
 arch="all !armhf"
@@ -51,4 +51,4 @@ package() {
     find "$pkgdir" -type f -name .gitignore -exec rm -r '{}' +
 }
 
-sha512sums="daeb412b920fc793ff8e97a20eec2cf3940b13ca7390a2700a9a9a6523200bdb6d07117d13d6986d1e18529e01eb51fb5ffdf5b4e7b59d5468968fae7a57355a  secp256k1-20200509.zip"
+sha512sums="c3a085122f8542e38a0de30a023d433558a56560bc6d1c87a5d5578b2b5cd1260d82a3de15fb0a98bbc837d116305a812911420c63cecf2c6275bcc6a21a15eb  secp256k1-20200629.zip"
