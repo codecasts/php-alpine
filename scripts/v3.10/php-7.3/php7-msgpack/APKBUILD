@@ -4,7 +4,7 @@ pkgname=php7-msgpack
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=msgpack
-pkgver=2.1.0
+pkgver=2.1.1
 pkgrel=1
 _phpver=7
 provides="php-msgpack=7.3"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/30_$_pkgreal.ini || return 1
 }
 
-sha512sums="e024694076224796b2fb4dbd4473c5ac782951911437d0ee668231a1908f924a3a28dd616c0821929b425ee5ec06ef51f870f15b677171429049f4ae5f7befb7  msgpack-2.1.0.tgz"
+sha512sums="dffa21e36ac8bafa076557093e0bca70772e810215900ce0f9c0e0cc6f4f5aac567178c9bb6c5f962bdda11139d03bc9004f85d9e0a58acf181ef8959e953281  msgpack-2.1.1.tgz"
