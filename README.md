@@ -1,8 +1,6 @@
-# PHP-ALPINE: PHP binaries repository for Alpine Linux (APK)
-PHP Repositories for AlpineFresh PHP binaries APK repository for Alpine Linux.
+## PHP-ALPINE: Fresh PHP binaries APK repository for Alpine Linux.
 
-> by [@hernandev](https://github.com/hernandev)
-
+ > Maintainer: [@hernandev](https://github.com/hernandev)
 
 This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 
@@ -10,58 +8,39 @@ We pack and release PHP versions as soon they are available on http://php.net. (
 
 Additionally, many PECL extensions are also available as packages as well.
 
-TL;DR:
-```dockerfile
-FROM alpine:3.11
-
-ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-
-# make sure you can use HTTPS
-RUN apk --update add ca-certificates
-
-# add the repository, make sure you replace the correct versions if you want.
-RUN echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
-
-# install php and some extensions
-RUN apk add php
-RUN apk add php-mbstring
-RUN apk add php-you-extension-name-here
-```
-
-
 ---
 
 
-## Enf of Support / Release Cycle Chart
-
-Builds for new versions of Alpine and PHP are available as soon as possible.
-
-If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
-
-Support for both PHP and Alpine are estimated for around 2 years from release date.
+## APK Repositories & Release Cycle
 
 <!-- ### PHP End of Support -->
 <!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
 <!-- PHP 7.3     | 2020-12-06 | 1607212800-->
+<!-- Alpine 3.12 | 2022-05-01 | 1651449599-->
 <!-- Alpine 3.11 | 2021-11-01 | 1635724800-->
 <!-- Alpine 3.10 | 2021-05-01 | 1619827200-->
 <!-- Alpine 3.9  | 2020-11-01 | 1604188800-->
 
 | Alpine      | PHP                                                                                          |  End of Support  | Repository URL                                                                                |
 | -           | -                                                                                            | -                | -                                                                                             |
-| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.4) | ![](https://img.shields.io/date/1635724800?label=2021-11-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.11/php-7.4 |
-| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=for-the-badge) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3) | ![](https://img.shields.io/date/1607212800?label=2020-12-06&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.11/php-7.3 |
-| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=for-the-badge) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.4) | ![](https://img.shields.io/date/1619827200?label=2021-05-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.10/php-7.4 |
-| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=for-the-badge) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![](https://img.shields.io/date/1607212800?label=2020-12-06&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.10/php-7.3 |
-| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=for-the-badge)  | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.4)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.9/php-7.4  |
-| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=for-the-badge)  | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=for-the-badge) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=for-the-badge&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.3)  | ![](https://img.shields.io/date/1604188800?label=2020-11-01&style=for-the-badge) | https://dl.bintray.com/php-alpine/v3.9/php-7.3  |
+| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.12/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.12/php-7.4`](https://dl.bintray.com/php-alpine/v3.11/php-7.4) |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.11/php-7.4`](https://dl.bintray.com/php-alpine/v3.11/php-7.4) |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.11/php-7.3`](https://dl.bintray.com/php-alpine/v3.11/php-7.3) |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.10/php-7.4`](https://dl.bintray.com/php-alpine/v3.10/php-7.4) |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.10/php-7.3`](https://dl.bintray.com/php-alpine/v3.10/php-7.3) |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=flat-square)   | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.4)  | ![EOS](https://img.shields.io/badge/EOS-2020--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.9/php-7.4`](https://dl.bintray.com/php-alpine/v3.9/php-7.4)   |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=flat-square)   | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.3)  | ![EOS](https://img.shields.io/badge/EOS-2020--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.9/php-7.3`](https://dl.bintray.com/php-alpine/v3.9/php-7.3)   |
+
+Builds are available as soon as possible, and EOS is determined by:
+- If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
+- Support for both PHP and Alpine are estimated for around 2 years from release date.
 
 Active support reference:
 
 - PHP: https://www.php.net/supported-versions.php
 - Alpine: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases  
 
-> Each version is available on a separate repository, choose the one you want and follow the instructions below:
+> Replace examples below with desired Alpine and PHP versions.
 
 
 ## Snippets
@@ -185,8 +164,11 @@ This is the complete available packages list:
 |  -                    |                 |
 | `argon2`              | Extra Package   |
 | `argon2-dev`          | Extra Package   |
+| `enchant`             | Extra Package   |
+| `enchant-doc`         | Extra Package   |
+| `enchant-dev`         | Extra Package   |
 | `libargon2`           | Extra Package   |
-| `secp256k1`           | Extra Package   |
+| `libsecp256k1`        | Extra Package   |
 
 
 > Life's good!
