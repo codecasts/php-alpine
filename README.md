@@ -1,14 +1,8 @@
-# PHP Repositories for Alpine - by CODECASTS
+## PHP-ALPINE: Fresh PHP binaries APK repository for Alpine Linux.
 
-**"Maybe Up-to-date, PHP packages for Alpine Linux."**
+ > Maintainer: [@hernandev](https://github.com/hernandev)
 
----
-
-Maintained by **[@hernandev](https://github.com/hernandev)**. Based on **[Valery Kartel](https://github.com/vakartel)** scripts.
-
----
-
-This project provides a simple alternative for running updated PHP on Alpine Linux.
+This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 
 We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
 
@@ -16,39 +10,38 @@ Additionally, many PECL extensions are also available as packages as well.
 
 ---
 
-## Release Cycle
 
-For short, this project will support **2 minor version of both PHP and Alpine**  at time.
+## APK Repositories & Release Cycle
 
-## Available Repositories
+<!-- ### PHP End of Support -->
+<!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
+<!-- PHP 7.3     | 2020-12-06 | 1607212800-->
+<!-- Alpine 3.12 | 2022-05-01 | 1651449599-->
+<!-- Alpine 3.11 | 2021-11-01 | 1635724800-->
+<!-- Alpine 3.10 | 2021-05-01 | 1619827200-->
+<!-- Alpine 3.9  | 2020-11-01 | 1604188800-->
 
-| Alpine Version  | PHP Version  | Current Release                                                                                                                                            | Repository URL                                                                                     |
-| -               | -            | -                                                                                                                                                          | -                                                                                                  |
-| **`3.10`**      | **`7.4`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.10/php-7.4/images/download.svg) ](https://bintray.com/php-alpine/v3.10/php-7.4/_latestVersion) | [https://dl.bintray.com/php-alpine/v3.10/php-7.4](https://dl.bintray.com/php-alpine/v3.10/php-7.4) |
-| **`3.9`**       | **`7.4`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.4/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.4/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.9/php-7.4](https://dl.bintray.com/php-alpine/v3.9/php-7.4)   |
-| **`3.9`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.9/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.9/php-7.3/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.9/php-7.3](https://dl.bintray.com/php-alpine/v3.9/php-7.3)   |
-| **`3.8`**       | **`7.3`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.3/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.3/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.8/php-7.3](https://dl.bintray.com/php-alpine/v3.8/php-7.3)   |
-| **`3.8`**       | **`7.2`**    | [![Download](https://api.bintray.com/packages/php-alpine/v3.8/php-7.2/images/download.svg) ](https://bintray.com/php-alpine/v3.8/php-7.2/_latestVersion)   | [https://dl.bintray.com/php-alpine/v3.8/php-7.2](https://dl.bintray.com/php-alpine/v3.8/php-7.2)   |
+| Alpine      | PHP                                                                                          |  End of Support  | Repository URL                                                                                |
+| -           | -                                                                                            | -                | -                                                                                             |
+| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.12/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.12/php-7.4`](https://dl.bintray.com/php-alpine/v3.11/php-7.4) |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.11/php-7.4`](https://dl.bintray.com/php-alpine/v3.11/php-7.4) |
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.11/php-7.3`](https://dl.bintray.com/php-alpine/v3.11/php-7.3) |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.10/php-7.4`](https://dl.bintray.com/php-alpine/v3.10/php-7.4) |
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.10/php-7.3`](https://dl.bintray.com/php-alpine/v3.10/php-7.3) |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=flat-square)   | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.4)  | ![EOS](https://img.shields.io/badge/EOS-2020--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.9/php-7.4`](https://dl.bintray.com/php-alpine/v3.9/php-7.4)   |
+| ![Alpine 3.9](https://img.shields.io/badge/Alpine-v3.9-blue?style=flat-square)   | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.9/php-7.3)  | ![EOS](https://img.shields.io/badge/EOS-2020--11--01-success?style=flat-square) | [`https://dl.bintray.com/php-alpine/v3.9/php-7.3`](https://dl.bintray.com/php-alpine/v3.9/php-7.3)   |
 
-> Alpine v3.7 is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
-> PHP 7.1.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
-> PHP 7.0.x is now deprecated and removed from this documentation. Your scripts will not stop working since the files are still available but they will not be receiving new builds from now on.
+Builds are available as soon as possible, and EOS is determined by:
+- If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
+- Support for both PHP and Alpine are estimated for around 2 years from release date.
 
----
+Active support reference:
 
-> Each version is available on a separate repository, choose the one you want and follow the instructions below:
+- PHP: https://www.php.net/supported-versions.php
+- Alpine: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases  
 
-## Repository Conflicts
+> Replace examples below with desired Alpine and PHP versions.
 
-In some cases, the packages on the repositories may present conflicts with official packages.
-
-To solve that, each page was aliases as `php-name`, without the `7` indicator.
-
-Considering this, all installs are now encouraged to reference the virtual names when installing.
-
-The examples on this documentation are now updated to reflect this decision.
-
-The original names are kept, and it should not break working scripts.
 
 ## Snippets
 
@@ -61,48 +54,20 @@ The following code snippets are intended for quick usage on either shell scripts
 You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
 ```dockerfile
-# Versions 3.8 and 3.7 are current stable supported versions.
-FROM alpine:3.9
+FROM alpine:3.11
 
-# trust this project public key to trust the packages.
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
-## you may join the multiple run lines here to make it a single layer
-
-# make sure you can use HTTPS
-RUN apk --update-cache add ca-certificates
-
-# add the repository, make sure you replace the correct versions if you want.
-RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
+RUN apk --update-cache add ca-certificates && \
+    echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
 
 # install php and some extensions
-RUN apk add --update-cache php
-RUN apk add --update-cache php-mbstring
-RUN apk add --update-cache php-you-extension-name-here
-```
-
-### Bash / Shell scripting
-
-> You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
-
-
-```bash
-#!/usr/bin/env sh
-
-# install curl and certificates to download the key
-apk add --update-cache curl ca-certificates
-
-# download the repository public key
-curl https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub -o /etc/apk/keys/php-alpine.rsa.pub
-
-# add the repository for the php / alpine version corresponding
-echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
-
-# install packages
-apk add --update-cache php
-apk add --update-cache php-redis
-apk add --update-cache php-any-other-extension
-
+RUN apk add --update-cache \
+    php \
+    php-bz2 \
+    php-json \
+    php-mysql \
+    php-any-other-available-package... 
 ```
 
 
@@ -199,8 +164,11 @@ This is the complete available packages list:
 |  -                    |                 |
 | `argon2`              | Extra Package   |
 | `argon2-dev`          | Extra Package   |
+| `enchant`             | Extra Package   |
+| `enchant-doc`         | Extra Package   |
+| `enchant-dev`         | Extra Package   |
 | `libargon2`           | Extra Package   |
-| `secp256k1`           | Extra Package   |
+| `libsecp256k1`        | Extra Package   |
 
 
 > Life's good!

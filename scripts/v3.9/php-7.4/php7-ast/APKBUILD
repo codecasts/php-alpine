@@ -4,7 +4,7 @@ pkgname=php7-ast
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=ast
-pkgver=1.0.5
+pkgver=1.0.8
 pkgrel=1
 _phpver=7
 provides="php-ast=7.4"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="7f56816553894849b539233209c57df9f9239ddc8a172c924a1f72c57ba474228e6f82779787a40ed1d78cac890dcd3d49bbb1aa2f7d4c29b95ae9809c836141  ast-1.0.5.tgz"
+sha512sums="c8363f7f95e5f42811caa780ef385b92d1917ed8ffb2f25e73319b451250e594c2b20df24c8ac8b6f5bca74e8d600b72d8eacf1a38d95a2fa4aec04aa355919b  ast-1.0.8.tgz"
