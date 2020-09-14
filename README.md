@@ -58,11 +58,11 @@ FROM alpine:3.11
 
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
-RUN apk --update add ca-certificates && \
+RUN apk --update-cache add ca-certificates && \
     echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
 
 # install php and some extensions
-RUN apk add --update \
+RUN apk add --update-cache \
     php \
     php-bz2 \
     php-json \

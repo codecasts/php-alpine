@@ -17,7 +17,7 @@ ARG APK_PACKAGER
 ARG APK_MAINTAINER
 
 # ADD SDK AND BASIC TOOLS.
-RUN apk add --update alpine-sdk sudo git bash nano
+RUN apk add --update-cache alpine-sdk sudo git bash nano
 
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
