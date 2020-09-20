@@ -25,7 +25,7 @@ depends_soap="$pkgname-xml>=8.0.0 $pkgname-xml<8.1.0"
 depends_xmlreader="$pkgname-dom>=8.0.0 $pkgname-dom<8.1.0"
 depends_xsl="$pkgname-dom>=8.0.0 $pkgname-dom<8.1.0"
 makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
-	aspell-dev enchant-dev expat-dev pcre-dev pcre2-dev curl-dev gmp-dev icu-dev imap-dev
+	aspell-dev enchant2-dev expat-dev pcre-dev pcre2-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libsodium-dev openssl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
 	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
 	libpng-dev libwebp-dev libjpeg-turbo-dev gsoap-dev recode-dev
