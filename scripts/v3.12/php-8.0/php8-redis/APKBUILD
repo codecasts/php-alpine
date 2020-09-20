@@ -5,7 +5,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=redis
 pkgver=5.3.1
 pkgrel=3
-_phpver=7
+_phpver=8
 provides="php-redis=8.0"
 pkgdesc="Redis extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"

@@ -6,7 +6,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=mongodb
 pkgver=1.7.5
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-mongodb=8.0"
 pkgdesc="MongoDB extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"

@@ -6,7 +6,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=timecop
 pkgver=1.2.10
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-timecop=8.0"
 pkgdesc="A PHP extension providing 'time travel'"
 url="http://pecl.php.net/package/$_pkgreal"

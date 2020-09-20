@@ -6,7 +6,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=phalcon
 pkgver=4.0.6
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-phalcon=8.0"
 pkgdesc="Phalcon extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"
@@ -24,7 +24,7 @@ prepare() {
 build() {
 	cd "$builddir"
 	# make clean
-	phpize7
+	phpize$_phpver
 	./configure --prefix=/usr --with-php-config=/usr/bin/php-config7
     make
 }
