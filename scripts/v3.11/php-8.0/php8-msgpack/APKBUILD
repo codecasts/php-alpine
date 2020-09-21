@@ -1,0 +1,40 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-msgpack
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=msgpack
+pkgver=2.1.0
+pkgrel=1
+_phpver=7
+provides="php-msgpack=8.0"
+pkgdesc="PHP extension for interfacing with MessagePack"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0 php8-session>=8.0.0 php8-session<8.1.0"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 php8-session>=8.0.0 php8-session<8.1.0 autoconf pcre2-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/30_$_pkgreal.ini || return 1
+}
+
+sha512sums="e024694076224796b2fb4dbd4473c5ac782951911437d0ee668231a1908f924a3a28dd616c0821929b425ee5ec06ef51f870f15b677171429049f4ae5f7befb7  msgpack-2.1.0.tgz"

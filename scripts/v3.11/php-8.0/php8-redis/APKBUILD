@@ -1,0 +1,39 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+pkgname=php8-redis
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=redis
+pkgver=5.3.1
+pkgrel=3
+_phpver=7
+provides="php-redis=8.0"
+pkgdesc="Redis extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0 php8-session>=8.0.0 php8-session<8.1.0"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf"
+source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
+}
+
+sha512sums="dca62e0e87d22c25818f0eb84ec0a4ae8ab4c1a2de295b7d56d10548c95448637e1b1ca86c55adf0f801fe22bf3c05fad4ff58f3823e5d74c506d041b64f1d4a  redis-5.3.1.tgz"
