@@ -1,0 +1,21 @@
+name: package-build
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+      APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
+      BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
+      BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: build-wip
+        run:
+          - echo ${{ secrets.PHP_ALPINE_RSA }} > .abuild/php-alpine.rsa
+          - echo ${{ secrets.PHP_ALPINE_RSA_PUB }} > .abuild/php-alpine.rsa.pub
+          - docker-compose run shell ./build --full
