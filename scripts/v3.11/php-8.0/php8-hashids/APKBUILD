@@ -6,7 +6,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=hashids
 pkgver=1.0.0
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-hashids=8.0"
 pkgdesc="php extension for Hashids"
 url="https://github.com/cdoco/hashids.phpc"

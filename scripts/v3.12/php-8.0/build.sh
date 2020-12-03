@@ -7,7 +7,7 @@ set -e
 PACKAGES="argon2 enchant secp256k1"
 
 # extensions to build.
-EXTENSIONS="apcu ast ds hashids imagick libsodium memcached mongodb msgpack psr redis scalar_objects secp256k1 swoole timecop xdebug"
+EXTENSIONS="apcu hashids libsodium memcached mongodb msgpack psr redis scalar_objects swoole xdebug"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)

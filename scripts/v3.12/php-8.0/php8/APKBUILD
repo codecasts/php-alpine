@@ -32,7 +32,7 @@ makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev 
 	libedit-dev paxmark gettext-dev oniguruma-dev libgcrypt-dev libgpg-error-dev gd-dev
 	"
 
-source="$_pkgreal-$pkgver.tar.bz2::https://downloads.php.net/~pollita/php-8.0.0beta4.tar.bz2
+source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.bz2/from/this/mirror
 	$pkgname-fpm.initd
 	$pkgname-fpm.logrotate
 	$pkgname-module.conf
@@ -40,7 +40,7 @@ source="$_pkgreal-$pkgver.tar.bz2::https://downloads.php.net/~pollita/php-8.0.0b
 	pid_log.patch
 	install-pear.patch
 	"
-builddir="$srcdir/$_pkgreal-8.0.0beta4" # TODO: change back to $pkgver
+builddir="$srcdir/$_pkgreal-$pkgver"
 
 _exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl
 	ldap mbstring mysqli mysqlnd odbc opcache openssl pcntl pdo pdo_dblib pdo_mysql
@@ -58,7 +58,7 @@ for _ext in $_exts; do
 done
 subpackages="$subpackages $pkgname-common::noarch"
 
-_apiver="20200804"
+_apiver="20200930"
 
 prepare() {
 	cd "$builddir"

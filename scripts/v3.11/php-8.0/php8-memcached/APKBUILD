@@ -6,7 +6,7 @@ pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=memcached
 pkgver=3.1.5
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-memcached=8.0"
 pkgdesc="Memcached extension for PHP"
 url="http://pecl.php.net/package/$_pkgreal"

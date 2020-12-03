@@ -4,9 +4,9 @@ pkgname=php8-xdebug
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=xdebug
-pkgver=2.9.6
+pkgver=3.0.0
 pkgrel=1
-_phpver=7
+_phpver=8
 provides="php-xdebug=8.0"
 pkgdesc="xDebug Profiler"
 url="http://pecl.php.net/package/$_pkgreal"
@@ -37,4 +37,4 @@ package() {
     echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="f5e1e1de2fa555673c5ccf2bc53e686d3e24cb127171109de09975df7bc32653272fa033662f535b18d81ad9fced9cc5082ef2f63d265bd9abb084dfee6f557e  xdebug-2.9.6.tgz"
+sha512sums="d8eff1b611558c4a7f369f1ea729e6ea3864253592d8cfd0f6195a1ca7a7dbb0ff0f44ccb13caf92ff1bfc4082dbbe0226b8a75fc573f1bbae65db9dcb416f58  xdebug-3.0.0.tgz"
