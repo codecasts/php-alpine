@@ -31,3 +31,4 @@ jobs:
         run: |
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+          ./build build
