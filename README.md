@@ -1,14 +1,28 @@
 ## PHP-ALPINE: Fresh PHP binaries APK repository for Alpine Linux.
 
-**Supporting PHP 8!**
-
- > Maintainer: [@hernandev](https://github.com/hernandev)
+**Currently Supporting PHP 8.0**, also, PHP 7.4 and PHP 7.3.
 
 This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
-
 We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
-
 Additionally, many PECL extensions are also available as packages as well.
+
+
+#### Created by:
+  - Diego Hernandes - **[@hernandev](https://github.com/hernandev)**
+  
+#### Support, Help and Faith:
+  - Ueli Banholzer - **[@xarem](https://github.com/xarem)** 
+  - whatwedo GmbH - **[@whatwedo](https://github.com/whatwedo)**
+  - individual [contributors](https://github.com/codecasts/php-alpine/graphs/contributors)
+
+
+#### Main Related Projects:
+- **[Ambientum](https://github.com/ambientum/ambientum)** by [@hernandev](https://github.com/hernandev) 
+  Docker native solution for running Laravel projects. From Development to Production. 
+
+- **[DDE](https://github.com/whatwedo/dde)** by [@whatwedo](https://github.com/whatwedo) 
+  Local development environment toolset based on Docker
+
 
 ---
 
