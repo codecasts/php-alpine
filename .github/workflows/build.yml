@@ -18,15 +18,17 @@ jobs:
         php: [ "8.0", "7.4" ]
 
     steps:
+      - name: checkout
       - uses: actions/checkout@v1
       - name: build-wip
-      - env:
-        APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
-        APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
-        BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
-        BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-        ALPINE_VERSION: ${{ matrix.alpine }}
-        PHP_VERSION: ${{ matrix.php }}
-      - run: echo ${{ secrets.PHP_ALPINE_RSA }} > .abuild/php-alpine.rsa
-      - run: echo ${{ secrets.PHP_ALPINE_RSA_PUB }} > .abuild/php-alpine.rsa.pub
-      - run: docker-compose run shell ./build --full
+        env:
+          APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+          APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
+          BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
+          BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+          ALPINE_VERSION: ${{ matrix.alpine }}
+          PHP_VERSION: ${{ matrix.php }}
+        run: |
+          echo ${{ secrets.PHP_ALPINE_RSA }} > .abuild/php-alpine.rsa
+          echo ${{ secrets.PHP_ALPINE_RSA_PUB }} > .abuild/php-alpine.rsa.pub
+          docker-compose run shell ./build --full
