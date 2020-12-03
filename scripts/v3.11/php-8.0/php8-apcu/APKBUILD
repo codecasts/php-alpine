@@ -1,0 +1,40 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-apcu
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=apcu
+pkgver=5.1.18
+pkgrel=1
+_phpver=8
+provides="php-apcu=8.0"
+pkgdesc="APCu - APC User Cache extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf pcre2-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="5e9c5b4540be7abdf2f473d2f8955d8708934a1d6e05cb2c99154cc7ba8a2bbf9afde51769e20f46ef278efd6f60b9172e0864c31e0976b9d3096a337035e7a9  apcu-5.1.18.tgz"

@@ -3,30 +3,29 @@
 
 # Based on the scripts of: Valery Kartel <valery.kartel@gmail.com>
 
-pkgname=php7
+pkgname=php8
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=php
-pkgver=7.4.13
+pkgver=8.0.0
 pkgrel=1
-pkgdesc="The PHP language runtime engine - 7th branch"
+pkgdesc="The PHP language runtime engine - 8th branch"
 url="http://www.php.net/"
 arch="all"
 license="PHP-3"
 options=""
-provides="$_pkgreal=7.4"
-depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-depends_dom="$pkgname-xml>=7.4.0 $pkgname-xml<7.5.0"
-depends_mysqlnd="$pkgname-openssl>=7.4.0 $pkgname-openssl<7.5.0"
-depends_mysqli="$pkgname-mysqlnd>=7.4.0 $pkgname-mysqlnd<7.5.0"
-depends_pdo_mysql="$pkgname-mysqlnd>=7.4.0 $pkgname-mysqlnd<7.5.0"
-depends_phar="$pkgname>=7.4.0 $pkgname<7.5.0"
-depends_soap="$pkgname-xml>=7.4.0 $pkgname-xml<7.5.0"
-depends_xmlreader="$pkgname-dom>=7..0 $pkgname-dom<7.5.0"
-depends_xmlrpc="$pkgname-xml>=7.4.0 $pkgname-xml<7.5.0"
-depends_xsl="$pkgname-dom>=7.4.0 $pkgname-dom<7.5.0"
+provides="$_pkgreal=8.0"
+depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+depends_dom="$pkgname-xml>=8.0.0 $pkgname-xml<8.1.0"
+depends_mysqlnd="$pkgname-openssl>=8.0.0 $pkgname-openssl<8.1.0"
+depends_mysqli="$pkgname-mysqlnd>=8.0.0 $pkgname-mysqlnd<8.1.0"
+depends_pdo_mysql="$pkgname-mysqlnd>=8.0.0 $pkgname-mysqlnd<8.1.0"
+depends_phar="$pkgname>=8.0.0 $pkgname<8.1.0"
+depends_soap="$pkgname-xml>=8.0.0 $pkgname-xml<8.1.0"
+depends_xmlreader="$pkgname-dom>=8.0.0 $pkgname-dom<8.1.0"
+depends_xsl="$pkgname-dom>=8.0.0 $pkgname-dom<8.1.0"
 makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev libzip-dev bzip2-dev zlib-dev
-	aspell-dev enchant-dev expat-dev pcre-dev pcre2-dev curl-dev gmp-dev icu-dev imap-dev
+	aspell-dev enchant2-dev expat-dev pcre-dev pcre2-dev curl-dev gmp-dev icu-dev imap-dev
 	libical-dev libsodium-dev openssl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
 	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
 	libpng-dev libwebp-dev libjpeg-turbo-dev gsoap-dev recode-dev
@@ -37,17 +36,16 @@ source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.
 	$pkgname-fpm.initd
 	$pkgname-fpm.logrotate
 	$pkgname-module.conf
-	install-pear.patch
 	includedir.patch
 	pid_log.patch
+	install-pear.patch
 	"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
-
-_exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl json
+_exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl
 	ldap mbstring mysqli mysqlnd odbc opcache openssl pcntl pdo pdo_dblib pdo_mysql
 	pdo_odbc pdo_pgsql pdo_sqlite pgsql phar:phar posix pspell session shmop snmp soap
-	sockets sodium sqlite3 sysvmsg sysvsem sysvshm tidy xml xmlreader xmlrpc xsl zip zlib
+	sockets sodium sqlite3 sysvmsg sysvsem sysvshm tidy xml xmlreader xsl zip zlib
 	"
 subpackages="$pkgname-dev $pkgname-doc $pkgname-apache2 $pkgname-phpdbg $pkgname-embed
 	$pkgname-litespeed $pkgname-cgi $pkgname-fpm $pkgname-pear::noarch
@@ -60,7 +58,7 @@ for _ext in $_exts; do
 done
 subpackages="$subpackages $pkgname-common::noarch"
 
-_apiver="20190902"
+_apiver="20200930"
 
 prepare() {
 	cd "$builddir"
@@ -83,7 +81,7 @@ _build() {
 		--build=$CBUILD \
 		--host=$CHOST \
 		--prefix=/usr \
-		--program-suffix=7 \
+		--program-suffix=8 \
 		--libdir=/usr/lib/$pkgname \
 		--datadir=/usr/share/$pkgname \
 		--sysconfdir=/etc/$pkgname \
@@ -91,7 +89,7 @@ _build() {
 		--with-layout=GNU \
 		--with-pic \
 		--with-password-argon2 \
-		--with-pear=/usr/share/$pkgname \
+		--with-pear \
 		--with-config-file-path=/etc/$pkgname \
 		--with-config-file-scan-dir=/etc/$pkgname/conf.d \
 		--disable-short-tags \
@@ -109,14 +107,13 @@ _build() {
 		--enable-exif=shared \
 		--enable-ftp=shared \
 		--enable-gd=shared --with-webp=shared --with-jpeg=shared --with-xpm=shared --with-external-gd \
-		--with-freetype=shared --enable-gd-native-ttf --enable-gd-jis-conv \
+		--with-freetype=shared --enable-gd-jis-conv \
 		--with-gettext=shared \
 		--with-gmp=shared \
 		--with-sodium=shared \
 		--with-iconv=shared \
 		--with-imap=shared --with-imap-ssl \
 		--enable-intl=shared \
-		--enable-json=shared \
 		--with-libxml=shared --with-expat=shared \
 		--with-ldap=shared --with-ldap-sasl \
 		--enable-mbstring=shared --enable-mbregex \
@@ -146,7 +143,6 @@ _build() {
 		--with-tidy=shared \
 		--enable-xml=shared \
 		--enable-xmlreader=shared \
-		--with-xmlrpc=shared \
 		--with-xsl=shared \
 		--with-zip=shared \
 		$@ || return 1
@@ -170,7 +166,8 @@ build() {
 		--disable-cli \
 		--with-apxs2 \
 		|| return 1
-	mv libs/libphp7.so sapi/apache2handler/mod_php7.so
+
+	mv libs/libphp.so sapi/apache2handler/mod_php8.so
 	# cgi,cli,fpm,embed,litespeed
 	_build --disable-phpdbg \
 		--enable-fpm \
@@ -187,15 +184,15 @@ package() {
 	install -Dm644 php.ini-production "$pkgdir"/etc/$pkgname/php.ini || return 1
 
 	local file; for file in pear peardev pecl; do
-		sed -i -e "s~/usr/bin/php~/usr/bin/php7~g" \
-			-e "s~PHP=php~PHP=php7~" \
+		sed -i -e "s~/usr/bin/php~/usr/bin/php8~g" \
+			-e "s~PHP=php~PHP=php8~" \
 			"$pkgdir"/usr/bin/$file || return 1
 	done
 
 	# patch pecl problem with shared xml extension
     sed -i 's/\(-C *\)[^ ]*/\1/' "$pkgdir"/usr/bin/pecl
 
-	paxmark -m "$pkgdir"/usr/bin/php7
+	paxmark -m "$pkgdir"/usr/bin/php8
 
 	find "$pkgdir" -name '.*' | xargs rm -rf || return 1
 	rmdir "$pkgdir"/var/run
@@ -203,12 +200,12 @@ package() {
 
 dev() {
 	default_dev
-	depends="$depends $pkgname>=7.4.0 $pkgname<7.5.0 $pkgname-pear>=7.4.0 $pkgname-pear<7.5.0"
-	provides="$_pkgreal-dev=7.4"
+	depends="$depends $pkgname>=8.0.0 $pkgname<8.1.0 $pkgname-pear>=8.0.0 $pkgname-pear<8.1.0"
+	provides="$_pkgreal-dev=8.0"
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/usr/lib/$pkgname
 
-	mv "$pkgdir"/usr/bin/php-config7 "$pkgdir"/usr/bin/peardev \
+	mv "$pkgdir"/usr/bin/php-config8 "$pkgdir"/usr/bin/peardev \
 		"$subpkgdir"/usr/bin/ || return 1
 	mv "$pkgdir"/usr/lib/$pkgname/build \
 		"$subpkgdir"/usr/lib/$pkgname/
@@ -216,7 +213,7 @@ dev() {
 
 doc() {
 	default_doc
-    provides="$_pkgreal-doc=7.4"
+    provides="$_pkgreal-doc=8.0"
 	mkdir -p "$subpkgdir"/usr/share/doc/$pkgname
 
 	local file
@@ -227,51 +224,51 @@ doc() {
 
 apache2() {
 	pkgdesc="PHP Module for Apache2"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0 apache2"
-    provides="$_pkgreal-apache2=7.4"
-	install -D -m755 "$builddir"/sapi/apache2handler/mod_php7.so \
-		"$subpkgdir"/usr/lib/apache2/mod_php7.so || return 1
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0 apache2"
+    provides="$_pkgreal-apache2=8.0"
+	install -D -m755 "$builddir"/sapi/apache2handler/mod_php8.so \
+		"$subpkgdir"/usr/lib/apache2/mod_php8.so || return 1
 
-	install -D -m644 "$srcdir"/php7-module.conf \
-		"$subpkgdir"/etc/apache2/conf.d/php7-module.conf
+	install -D -m644 "$srcdir"/php8-module.conf \
+		"$subpkgdir"/etc/apache2/conf.d/php8-module.conf
 }
 
 phpdbg() {
 	pkgdesc="Interactive PHP debugger"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-    provides="$_pkgreal-phpdbg=7.4"
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+    provides="$_pkgreal-phpdbg=8.0"
 	install -Dm755 "$builddir"/sapi/phpdbg/phpdbg \
-		 "$subpkgdir"/usr/bin/phpdbg7
+		 "$subpkgdir"/usr/bin/phpdbg8
 }
 
 embed() {
 	pkgdesc="PHP Embedded Library"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-    provides="$_pkgreal-embed=7.4"
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+    provides="$_pkgreal-embed=8.0"
 	mkdir -p "$subpkgdir"/usr/lib
 	mv "$pkgdir"/usr/lib/libphp*.so "$subpkgdir"/usr/lib/
 }
 
 litespeed() {
 	pkgdesc="PHP LiteSpeed SAPI"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-    provides="$_pkgreal-litespeed=7.4"
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+    provides="$_pkgreal-litespeed=8.0"
 	mkdir -p "$subpkgdir"/usr/bin
-	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp7
+	# mv "$pkgdir"/usr/bin/lsphp "$subpkgdir"/usr/bin/lsphp8
 }
 
 cgi() {
 	pkgdesc="PHP Common Gateway Interface"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-    provides="$_pkgreal-cgi=7.4"
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+    provides="$_pkgreal-cgi=8.0"
 	mkdir -p "$subpkgdir"/usr/bin
-	mv "$pkgdir"/usr/bin/php-cgi7 "$subpkgdir"/usr/bin/
+	mv "$pkgdir"/usr/bin/php-cgi8 "$subpkgdir"/usr/bin/
 }
 
 fpm() {
 	pkgdesc="PHP FastCGI Process Manager"
-	depends="$pkgname-common>=7.4.0 $pkgname-common<7.5.0"
-    provides="$_pkgreal-fpm=7.4"
+	depends="$pkgname-common>=8.0.0 $pkgname-common<8.1.0"
+    provides="$_pkgreal-fpm=8.0"
 	mv "$pkgdir"/var "$subpkgdir"/ || return 1
 
 	mkdir -p "$subpkgdir"/etc/$pkgname \
@@ -288,18 +285,18 @@ fpm() {
 			"$subpkgdir"/etc/$pkgname/$file || return 1
 	done
 
-	install -D -m755 "$srcdir"/$pkgname-fpm.initd "$subpkgdir"/etc/init.d/php-fpm7 || return 1
-	install -D -m644 "$srcdir"/$pkgname-fpm.logrotate "$subpkgdir"/etc/logrotate.d/php-fpm7
+	install -D -m755 "$srcdir"/$pkgname-fpm.initd "$subpkgdir"/etc/init.d/php-fpm8 || return 1
+	install -D -m644 "$srcdir"/$pkgname-fpm.logrotate "$subpkgdir"/etc/logrotate.d/php-fpm8
 }
 
 pear() {
 	pkgdesc="PHP Extension and Application Repository"
-	depends="$pkgname>=7.4.0 $pkgname<7.5.0 $pkgname-xml>=7.4.0 $pkgname-xml<7.5.0"
-    provides="$_pkgreal-pear=7.4"
+	depends="$pkgname>=8.0.0 $pkgname<8.1.0 $pkgname-xml>=8.0.0 $pkgname-xml<8.1.0"
+    provides="$_pkgreal-pear=8.0"
 	mkdir -p "$subpkgdir"/usr/bin \
 		"$subpkgdir"/etc/$pkgname
 
-	local file; for file in phpize7 pecl pear; do
+	local file; for file in phpize8 pecl pear; do
 		mv "$pkgdir"/usr/bin/$file "$subpkgdir"/usr/bin/
 	done
 	mv "$pkgdir"/etc/$pkgname/pear.conf "$subpkgdir"/etc/$pkgname/ || return 1
@@ -309,7 +306,7 @@ pear() {
 common() {
 	pkgdesc="$pkgdesc (common config)"
 	depends=""
-    provides="$_pkgreal-common=7.4"
+    provides="$_pkgreal-common=8.0"
 	mkdir -p "$subpkgdir"/usr
 	mv "$pkgdir"/usr/lib "$subpkgdir"/usr/ || return 1
 	mv "$pkgdir"/etc "$subpkgdir"/ || return 1
@@ -318,7 +315,7 @@ common() {
 }
 
 phar() {
-    provides="$_pkgreal-phar=7.4"
+    provides="$_pkgreal-phar=8.0"
 	_package_ext || return 1
 	mkdir -p "$subpkgdir"/usr/bin
 	mv "$pkgdir"/usr/bin/phar* "$subpkgdir"/usr/bin/
@@ -327,11 +324,11 @@ phar() {
 _package_ext() {
 	local extname="${subpkgname#$pkgname-}"
 	local extdepends="$(eval "echo \$depends_$extname")"
-	pkgdesc="PHP7 extension: $extname"
+	pkgdesc="php8 extension: $extname"
 	depends="$depends $extdepends"
-    provides="$_pkgreal-$extname=7.4"
+    provides="$_pkgreal-$extname=8.0"
 	case "$extname" in
-	pdo_*) depends="$depends $pkgname-pdo>=7.4.0 $pkgname-pdo<7.5.0"
+	pdo_*) depends="$depends $pkgname-pdo>=8.0.0 $pkgname-pdo<8.1.0"
 	esac
 
 	# extension dependencies and loading order
@@ -356,10 +353,10 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="3e2f7638ac81424cf42c4aa15b41ee9940b59798f10338f17a0143530e627ebe404ac1f08823d7ef8b5c2f204e8bfcb95852d1adff426ac644a102f73a57ee1a  php-7.4.11.tar.bz2
-5b45e3f76579c064e7393a080584515d4c70071cd028cd9292885c741ddc78731633082cf1808b34bbe2e54575caa4c6fcfb3da05f54a26f0848a5e1709492ac  php7-fpm.initd
-100434b8cecaa01a86cc8be56434db1c2dd3c49b7ae397a58b8ecad06a4eb5453e05412e20df1fa26468d6df6c4260f7c3c2b4b4c6f099ffec006bcc0c29cc3c  php7-fpm.logrotate
-7893c2c4507191ce39fa0813c0119ccb8394dbc5ec0092faea34d6494459c697f70536f19a4c7b767aa1a8c587fe49768b552e3b55a1fc11a1e66f267e0b605e  php7-module.conf
-677c9b4b4bde04595c588ed19946d9f828683619506e315d6e69352f56589972283da2957807caaf26eb2eb1075e6889233ef667c2b866156320149c2452bcf0  install-pear.patch
-7b2c240941ae1d409cab8bd8f05c763cbf84da1c2310cc42538e9bd39c67ffd9bc8eb8b28638fc08d0077ef0c2495fc89d3d9b048b3c2dcc1f8907348e9f626e  includedir.patch
-326dabea0b6df83d8be36f8c0a8522eea8d0c8fd4d108db2e6aebb1b3cc23c4ee9842eb6fe56a2d32d4ab981ef7411106796c47d380d803646add50c8ab4ad9d  pid_log.patch"
+sha512sums="fc808d21d66178d9305cd869824c5f4d553b28557cef646e9f8056b10d3da97e1c8d3e93c4f4e5924f9aa801ca295ab9860d1f6b9dbab1d8393a36740e139cdb  php-8.0.0.tar.bz2
+070c983b9f3f9aea72e4ef87f6c6cc4b625bf422fa2d3e5a4c38061563df1e8f1027f723b6b7d611bb6fa12d6e14fc3f1e17b7bac1e40230fd52b3a7af2dfb5f  php8-fpm.initd
+023618c57c8d7aeaf6b05df60f58bf97375c40aba930b3cefce8d8b0d6248d237d3a2e3107a45116930ba9cc4ab7d1139e18fd5d10ddf5175b74385f9871e56d  php8-fpm.logrotate
+da6d0eacb3d94feafb0d39e2a1af31b78e81ec8b31372d5529eabb2a61b3f34c33403a4b05e539f2df871081f8fff620cae74c4fb83b27bf7cd848a58fadb745  php8-module.conf
+dcc557303ab327b7b16c94306057f6aedfb467aa8524bfce182e8458a80cbd8ed439987f09fb0f2c76831e55c7b5f050cc7bd342f139c81bc4a8b371872d2ab5  includedir.patch
+cdd19eb0f6d18c387856b5aef63da1b9dbb2c3cbb4145445ab94c0baa64d64d322fe8fa70b376bb7a221bdb45ed69994b7e67bbf90074ebbadfcd65355fd6e5d  pid_log.patch
+e41c6e72d100386c1ff09ddf22aca814f6cc9355e74aa33f3171650256a6a303ef1314971fe91db13e74f90017ee626a4396aff2b9b7adefc48f1c71254431d0  install-pear.patch"
