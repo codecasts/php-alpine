@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# error handling mode.
+set -e
+
 # determine task to build.
 TASK=${1}
 
