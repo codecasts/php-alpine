@@ -31,6 +31,3 @@ jobs:
         run: |
           echo ${{ secrets.PHP_ALPINE_RSA }} > .abuild/php-alpine.rsa
           echo ${{ secrets.PHP_ALPINE_RSA_PUB }} > .abuild/php-alpine.rsa.pub
-          curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o ./docker-compose
-          chmod +x ./docker-compose
-          ./docker-compose run shell ./build --full
