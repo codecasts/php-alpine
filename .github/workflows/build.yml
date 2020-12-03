@@ -61,6 +61,7 @@ jobs:
           PHP_VERSION: ${{ matrix.php }}
           PHP_MINOR_VERSION: "7.4.13"
         run: |
+          echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
