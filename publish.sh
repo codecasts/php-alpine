@@ -9,11 +9,12 @@ source ./.env
 # ensure variables exists from .env.
 ALPINE_VERSION=${ALPINE_VERSION}
 PHP_VERSION=${PHP_VERSION}
+PHP_MINOR_VERSION=${PHP_MINOR_VERSION}
 BINTRAY_USERNAME=${BINTRAY_USERNAME}
 BINTRAY_API_KEY=${BINTRAY_API_KEY}
 
 # get timestamp to use as repo tag.
-INTERNAL_VERSION=${1}
+INTERNAL_VERSION=${PHP_MINOR_VERSION}
 
 # get all files for a given repo.
 PACKAGES=$(find "./repo/v${ALPINE_VERSION}/php-${PHP_VERSION}" -type f | cut -d '/' -f6- | xargs)
