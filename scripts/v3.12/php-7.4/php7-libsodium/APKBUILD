@@ -4,7 +4,7 @@ pkgname=php7-libsodium
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=libsodium
-pkgver=2.0.22
+pkgver=2.0.23
 pkgrel=1
 _phpver=7
 provides="php-libsodium=7.4"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="3c2a7a4ee90d53f2a3c02dad7455a28c63cdac50353b33ee1f62f371661e4bbbc8d97636df63a07d6dc20fc0c8e0106531568c21f37617e8dbc0a526d039c26c  libsodium-2.0.22.tgz"
+sha512sums="665969bd7a073888701e9da60b0dbffce114e38f51fc4c8be1f521ad2a10eeab7ad89a9be88fcd070b2fa2c40d9fc46d69d7a01c91128d5fdb0ae4a728987fd9  libsodium-2.0.23.tgz"
