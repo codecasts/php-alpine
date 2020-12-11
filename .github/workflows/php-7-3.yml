@@ -1,0 +1,39 @@
+name: build-php-7-3
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-php-7-3:
+    runs-on: ubuntu-latest
+    env:
+      APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+      APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
+      BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
+      BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+
+    strategy:
+      matrix:
+        php: [ "7.3" ]
+        alpine: [ "3.11", "3.10" ]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: build-wip
+        env:
+          APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+          APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
+          BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
+          BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+          ALPINE_VERSION: ${{ matrix.alpine }}
+          PHP_VERSION: ${{ matrix.php }}
+          PHP_MINOR_VERSION: "7.3.25"
+        run: |
+          echo "" > .env
+          echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
+          echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+          ./build.sh build
+          bash publish.sh
