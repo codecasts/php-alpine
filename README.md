@@ -57,7 +57,7 @@ Additionally, many PECL extensions are also available as packages as well.
 | Alpine | PHP | End of Support | Repository URL
 | - | - | - | -
 | ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.11/php-7.3`](https://dl.bintray.com/php-alpine/v3.11/php-7.3)
-| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-error?style=flat-square) | [`dl.bintray.com/php-alpine/v3.10/php-7.3`](https://dl.bintray.com/php-alpine/v3.10/php-7.3)
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-red?style=flat-square) | [`dl.bintray.com/php-alpine/v3.10/php-7.3`](https://dl.bintray.com/php-alpine/v3.10/php-7.3)
 
 
 Builds are available as soon as possible, and EOS is determined by:
