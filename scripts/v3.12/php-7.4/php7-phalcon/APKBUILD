@@ -4,7 +4,7 @@ pkgname=php7-phalcon
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=phalcon
-pkgver=4.0.6
+pkgver=4.1.0
 pkgrel=1
 _phpver=7
 provides="php-phalcon=7.4"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-sha512sums="d28d0aa95d787236c7cb3da9d51d30e94c7d054f75e0ca2e9791915abb775acbffa2c0b44661e3fdf59c511db1e9b039176bdeca275fb2e5a70ec8f26a0620fb  phalcon-4.0.6.zip"
+sha512sums="3b40495d9d62219811e935278ef3b7f67194b8725e5b565194d8b0f63ea0d518fdae22fe92a05d7b12350e43b5409099432e5ea29c262464eb6addef3c30c565  phalcon-4.1.0.zip"
