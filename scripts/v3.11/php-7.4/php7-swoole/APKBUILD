@@ -4,7 +4,7 @@ pkgname=php7-swoole
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=swoole
-pkgver=4.5.2
+pkgver=4.5.9
 pkgrel=1
 _phpver=7
 provides="php-swoole=7.4"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="ee42521e0830dedc463c2a7af00e963cb22793ad4c06f38082d24764581c3ce96dc46b0ac194196d404ab9ff1480abc7776569cbe06481396217469659f334bc  swoole-4.5.2.tgz"
+sha512sums="9154a2874480218aa3c8935979267efb92a3d5a4f1ba7dc071bf4c2b169d69e31a6ad7412785d00543dc5827ce2d6c5999b6cabea2089818f3f57acc26bcb31f  swoole-4.5.9.tgz"

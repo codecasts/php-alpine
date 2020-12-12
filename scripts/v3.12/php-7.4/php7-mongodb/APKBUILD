@@ -4,7 +4,7 @@ pkgname=php7-mongodb
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=mongodb
-pkgver=1.7.5
+pkgver=1.9.0
 pkgrel=1
 _phpver=7
 provides="php-mongodb=7.4"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="f0565adc42659d4070e42122d02a8306f29d6d70fe0b5e9a92144df346a8c672aafdf36613435b9dc8d50db5e98c2359fdf97408c45439d4d447257b85e93122  mongodb-1.7.5.tgz"
+sha512sums="80ad3caddde045fe5e879167b2b4cfc27bdabf6d3667df4df73f33503c329b0d6bf4da6b287fe454301a9a390434eec19971059c6de8d4c9720a79fe7680366d  mongodb-1.9.0.tgz"

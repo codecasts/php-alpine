@@ -4,7 +4,7 @@ pkgname=php7-ds
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=ds
-pkgver=1.2.9
+pkgver=1.3.0
 pkgrel=1
 _phpver=7
 provides="php-ds=7.3"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="73107fedd4515e5f7fbb761d19a9f9b472ad42771c1cc817ca4fc24fff1f070ce39cd59745d3a05a170d7327eea030cc85e7fb7a7caa3f3ff9b1eba19a159b86  ds-1.2.9.tgz"
+sha512sums="65b4a8aaed63afb68a47af6563f59596e30ab26ec53760d9c0059020149b057690da0d6eb4c3bd415471264f7c428b1d80a0629d552fb693da556f0b02038b28  ds-1.3.0.tgz"
