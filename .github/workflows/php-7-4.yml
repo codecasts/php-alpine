@@ -1,39 +1,44 @@
 name: build-php-7-4
 
+# workflow env.
+env:
+  APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+  APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
+  BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
+  BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+  PHP_VERSION: "7.4"
+  PHP_MINOR_VERSION: "7.4.13"
+
 on:
   push:
     branches:
       - master
+    paths:
+      - 'scripts/**/php-7.4/**
 
 jobs:
   build-php-7-4:
     runs-on: ubuntu-latest
+
     env:
-      APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
-      APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
-      BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
-      BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
+      ALPINE_VERSION: ${{ matrix.alpine }}
 
     strategy:
       matrix:
-        php: [ "7.4" ]
         alpine: [ "3.12", "3.11", "3.10" ]
 
     steps:
       - name: checkout
         uses: actions/checkout@v1
       - name: build-wip
-        env:
-          APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
-          APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
-          BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
-          BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-          ALPINE_VERSION: ${{ matrix.alpine }}
-          PHP_VERSION: ${{ matrix.php }}
-          PHP_MINOR_VERSION: "7.4.13"
         run: |
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
           bash publish.sh
+      - name: artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: repo-alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
+          path: repo/v${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}

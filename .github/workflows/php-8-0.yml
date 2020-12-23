@@ -13,10 +13,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'scripts/**/php-8.0/**
 
 jobs:
   build-php-8-0:
     runs-on: ubuntu-latest
+
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
 
