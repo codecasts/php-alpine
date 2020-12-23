@@ -13,8 +13,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'scripts/**/php-7.3/**'
 
 jobs:
   build-php-7-3:
