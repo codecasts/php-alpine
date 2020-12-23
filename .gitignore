@@ -5,3 +5,4 @@ instantclient*
 /repo-archive/*
 # ignore python venv directory (for building docs)
 /.docs-env
+/site/

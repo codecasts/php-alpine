@@ -1,0 +1,24 @@
+# site name.
+site_name: "php-alpine"
+
+extra_css:
+  - assets/css/override.css
+
+#nav:
+#  build: 'building-and-or-contributing.md'
+
+# theme config.
+theme:
+  # theme name.
+  name: material
+  # overrides custom directory.
+  custom_dir: docs/overrides
+  # custom logo.
+  logo: assets/img/logo-big.png
+  # default language.
+  language: en
+  # colors.
+  palette:
+    # scheme: slate
+    # primary: deep purple
+    # accent: deep purple

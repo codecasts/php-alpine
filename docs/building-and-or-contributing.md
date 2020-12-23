@@ -1,7 +1,7 @@
-# PHP-ALPINE - Build & Contribution Guide.
-
-This document includes simple instructions for building the packages at your own and/or locally testing for
-contributions on the project.
+---
+title: Build & Contribution Guide.
+summary: Development guidelines.
+---
 
 ### Required Tools.
 
