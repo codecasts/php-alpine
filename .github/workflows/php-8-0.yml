@@ -14,7 +14,7 @@ on:
     branches:
       - master
     paths:
-      - 'scripts/**/php-8.0/**
+      - 'scripts/**/php-8.0/**'
 
 jobs:
   build-php-8-0:
