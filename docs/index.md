@@ -85,7 +85,7 @@ The following code snippets are intended for quick usage on either shell scripts
 
 You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
 
-```Dockerfile
+```dockerfile
 FROM alpine:3.11
 
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub

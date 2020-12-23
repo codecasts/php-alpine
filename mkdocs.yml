@@ -2,10 +2,11 @@
 site_name: "php-alpine"
 
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/languages/dockerfile.min.js
   - assets/js/highlight.js
 extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css
   - assets/css/override.css
 
 #nav:
