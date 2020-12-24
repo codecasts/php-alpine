@@ -1,7 +1,7 @@
 /tmp
 /.env
 instantclient*
-/repo/*
+#/repo/*
 /repo-archive/*
 # ignore python venv directory (for building docs)
 /.docs-env
