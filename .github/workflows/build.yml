@@ -60,23 +60,25 @@ jobs:
             release: "7.3.25"
 
     steps:
-      - name: checkout
+      # checkout repository.
+      - name: git-checkout
         uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Checkout LFS objects
+
+      # checkout GIT LFS files.
+      - name: git-lfs
         run: git lfs checkout
+
+      # debug info.
       - name: debug-info
         run: |
           echo -e "Job strategy: "
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
           echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
-      - name: upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
-          path: repo/*${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
+
+      # build packages.
       - name: build
         if: true == false
         run: |
@@ -85,3 +87,10 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
           echo -e "bash publish.sh"
+
+      # upload artifacts.
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
+          path: repo/*${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
