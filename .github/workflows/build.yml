@@ -58,11 +58,6 @@ jobs:
           - alpine: "3.10"
             php: "7.3"
             release: "7.3.25"
-#        php:
-#          - version: "8.0"
-#            release: "8.0.0"
-#          - version: "7.4"
-#            release: "7.4.13"
 
     steps:
       - name: checkout
@@ -81,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
-          path: repo/v${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
+          path: repo/*${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
       - name: build
         if: true == false
         run: |
