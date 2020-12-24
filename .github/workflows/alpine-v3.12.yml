@@ -49,6 +49,7 @@ jobs:
           name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
           path: repo/*${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}
       - name: build
+        if: true == false
         run: |
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
