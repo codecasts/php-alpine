@@ -46,8 +46,8 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
-          path: repo/*-${{ env.ALPINE_VERSION }}/*-${{ env.PHP_MINOR_VERSION }}
+          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
+          path: repo/*-${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
       - name: build
         run: |
           echo "" > .env
