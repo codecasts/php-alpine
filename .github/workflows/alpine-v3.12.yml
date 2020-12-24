@@ -1,30 +1,34 @@
-name: build-php-8-0
+name: "alpine-v3.12"
 
 # workflow env.
 env:
+  ALPINE_VERSION: "3.12"
   APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
   BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
   BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-  PHP_VERSION: "8.0"
-  PHP_MINOR_VERSION: "8.0.0"
 
 on:
   push:
     branches:
       - publish
-      # - master
+      - master
 
 jobs:
   build-php-8-0:
     runs-on: ubuntu-latest
 
     env:
-      ALPINE_VERSION: ${{ matrix.alpine }}
+      PHP_VERSION: ${{ matrix.php.version }}
+      PHP_MINNOR_VERSION: ${{ matrix.php.release }}
 
     strategy:
       matrix:
-        alpine: [ "3.12", "3.11" ]
+        php:
+          - version: "8.0"
+            release: "8.0.0"
+          - version: "7.4"
+            release: "7.4.13"
 
     steps:
       - name: checkout
@@ -33,6 +37,12 @@ jobs:
           lfs: true
       - name: Checkout LFS objects
         run: git lfs checkout
+      - name: debug-info
+        run: |
+          echo -e "Job strategy: "
+          echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
+          echo -e "PHP Version: ${{ env.PHP_VERSION }}"
+          echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
       - name: build
         run: |
           echo "" > .env
@@ -43,11 +53,11 @@ jobs:
       - name: compress
         uses: papeloto/action-zip@v1
         with:
-          files: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
+          files: repo/v${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}
           recursive: true
-          dest: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip
+          dest: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}.zip
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}
-          path: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip
+          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
+          path: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}.zip
