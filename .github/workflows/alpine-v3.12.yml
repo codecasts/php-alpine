@@ -20,7 +20,7 @@ jobs:
 
     env:
       PHP_VERSION: ${{ matrix.php.version }}
-      PHP_MINNOR_VERSION: ${{ matrix.php.release }}
+      PHP_MINOR_VERSION: ${{ matrix.php.release }}
 
     strategy:
       matrix:
