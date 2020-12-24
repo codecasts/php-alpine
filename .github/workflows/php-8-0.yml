@@ -12,7 +12,8 @@ env:
 on:
   push:
     branches:
-      - build
+      - publish
+      - master
 
 jobs:
   build-php-8-0:
@@ -20,8 +21,6 @@ jobs:
 
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
-      BUILD_OUTPUT_DIR: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
-      BUILD_ARTIFACT_NAME: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
 
     strategy:
       matrix:
@@ -40,11 +39,11 @@ jobs:
       - name: compress
         uses: papeloto/action-zip@v1
         with:
-          files: ${{ env.BUILD_OUTPUT_DIR }}
+          files: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
           recursive: true
-          dest: ${{ env.BUILD_ARTIFACT_NAME }}.zip
+          dest: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.BUILD_ARTIFACT_NAME }}
-          path: ${{ env.BUILD_ARTIFACT_NAME }}.zip
+          name: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}
+          path: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip

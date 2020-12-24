@@ -13,7 +13,7 @@ on:
   push:
     branches:
       - publish
-      - master
+      # - master
 
 jobs:
   build-php-7-3:
@@ -21,8 +21,6 @@ jobs:
 
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
-      BUILD_OUTPUT_DIR: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
-      BUILD_ARTIFACT_NAME: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}
 
     strategy:
       matrix:
@@ -31,7 +29,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: build-wip
+      - name: build
         run: |
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
@@ -41,11 +39,11 @@ jobs:
       - name: compress
         uses: papeloto/action-zip@v1
         with:
-          files: ${{ env.BUILD_OUTPUT_DIR }}
+          files: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
           recursive: true
-          dest: ${{ env.BUILD_ARTIFACT_NAME }}.zip
+          dest: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.BUILD_ARTIFACT_NAME }}
-          path: ${{ env.BUILD_ARTIFACT_NAME }}.zip
+          name: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}
+          path: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}.zip
