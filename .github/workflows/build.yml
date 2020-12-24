@@ -1,8 +1,7 @@
-name: "alpine-v3.12"
+name: "build"
 
 # workflow env.
 env:
-  ALPINE_VERSION: "3.12"
   APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
   BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
@@ -15,20 +14,55 @@ on:
       - master
 
 jobs:
-  build-php-8-0:
+  build:
     runs-on: ubuntu-latest
 
     env:
-      PHP_VERSION: ${{ matrix.php.version }}
-      PHP_MINOR_VERSION: ${{ matrix.php.release }}
+      ALPINE_VERSION: ${{ matrix.alpine }}
+      PHP_VERSION: ${{ matrix.php }}
+      PHP_MINOR_VERSION: ${{ matrix.release }}
 
     strategy:
       matrix:
-        php:
-          - version: "8.0"
+        include:
+          # Alpine v3.12
+          # PHP 8.0
+          - alpine: "3.12"
+            php: "8.0"
             release: "8.0.0"
-          - version: "7.4"
+          # PHP 7.4
+          - alpine: "3.12"
+            php: "7.4"
             release: "7.4.13"
+
+          # Alpine v3.11
+          # PHP 8.0
+          - alpine: "3.11"
+            php: "8.0"
+            release: "8.0.0"
+          # PHP 7.4
+          - alpine: "3.11"
+            php: "7.4"
+            release: "7.4.13"
+          # PHP 7.3
+          - alpine: "3.11"
+            php: "7.3"
+            release: "7.3.25"
+
+          # Alpine v3.12
+          # PHP 7.4
+          - alpine: "3.10"
+            php: "7.4"
+            release: "7.4.13"
+          # PHP 7.3
+          - alpine: "3.10"
+            php: "7.3"
+            release: "7.3.25"
+#        php:
+#          - version: "8.0"
+#            release: "8.0.0"
+#          - version: "7.4"
+#            release: "7.4.13"
 
     steps:
       - name: checkout
