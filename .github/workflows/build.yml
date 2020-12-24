@@ -80,7 +80,6 @@ jobs:
 
       # build packages.
       - name: build
-        if: true == false
         run: |
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
