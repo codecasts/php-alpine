@@ -34,9 +34,9 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
-          bash publish.sh
+          echo -e "bash publish.sh"
       - name: artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: repo-alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
+          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
           path: repo/v${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}
