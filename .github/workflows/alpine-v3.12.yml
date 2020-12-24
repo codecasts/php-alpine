@@ -43,6 +43,11 @@ jobs:
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
           echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
+          path: repo/*-${{ env.ALPINE_VERSION }}/*-${{ env.PHP_MINOR_VERSION }}
       - name: build
         run: |
           echo "" > .env
@@ -50,14 +55,3 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
           echo -e "bash publish.sh"
-      - name: compress
-        uses: papeloto/action-zip@v1
-        with:
-          files: repo/v${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}
-          recursive: true
-          dest: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}.zip
-      - name: upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
-          path: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}.zip
