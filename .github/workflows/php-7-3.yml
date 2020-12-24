@@ -22,7 +22,7 @@ jobs:
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
       BUILD_OUTPUT_DIR: repo/v${{ matrix.alpine }}/php-${{ env.PHP_VERSION }}
-      BUILD_ARTIFACT_NAME: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_MINOR_VERSION }}
+      BUILD_ARTIFACT_NAME: alpine-v${{ matrix.alpine }}-php-${{ env.PHP_MINOR_VERSION }}
 
     strategy:
       matrix:
