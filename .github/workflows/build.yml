@@ -85,11 +85,16 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           ./build.sh build
-          echo -e "bash publish.sh"
+
+      # publish to bintray.
+      - name: bintray
+        run: |
+          echo -e "Publishing to Bintray"
+          ./publish-zip.sh
 
       # upload artifacts.
       - name: upload
         uses: actions/upload-artifact@v2
         with:
           name: alpine-v${{ env.ALPINE_VERSION }}-php-${{ env.PHP_VERSION }}
-          path: repo/*${{ env.ALPINE_VERSION }}/*-${{ env.PHP_VERSION }}
+          path: repo/*${{ env.ALPINE_VERSION }}/php-${{ env.PHP_VERSION }}
