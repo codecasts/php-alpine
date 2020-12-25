@@ -63,12 +63,6 @@ jobs:
       # checkout repository.
       - name: git-checkout
         uses: actions/checkout@v2
-        with:
-          lfs: true
-
-      # checkout GIT LFS files.
-      - name: git-lfs
-        run: git lfs checkout
 
       # debug info.
       - name: debug-info
