@@ -13,7 +13,8 @@ EXTENSIONS="amqp apcu ast ds hashids imagick libsodium memcached mongodb msgpack
 SOURCES_PATH=$(pwd)
 
 # ensure starts on sources path.
-cd ${SOURCES_PATH}
+# shellcheck disable=SC2164
+cd "${SOURCES_PATH}"
 
 # function for building packages.
 function build_package()
@@ -23,21 +24,23 @@ function build_package()
     # ensure previously built packages are available.
     sudo apk update
     # enter package source directory.
+    # shellcheck disable=SC2164
     cd "$SOURCES_PATH/$PACKAGE_NAME"
     # give a little feedback about the current package being built.
     echo "----> Building Package: $PACKAGE_NAME"
     # checksum source files before build.
-    abuild checksum
+    # abuild checksum
     # build the package from source.
     abuild -r
     # return shell to previous location for safe scripting!
-    cd ${SOURCES_PATH}
+    # shellcheck disable=SC2164
+    cd "${SOURCES_PATH}"
 }
 
 # build base packages.
 for PACKAGE in ${PACKAGES}; do
     # call the build function.
-    build_package ${PACKAGE}
+    build_package "${PACKAGE}"
 done
 
 # when full flag is provided, build PHP itself first.
@@ -49,8 +52,9 @@ fi
 # build extensions.
 for EXTENSION in ${EXTENSIONS}; do
     # call the build function, prefixing with "php7-".
-    build_package "php7-"${EXTENSION}
+    build_package "php7-${EXTENSION}"
 done
 
 # ensure the final destination is the sources path.
-cd ${SOURCES_PATH}
+# shellcheck disable=SC2164
+cd "$SOURCES_PATH"
