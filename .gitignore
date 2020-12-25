@@ -6,3 +6,4 @@ instantclient*
 # ignore python venv directory (for building docs)
 /.docs-env
 /site/
+/publish.tar.bz2
