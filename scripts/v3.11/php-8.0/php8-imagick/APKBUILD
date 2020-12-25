@@ -1,0 +1,42 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-imagick
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=imagick
+pkgver=3.4.4
+pkgrel=1
+_phpver=8
+pkggitrev=132a11fd26675db9eb9f0e9a3e2887c161875206
+provides="php-imagick=8.0"
+pkgdesc="ImageMagick extension for PHP"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0 imagemagick"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf imagemagick-dev libtool pcre2-dev"
+#source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+source="$_pkgreal-$pkgver.zip::https://github.com/Imagick/imagick/archive/$pkggitrev.zip"
+builddir="$srcdir/$_pkgreal-$pkggitrev"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="f5da6783c04f31ed49e1caa6d8dd47211e7fc2a0b8e3accb61e86e3f0ff02a888a0b6f28b5f0ff04ce9161f1170fcd33c7b33e75ca4265c78582ff97b5cc84f6  imagick-3.4.4.zip"

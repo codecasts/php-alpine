@@ -7,7 +7,7 @@ set -e
 PACKAGES="argon2 enchant secp256k1"
 
 # extensions to build.
-EXTENSIONS="apcu hashids libsodium memcached mongodb msgpack psr redis scalar_objects swoole xdebug"
+EXTENSIONS="apcu imagick hashids libsodium memcached mongodb msgpack psr redis scalar_objects swoole xdebug"
 
 # define root packages source path.
 SOURCES_PATH=$(pwd)
@@ -27,7 +27,7 @@ function build_package()
     # give a little feedback about the current package being built.
     echo "----> Building Package: $PACKAGE_NAME"
     # checksum source files before build.
-    abuild checksum
+    # abuild checksum
     # build the package from source.
     abuild -r
     # return shell to previous location for safe scripting!
