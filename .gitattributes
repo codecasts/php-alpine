@@ -1,2 +1,0 @@
-repo/*/*/*/*.apk filter=lfs diff=lfs merge=lfs -text
-repo/*/*/*/APKINDEX.tar.gz filter=lfs diff=lfs merge=lfs -text
