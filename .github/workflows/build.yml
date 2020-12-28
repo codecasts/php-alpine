@@ -21,7 +21,7 @@ jobs:
       PHP_VERSION: ${{ matrix.php }}
       PHP_MINOR_VERSION: ${{ matrix.release }}
       ALPINE_VERSION_SLUG: v${{ matrix.alpine }}
-      PHP_VERSION_SLUG: php-${{ env.PHP_VERSION }}
+      PHP_VERSION_SLUG: php-${{ matrix.php }}
       PA_BUILD_SLUG: alpine-v${{ matrix.alpine }}_php-${{ matrix.php }}
       PA_BUILD_PATH: v${{ matrix.alpine }}/php-${{ matrix.php }}
 
