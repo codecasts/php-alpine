@@ -2,6 +2,7 @@ name: "build"
 
 # workflow env.
 env:
+  ALPINE_ARCH: x86_64
   APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
   BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
@@ -22,8 +23,9 @@ jobs:
       PHP_MINOR_VERSION: ${{ matrix.release }}
       ALPINE_VERSION_SLUG: v${{ matrix.alpine }}
       PHP_VERSION_SLUG: php-${{ matrix.php }}
-      PA_BUILD_SLUG: alpine-v${{ matrix.alpine }}_php-${{ matrix.php }}
-      PA_BUILD_PATH: v${{ matrix.alpine }}/php-${{ matrix.php }}
+      PA_ARCH: ${{ matrix.arch }}
+      PA_BUILD_SLUG: v${{ matrix.alpine }}_php-${{ matrix.php }}_${{ matrix.arch }}
+      PA_BUILD_PATH: repo/v${{ matrix.alpine }}/php-${{ matrix.php }}/${{ matrix.arch }}
 
     strategy:
       matrix:
@@ -33,34 +35,45 @@ jobs:
           - alpine: "3.12"
             php: "8.0"
             release: "8.0.0"
+            arch: "x86_64"
+
           # PHP 7.4
           - alpine: "3.12"
             php: "7.4"
             release: "7.4.13"
+            arch: "x86_64"
 
           # Alpine v3.11
           # PHP 8.0
           - alpine: "3.11"
             php: "8.0"
             release: "8.0.0"
+            arch: "x86_64"
+
           # PHP 7.4
           - alpine: "3.11"
             php: "7.4"
             release: "7.4.13"
+            arch: "x86_64"
+
           # PHP 7.3
           - alpine: "3.11"
             php: "7.3"
             release: "7.3.25"
+            arch: "x86_64"
 
           # Alpine v3.12
           # PHP 7.4
           - alpine: "3.10"
             php: "7.4"
             release: "7.4.13"
+            arch: "x86_64"
+
           # PHP 7.3
           - alpine: "3.10"
             php: "7.3"
             release: "7.3.25"
+            arch: "x86_64"
 
     steps:
       # checkout repository.
@@ -71,7 +84,7 @@ jobs:
       - name: cache
         uses: actions/cache@v2
         with:
-          path: repo/${{ env.PA_BUILD_PATH }}/
+          path: ${{ env.PA_BUILD_PATH }}
           key: ${{ env.PA_BUILD_SLUG }}
 
       # debug info.
@@ -82,7 +95,7 @@ jobs:
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
           echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
           echo -e "Current repository files:"
-          ls -lhart repo/${{ env.ALPINE_VERSION_SLUG }}/${{ env.PHP_VERSION_SLUG }}/x86_64
+          ls -lhart ${{ env.PA_BUILD_PATH }} || echo -e "target directory not found."
 
       # build packages.
       - name: build
@@ -97,7 +110,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.PA_BUILD_SLUG }}
-          path: repo/${{ env.PA_BUILD_PATH }}
+          path: ${{ env.PA_BUILD_PATH }}
 
       # publish to bintray.
       - name: bintray
