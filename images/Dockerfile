@@ -8,14 +8,14 @@ ARG ALPINE_VERSION
 FROM alpine:$ALPINE_VERSION
 
 # MAINTAINER.
-MAINTAINER Diego Hernandes <iamhernandev@gmail.com>
+LABEL maintainer="Diego Hernandes <iamhernandev@gmail.com>"
 
 # AFTER IMAGE DEFINITION ARGUMENTS
 ARG ALPINE_VERSION
 ARG PHP_VERSION
 
 # ADD SDK AND BASIC TOOLS.
-RUN apk add --update-cache alpine-sdk sudo git bash nano
+RUN apk add --update-cache sudo bash nano
 
 # trust this project public key to trust the packages.
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub

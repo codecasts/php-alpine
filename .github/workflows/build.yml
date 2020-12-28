@@ -77,7 +77,7 @@ jobs:
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-          ./build.sh build
+          docker-compose run sandbox builder.sh --build --extra --main --extensions
 
       # publish to bintray.
       - name: bintray

@@ -22,11 +22,12 @@ if [[ ${TASK} == "shell" ]]; then
 fi
 
 # build dependencies and extensions.
-if [[ ${TASK} == "build" ]]; then
-    docker-compose run sandbox ./build.sh --full
+if [[ ${TASK} == "all" ]]; then
+    docker-compose run sandbox builder.sh --build --extra --main --extensions
 fi
 
-# build dependencies and extensions.
-if [[ ${TASK} == "extensions" ]]; then
-    docker-compose run sandbox ./build.sh
+# alias builder.sh
+if [[ ${TASK} == "builder" ]]; then
+    docker-compose run sandbox builder.sh
 fi
+
