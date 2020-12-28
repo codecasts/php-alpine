@@ -16,6 +16,10 @@ ARG PHP_VERSION
 ARG APK_PACKAGER
 ARG APK_MAINTAINER
 
+# TERM CONFIG.
+ENV TERM=xterm-256color \
+    COLORTERM=truecolor
+
 # ADD SDK AND BASIC TOOLS.
 RUN apk add --update-cache alpine-sdk ncurses sudo git bash nano
 
