@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=/opt/php-alpine/bin:$PATH
+
 # trust the locally mounted public key.
 sudo cp /home/sandbox/.abuild/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
