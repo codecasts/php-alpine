@@ -17,7 +17,7 @@ ARG APK_PACKAGER
 ARG APK_MAINTAINER
 
 # ADD SDK AND BASIC TOOLS.
-RUN apk add --update-cache alpine-sdk sudo git bash nano
+RUN apk add --update-cache alpine-sdk ncurses sudo git bash nano
 
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
@@ -25,7 +25,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/a
     echo "/home/sandbox/packages/php-${PHP_VERSION}" >> /etc/apk/repositories
 
 # ADD THE START SCRIPT.
-ADD start.sh /bin/start.sh
+ADD entrypoint.sh /opt/php-alpine/entrypoint.sh
 ADD bashrc /home/sandbox/.bashrc
 
 # ADD THE PUBLIC KEY FOR REPOS.
@@ -36,7 +36,7 @@ RUN adduser -D -u 1000 sandbox && \
     addgroup sandbox abuild && \
     mkdir -p /var/cache/distfiles && \
     chmod a+w /var/cache/distfiles && \
-    chmod +x /bin/start.sh && \
+    chmod +x /opt/php-alpine/entrypoint.sh && \
     echo "sandbox  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \
     sed -i "/#PACKAGER=.*/c\PACKAGER=\"${APK_PACKAGER}\"" /etc/abuild.conf && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
@@ -59,7 +59,7 @@ RUN mkdir -p /var/cache/apk && \
 USER sandbox
 
 # CONFIGURE ENTRYPOINT.
-ENTRYPOINT ["/bin/start.sh"]
+ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 
 # START ON SANDBOX USER HOME.
 WORKDIR "/home/sandbox/php-${PHP_VERSION}"

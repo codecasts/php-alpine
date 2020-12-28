@@ -1,54 +1,48 @@
 # syntax version.
 version: "3"
 
+# volumes.
 volumes:
-  php-alpine-cache-edge:
   php-alpine-cache-v3.12:
   php-alpine-cache-v3.11:
   php-alpine-cache-v3.10:
-  php-alpine-cache-v3.9:
-  php-alpine-cache-v3.8:
-  php-alpine-cache-v3.7:
 
-# services list.
+# services.
 services:
 
   # sandbox base image
   sandbox:
     # target image.
-    image: "php-alpine-sandbox:alpine-${ALPINE_VERSION}-php-${PHP_VERSION}"
+    image: "codecasts/php-alpine:sandbox-v${ALPINE_VERSION}-php-${PHP_VERSION}"
     build:
       context: "sandbox"
       args:
         ALPINE_VERSION: ${ALPINE_VERSION}
         PHP_VERSION: ${PHP_VERSION}
     volumes:
+      - "./bin:/opt/php-alpine/bin"
       - "./scripts/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
       - "./.abuild:/home/sandbox/.abuild"
       - "./repo/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
       - "php-alpine-cache-v${ALPINE_VERSION}:/var/cache/apk"
 
   # sandbox for building on alpine edge.
-  edge:
-    # target image.
-    image: "php-alpine-sandbox:alpine-edge-php-${PHP_VERSION}"
-    build:
-      context: "sandbox"
-      args:
-        ALPINE_VERSION: edge
-        PHP_VERSION: ${PHP_VERSION}
-    volumes:
-      - "./scripts/edge/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
-      - "./.abuild:/home/sandbox/.abuild"
-      - "./repo/edge/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
-      - "php-alpine-cache-edge:/var/cache/apk"
-
-  # sandbox for building on alpine edge.
   starter-images:
     # target image.
-    image: "codecasts/alpine-${ALPINE_VERSION}:php-${PHP_VERSION}"
+    image: "codecasts/php-alpine:alpine-v${ALPINE_VERSION}-php-${PHP_VERSION}"
     build:
       context: "images"
+      args:
+        ALPINE_VERSION: ${ALPINE_VERSION}
+        PHP_VERSION: ${PHP_VERSION}
+
+  # sandbox for building on alpine edge.
+  release-image:
+    # target image.
+    image: "codecasts/php-alpine:alpine-v${ALPINE_VERSION}-php-${PHP_VERSION}"
+    build:
+      dockerfile: release/image/Dockerfile
+      context: "."
       args:
         ALPINE_VERSION: ${ALPINE_VERSION}
         PHP_VERSION: ${PHP_VERSION}
