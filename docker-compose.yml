@@ -14,11 +14,15 @@ services:
   sandbox:
     # target image.
     image: "codecasts/php-alpine:sandbox-v${ALPINE_VERSION}-php-${PHP_VERSION}"
+    # enable tty.
+    tty: true
+    # build config.
     build:
       context: "sandbox"
       args:
         ALPINE_VERSION: ${ALPINE_VERSION}
         PHP_VERSION: ${PHP_VERSION}
+    # declare volumes and mounting.
     volumes:
       - "./bin:/opt/php-alpine/bin"
       - "./scripts/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
