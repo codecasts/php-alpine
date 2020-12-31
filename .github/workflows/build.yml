@@ -7,7 +7,7 @@ env:
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
   BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
   BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-
+  APORTS_SCRIPTS: /home/sandbox/scripts
 on:
   push:
     branches:
@@ -95,8 +95,6 @@ jobs:
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
           echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
-          echo -e "Current repository files:"
-          ls -lhart ${{ env.PA_BUILD_PATH }} || echo -e "target directory not found."
 
       # build packages.
       - name: build
@@ -104,7 +102,7 @@ jobs:
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-          chmod -R 644 ${{ env.PA_BUILD_PATH }}/* || echo -e "error setting permissions"
+          docker-compose run sandbox pa-fix-permissions.sh
           docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p -k ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
