@@ -1,34 +1,44 @@
-# Alpine 3.x Sandbox Dockerfile
-# This image is used to build PHP packages.
+# Alpicetera - Building sandbox image.
 
-# IMAGE ARGUMENT
+# arg for using a specific Alpine version (before FROM)
 ARG ALPINE_VERSION
 
-# ALPINE 3.x.
+# use alpine version from argument as base/from image.
 FROM alpine:$ALPINE_VERSION
 
-# MAINTAINER.
+# maintainer label.
 MAINTAINER Diego Hernandes <iamhernandev@gmail.com>
 
-# AFTER IMAGE DEFINITION ARGUMENTS
+# declare required build arguments.
 ARG ALPINE_VERSION
-ARG PHP_VERSION
 ARG APK_PACKAGER
 ARG APK_MAINTAINER
 
-# TERM CONFIG.
-ENV TERM=xterm-256color \
-    COLORTERM=truecolor
+# make args available as env vars.
+ENV ALPINE_VERSION=${ALPINE_VERSION} \
+    APK_PACKAGER=${APK_PACKAGER} \
+    APK_MAINTAINER=${APK_MAINTAINER} \
+    APORTS=/home/sandbox/scripts \
+    TERM=xterm-256color \
+    COLORTERM=truecolor \
+    EDITOR=nano
 
-# ADD SDK AND BASIC TOOLS.
-RUN apk add --update-cache alpine-sdk ncurses sudo git bash nano
+# install some required tools.
+RUN apk add \
+    --update-cache \
+    alpine-sdk \
+    aports-build \
+    ncurses \
+    sudo \
+    bash \
+    nano
 
-# CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories && \
-    echo "/home/sandbox/packages/php-${PHP_VERSION}" >> /etc/apk/repositories
+# configure APK repositories.
+# RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
+#     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories
+#     echo "/home/sandbox/packages/php-${PHP_VERSION}" >> /etc/apk/repositories
 
-# ADD THE START SCRIPT.
+# add entrypoint script and a cool bashrc.
 ADD entrypoint.sh /opt/php-alpine/entrypoint.sh
 ADD bashrc /home/sandbox/.bashrc
 
@@ -41,32 +51,32 @@ RUN adduser -D -u 1000 sandbox && \
     mkdir -p /var/cache/distfiles && \
     chmod a+w /var/cache/distfiles && \
     chmod +x /opt/php-alpine/entrypoint.sh && \
+    mkdir -p /var/cache/apk && \
+    ln -s /var/cache/apk /etc/apk/cache && \
     echo "sandbox  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \
+    sed -i "/export JOBS=.*/c\export JOBS=$(cat /proc/cpuinfo | grep '^processor\s*:\s[0-9]*$' | wc -l)" /etc/abuild.conf && \
+    sed -i "/#USE_CCACHE=.*/c\USE_CCACHE=1" /etc/abuild.conf && \
     sed -i "/#PACKAGER=.*/c\PACKAGER=\"${APK_PACKAGER}\"" /etc/abuild.conf && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
     chown -R sandbox:sandbox /home/sandbox
 
-# generate build env vars.
-RUN echo "ALPINE_VERSION=${ALPINE_VERSION}" >> /home/sandbox/.build_env && \
-    echo "PHP_VERSION=${PHP_VERSION}" >> /home/sandbox/.build_env && \
-    echo "APK_PACKAGER=${APK_PACKAGER}" >> /home/sandbox/.build_env && \
-    echo "APK_MAINTAINER=${APK_MAINTAINER}" >> /home/sandbox/.build_env
+# required for running "aports-build" tool.
+RUN mkdir -p /var/run/mqtt-exec.aports-build && \
+    chown -R sandbox:abuild /var/run/mqtt-exec.aports-build && \
+    chmod 755 /var/run/mqtt-exec.aports-build
 
-# REMOVE TEMP FILES.
-RUN mkdir -p /var/cache/apk && \
-    ln -s /var/cache/apk /etc/apk/cache
-
-# FIX KEY PERMISSION.
-# RUN chmod u=rw,go=r /etc/apk/keys/php-alpine.rsa.pub
-
-# START ON SANDBOX USER.
+# switch to sandbox user.
 USER sandbox
 
-# CONFIGURE ENTRYPOINT.
+# create some required directories.
+RUN mkdir -p /home/sandbox/scripts && \
+    mkdir -p /home/sandbox/packages
+
+# set entrypoint.
 ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 
-# START ON SANDBOX USER HOME.
-WORKDIR "/home/sandbox/php-${PHP_VERSION}"
+# set container workdir.
+WORKDIR "/home/sandbox/scripts"
 
-# START WITH BASH.
+# use bash as default command.
 CMD ["/bin/bash"]

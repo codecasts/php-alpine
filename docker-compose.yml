@@ -13,7 +13,7 @@ services:
   # sandbox base image
   sandbox:
     # target image.
-    image: "codecasts/php-alpine:sandbox-v${ALPINE_VERSION}-php-${PHP_VERSION}"
+    image: "codecasts/php-alpine:sandbox-v${ALPINE_VERSION}"
     # enable tty.
     tty: true
     # build config.
@@ -21,13 +21,14 @@ services:
       context: "sandbox"
       args:
         ALPINE_VERSION: ${ALPINE_VERSION}
-        PHP_VERSION: ${PHP_VERSION}
+        APK_MAINTAINER: ${APK_MAINTAINER}
+        APK_PACKAGER: ${APK_PACKAGER}
     # declare volumes and mounting.
     volumes:
       - "./bin:/opt/php-alpine/bin"
-      - "./scripts/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/php-${PHP_VERSION}"
+      - "./scripts/v${ALPINE_VERSION}:/home/sandbox/scripts"
       - "./.abuild:/home/sandbox/.abuild"
-      - "./repo/v${ALPINE_VERSION}/php-${PHP_VERSION}:/home/sandbox/packages/php-${PHP_VERSION}"
+      - "./repo/v${ALPINE_VERSION}:/home/sandbox/packages"
       - "php-alpine-cache-v${ALPINE_VERSION}:/var/cache/apk"
 
   # sandbox for building on alpine edge.
