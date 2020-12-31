@@ -104,7 +104,7 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           chmod -R 644 ${{ env.PA_BUILD_PATH }}/* || echo -e "error setting permissions"
-          docker-compose run -w /home/sandbox/scripts/${{ env.PHP_VERSION_SLUG }} sandbox builder.sh --build --extra --main --extensions
+          docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p -k ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
