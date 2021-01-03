@@ -1,1 +1,3 @@
-v*/php-*
+!.gitignore
+v*/*/*/*.apk
+v*/*/*/*.tar.gz

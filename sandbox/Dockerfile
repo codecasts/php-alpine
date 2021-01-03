@@ -15,7 +15,8 @@ ARG APK_PACKAGER
 ARG APK_MAINTAINER
 
 # make args available as env vars.
-ENV ALPINE_VERSION=${ALPINE_VERSION} \
+ENV ENV="/etc/profile" \
+    ALPINE_VERSION=${ALPINE_VERSION} \
     APK_PACKAGER=${APK_PACKAGER} \
     APK_MAINTAINER=${APK_MAINTAINER} \
     APORTS=/home/sandbox/scripts \
@@ -24,8 +25,7 @@ ENV ALPINE_VERSION=${ALPINE_VERSION} \
     EDITOR=nano
 
 # install some required tools.
-RUN apk add \
-    --update-cache \
+RUN apk add --update-cache \
     alpine-sdk \
     aports-build \
     ncurses \
@@ -34,13 +34,13 @@ RUN apk add \
     nano
 
 # configure APK repositories.
-# RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
-#     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories
-#     echo "/home/sandbox/packages/php-${PHP_VERSION}" >> /etc/apk/repositories
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
+    echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories
 
-# add entrypoint script and a cool bashrc.
-ADD entrypoint.sh /opt/php-alpine/entrypoint.sh
-ADD bashrc /home/sandbox/.bashrc
+# add opt scripts.
+ADD opt /opt
+# add etc configuration.
+ADD etc /etc
 
 # ADD THE PUBLIC KEY FOR REPOS.
 # COPY ${APK_PUB_KEY} /etc/apk/keys/php-alpine.rsa.pub
@@ -54,11 +54,13 @@ RUN adduser -D -u 1000 sandbox && \
     mkdir -p /var/cache/apk && \
     ln -s /var/cache/apk /etc/apk/cache && \
     echo "sandbox  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \
+    echo "Set disable_coredump false" >> /etc/sudo.conf && \
     sed -i "/export JOBS=.*/c\export JOBS=$(cat /proc/cpuinfo | grep '^processor\s*:\s[0-9]*$' | wc -l)" /etc/abuild.conf && \
     sed -i "/#USE_CCACHE=.*/c\USE_CCACHE=1" /etc/abuild.conf && \
     sed -i "/#PACKAGER=.*/c\PACKAGER=\"${APK_PACKAGER}\"" /etc/abuild.conf && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
-    chown -R sandbox:sandbox /home/sandbox
+    chown -R sandbox:sandbox /home/sandbox && \
+    chown -R sandbox:sandbox /opt/php-alpine
 
 # required for running "aports-build" tool.
 RUN mkdir -p /var/run/mqtt-exec.aports-build && \
@@ -79,4 +81,4 @@ ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 WORKDIR "/home/sandbox/scripts"
 
 # use bash as default command.
-CMD ["/bin/bash"]
+CMD ["/usr/bin/env", "ash"]
