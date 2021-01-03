@@ -18,7 +18,7 @@ fi
 
 # build sandbox
 if [[ ${TASK} == "shell" ]]; then
-    docker-compose run sandbox bash
+    docker-compose run sandbox
 fi
 
 # build dependencies and extensions.
