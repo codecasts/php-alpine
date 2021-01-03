@@ -180,8 +180,9 @@ This is the complete available packages list:
 | `php-memcached`       | Extra Extension |
 | `php-mongodb`         | Extra Extension |
 | `php-msgpack`         | Extra Extension |
-| `php-psr`             | Extra Extension |
+| `php-pcov`            | Extra Extension |
 | `php-phalcon`         | Extra Extension |
+| `php-psr`             | Extra Extension |
 | `php-redis`           | Extra Extension |
 | `php-ssh2`            | Extra Extension |
 | `php-swoole`          | Extra Extension |
