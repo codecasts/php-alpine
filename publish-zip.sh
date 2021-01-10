@@ -55,7 +55,7 @@ curl \
     -H "X-Bintray-Override: 1" \
     -H "X-Bintray-Explode: 0" \
     -T "${ARCHIVE_NAME}" \
-    "https://api.bintray.com/content/php-alpine/${REPO_SLUG}/"
+    "https://api.bintray.com/content/php-alpine/${REPO_SLUG}/archive/"
 
 # remove published archive package.
 rm "$ARCHIVE_NAME"
