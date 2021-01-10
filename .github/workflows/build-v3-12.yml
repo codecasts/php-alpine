@@ -1,4 +1,4 @@
-name: "build"
+name: "build-alpine-v3.12"
 
 # workflow env.
 env:
@@ -42,38 +42,6 @@ jobs:
           - alpine: "3.12"
             php: "7.4"
             release: "7.4.14"
-            arch: "x86_64"
-
-          # Alpine v3.11
-          # PHP 8.0
-          - alpine: "3.11"
-            php: "8.0"
-            release: "8.0.1"
-            arch: "x86_64"
-
-          # PHP 7.4
-          - alpine: "3.11"
-            php: "7.4"
-            release: "7.4.14"
-            arch: "x86_64"
-
-          # PHP 7.3
-          - alpine: "3.11"
-            php: "7.3"
-            release: "7.3.26"
-            arch: "x86_64"
-
-          # Alpine v3.12
-          # PHP 7.4
-          - alpine: "3.10"
-            php: "7.4"
-            release: "7.4.14"
-            arch: "x86_64"
-
-          # PHP 7.3
-          - alpine: "3.10"
-            php: "7.3"
-            release: "7.3.26"
             arch: "x86_64"
 
     steps:
