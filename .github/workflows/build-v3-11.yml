@@ -64,6 +64,7 @@ jobs:
           key: ${{ env.PA_BUILD_SLUG }}-${{ hashFiles('scripts/**/APKBUILD') }}
           restore-keys: |
             ${{ env.PA_BUILD_SLUG }}-${{ hashFiles('scripts/**/APKBUILD') }}
+            ${{ env.PA_BUILD_SLUG }}-
             ${{ env.PA_BUILD_SLUG }}
 
       # debug info.
