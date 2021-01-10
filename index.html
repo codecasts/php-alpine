@@ -1,0 +1,1057 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>PHP-Alpine Docs. - php-alpine</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.15aa0b43.min.css">
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+    
+      <link rel="stylesheet" href="assets/css/override.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#created-by" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Mitigate bug: https://github.com/mkdocs/mkdocs/issues/2191 -->
+
+
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid" aria-label="Header">
+
+        <!-- Link to home -->
+        <a
+                href="."
+                title="php-alpine"
+                class="md-header-nav__button md-logo"
+                aria-label="php-alpine"
+        >
+            
+  <img src="assets/img/logo-big.png" alt="logo">
+
+        </a>
+
+        <!-- Button to open drawer -->
+        <label class="md-header-nav__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+        </label>
+
+        <!-- Header title -->
+        <div class="md-header-nav__title" data-md-component="header-title">
+            
+            <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            php-alpine
+          </span>
+                <span class="md-header-nav__topic md-ellipsis">
+            
+              PHP-Alpine Docs.
+            
+          </span>
+            </div>
+            
+        </div>
+
+        <!-- Button to open search dialogue -->
+        
+        <label class="md-header-nav__button md-icon" for="__search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+
+        <!-- Repository containing source -->
+        
+    </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="php-alpine" class="md-nav__button md-logo" aria-label="php-alpine">
+      
+  <img src="assets/img/logo-big.png" alt="logo">
+
+    </a>
+    php-alpine
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        PHP-Alpine Docs.
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="." class="md-nav__link md-nav__link--active">
+      PHP-Alpine Docs.
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#created-by" class="md-nav__link">
+    Created by:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-help-and-faith" class="md-nav__link">
+    Support, Help and Faith:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-related-projects" class="md-nav__link">
+    Main Related Projects:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apk-repositories-release-cycle" class="md-nav__link">
+    APK Repositories &amp; Release Cycle
+  </a>
+  
+    <nav class="md-nav" aria-label="APK Repositories &amp; Release Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php-80" class="md-nav__link">
+    PHP 8.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-74" class="md-nav__link">
+    PHP 7.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-73" class="md-nav__link">
+    PHP 7.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snippets" class="md-nav__link">
+    Snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-packages" class="md-nav__link">
+    Available Packages
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="building-and-or-contributing/" class="md-nav__link">
+      Build & Contribution Guide.
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#created-by" class="md-nav__link">
+    Created by:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-help-and-faith" class="md-nav__link">
+    Support, Help and Faith:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-related-projects" class="md-nav__link">
+    Main Related Projects:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apk-repositories-release-cycle" class="md-nav__link">
+    APK Repositories &amp; Release Cycle
+  </a>
+  
+    <nav class="md-nav" aria-label="APK Repositories &amp; Release Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php-80" class="md-nav__link">
+    PHP 8.0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-74" class="md-nav__link">
+    PHP 7.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-73" class="md-nav__link">
+    PHP 7.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snippets" class="md-nav__link">
+    Snippets
+  </a>
+  
+    <nav class="md-nav" aria-label="Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-packages" class="md-nav__link">
+    Available Packages
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>PHP-Alpine Docs.</h1>
+                
+                <p><strong>Currently Supporting PHP 8.0</strong>, also, PHP 7.4 and PHP 7.3.</p>
+<p>This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
+We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
+Additionally, many PECL extensions are also available as packages as well.</p>
+<h4 id="created-by">Created by:</h4>
+<ul>
+<li>Diego Hernandes - <strong><a href="https://github.com/hernandev">@hernandev</a></strong></li>
+</ul>
+<h4 id="support-help-and-faith">Support, Help and Faith:</h4>
+<ul>
+<li>Ueli Banholzer - <strong><a href="https://github.com/xarem">@xarem</a></strong> </li>
+<li>whatwedo GmbH - <strong><a href="https://github.com/whatwedo">@whatwedo</a></strong></li>
+<li>individual <a href="https://github.com/codecasts/php-alpine/graphs/contributors">contributors</a></li>
+</ul>
+<h4 id="main-related-projects">Main Related Projects:</h4>
+<ul>
+<li>
+<p><strong><a href="https://github.com/ambientum/ambientum">Ambientum</a></strong> by <a href="https://github.com/hernandev">@hernandev</a> 
+  Docker native solution for running Laravel projects. From Development to Production. </p>
+</li>
+<li>
+<p><strong><a href="https://github.com/whatwedo/dde">DDE</a></strong> by <a href="https://github.com/whatwedo">@whatwedo</a> 
+  Local development environment toolset based on Docker</p>
+</li>
+</ul>
+<hr />
+<h2 id="apk-repositories-release-cycle">APK Repositories &amp; Release Cycle</h2>
+<!-- ### PHP End of Support -->
+<!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
+<!-- PHP 7.3     | 2020-12-06 | 1607212800-->
+<!-- Alpine 3.12 | 2022-05-01 | 1651449599-->
+<!-- Alpine 3.11 | 2021-11-01 | 1635724800-->
+<!-- Alpine 3.10 | 2021-05-01 | 1619827200-->
+<!-- Alpine 3.9  | 2020-11-01 | 1604188800-->
+
+<h3 id="php-80">PHP 8.0</h3>
+<table>
+<thead>
+<tr>
+<th>Alpine</th>
+<th>PHP</th>
+<th>End of Support</th>
+<th>Repository URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Alpine 3.12" src="https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square" /></td>
+<td><img alt="PHP 8.0" src="https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.12/php-8.0" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.12/php-8.0"><code>dl.bintray.com/php-alpine/v3.12/php-8.0</code></a></td>
+</tr>
+<tr>
+<td><img alt="Alpine 3.11" src="https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square" /></td>
+<td><img alt="PHP 8.0" src="https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.11/php-8.0" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.11/php-8.0"><code>dl.bintray.com/php-alpine/v3.11/php-8.0</code></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="php-74">PHP 7.4</h3>
+<table>
+<thead>
+<tr>
+<th>Alpine</th>
+<th>PHP</th>
+<th>End of Support</th>
+<th>Repository URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Alpine 3.12" src="https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square" /></td>
+<td><img alt="PHP 7.4" src="https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.12/php-7.4" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.12/php-7.4"><code>dl.bintray.com/php-alpine/v3.12/php-7.4</code></a></td>
+</tr>
+<tr>
+<td><img alt="Alpine 3.11" src="https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square" /></td>
+<td><img alt="PHP 7.4" src="https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.4" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.11/php-7.4"><code>dl.bintray.com/php-alpine/v3.11/php-7.4</code></a></td>
+</tr>
+<tr>
+<td><img alt="Alpine 3.10" src="https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square" /></td>
+<td><img alt="PHP 7.4" src="https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.4" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.10/php-7.4"><code>dl.bintray.com/php-alpine/v3.10/php-7.4</code></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="php-73">PHP 7.3</h3>
+<table>
+<thead>
+<tr>
+<th>Alpine</th>
+<th>PHP</th>
+<th>End of Support</th>
+<th>Repository URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Alpine 3.11" src="https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square" /></td>
+<td><img alt="PHP 7.3" src="https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.11/php-7.3"><code>dl.bintray.com/php-alpine/v3.11/php-7.3</code></a></td>
+</tr>
+<tr>
+<td><img alt="Alpine 3.10" src="https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square" /></td>
+<td><img alt="PHP 7.3" src="https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square" /> <img alt="" src="https://img.shields.io/badge/dynamic/json?label=PHP&amp;query=$.latest_version&amp;style=flat-square&amp;color=blueviolet&amp;url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3" /></td>
+<td><img alt="EOS" src="https://img.shields.io/badge/EOS-2020--12--06-red?style=flat-square" /></td>
+<td><a href="https://dl.bintray.com/php-alpine/v3.10/php-7.3"><code>dl.bintray.com/php-alpine/v3.10/php-7.3</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>Builds are available as soon as possible, and EOS is determined by:
+- If either PHP or Alpine release reaches end of support, the repository will stop receiving updates.
+- Support for both PHP and Alpine are estimated for around 2 years from release date.</p>
+<p>Active support reference:</p>
+<ul>
+<li>PHP: https://www.php.net/supported-versions.php</li>
+<li>Alpine: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases  </li>
+</ul>
+<blockquote>
+<p>Replace examples below with desired Alpine and PHP versions.</p>
+</blockquote>
+<h2 id="snippets">Snippets</h2>
+<p>The following code snippets are intended for quick usage on either shell scripts or Dockerfile</p>
+<blockquote>
+<p>Notice that <code>main</code> and <code>community</code> official repositories must be enabled.</p>
+</blockquote>
+<h3 id="dockerfile">Dockerfile</h3>
+<p>You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.</p>
+<pre><code class="language-dockerfile">FROM alpine:3.11
+
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+
+RUN apk --update-cache add ca-certificates &amp;&amp; \
+    echo &quot;https://dl.bintray.com/php-alpine/v3.11/php-7.4&quot; &gt;&gt; /etc/apk/repositories
+
+# install php and some extensions
+RUN apk add --update-cache \
+    php \
+    php-bz2 \
+    php-json \
+    php-mysql \
+    php-any-other-available-package... 
+</code></pre>
+<h2 id="available-packages">Available Packages</h2>
+<p>This is the complete available packages list:</p>
+<table>
+<thead>
+<tr>
+<th>Package Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-common</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-fpm</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-cgi</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-apache2</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-doc</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td><code>php-dev</code></td>
+<td>PHP Core</td>
+</tr>
+<tr>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>php-sodium</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-bcmath</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-bz2</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-calendar</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-ctype</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-curl</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-dba</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-dom</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-embed</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-enchant</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-exif</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-ftp</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-gd</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-gettext</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-gmp</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-iconv</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-imap</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-intl</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-json</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-ldap</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-litespeed</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-mbstring</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-mcrypt</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-mysqli</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-mysqlnd</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-odbc</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-opcache</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-openssl</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pcntl</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pdo</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pdo_dblib</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pdo_mysql</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pdo_pgsql</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pdo_sqlite</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pear</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pgsql</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-phar</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-phpdbg</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-posix</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-pspell</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-session</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-shmop</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-snmp</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-soap</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-sockets</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-sqlite3</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-sysvmsg</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-sysvsem</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-tidy</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-wddx</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-xml</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-xmlreader</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-xmlrpc</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-xsl</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-zip</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td><code>php-zlib</code></td>
+<td>Core Extension</td>
+</tr>
+<tr>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>php-amqp</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-apcu</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-ast</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-ds</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-imagick</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-mailparse</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-memcached</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-mongodb</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-msgpack</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-psr</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-phalcon</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-redis</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-ssh2</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-swoole</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-timecop</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-libsodium</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-scalar_objects</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-secp256k1</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td><code>php-xdebug</code></td>
+<td>Extra Extension</td>
+</tr>
+<tr>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>argon2</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>argon2-dev</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>enchant</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>enchant-doc</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>enchant-dev</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>libargon2</code></td>
+<td>Extra Package</td>
+</tr>
+<tr>
+<td><code>libsecp256k1</code></td>
+<td>Extra Package</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Life's good!</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+        
+          <a href="building-and-or-contributing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Build & Contribution Guide.
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/languages/dockerfile.min.js"></script>
+      
+        <script src="assets/js/highlight.js"></script>
+      
+    
+  </body>
+</html>

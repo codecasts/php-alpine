@@ -1,0 +1,14 @@
+.md-header-nav__button.md-logo {
+    height: 100%;
+    width: auto;
+    max-height: calc(2.4rem - 0.4rem);
+}
+.md-header-nav__topic {
+    height: 100%;
+}
+
+.md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
+    max-height: 100%;
+    width: auto;
+}
+
