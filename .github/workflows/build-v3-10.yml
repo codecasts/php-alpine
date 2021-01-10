@@ -71,6 +71,7 @@ jobs:
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+          docker-compose run sandbox pa-fix-permissions.sh
           docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
