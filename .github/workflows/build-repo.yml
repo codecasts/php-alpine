@@ -1,13 +1,13 @@
-name: "build-alpine-v3.10"
+name: "build-repo"
 
 # workflow env.
 env:
   ALPINE_ARCH: x86_64
+  APORTS_SCRIPTS: /home/sandbox/scripts
   APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
   BINTRAY_USERNAME: ${{ secrets.BINTRAY_USERNAME }}
   BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
-  APORTS_SCRIPTS: /home/sandbox/scripts
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
@@ -32,14 +32,43 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Alpine v3.12
-          # PHP 7.4
+          # alpine-v3.12-php-8.0
+          - alpine: "3.12"
+            php: "8.0"
+            release: "8.0.1"
+            arch: "x86_64"
+
+          # alpine-v3.12-php-7.4
+          - alpine: "3.12"
+            php: "7.4"
+            release: "7.4.14"
+            arch: "x86_64"
+
+          # alpine-v3.11-php-8.0
+          - alpine: "3.11"
+            php: "8.0"
+            release: "8.0.1"
+            arch: "x86_64"
+
+          # alpine-v3.11-php-7.4
+          - alpine: "3.11"
+            php: "7.4"
+            release: "7.4.14"
+            arch: "x86_64"
+
+          # alpine-v3.11-php-7.3
+          - alpine: "3.11"
+            php: "7.3"
+            release: "7.3.26"
+            arch: "x86_64"
+
+          # alpine-v3.10-php-7.4
           - alpine: "3.10"
             php: "7.4"
             release: "7.4.14"
             arch: "x86_64"
 
-          # PHP 7.3
+          # alpine-v3.10-php-7.3
           - alpine: "3.10"
             php: "7.3"
             release: "7.3.26"
@@ -75,7 +104,7 @@ jobs:
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-          docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p ${{ env.PHP_VERSION_SLUG }}
+          docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
