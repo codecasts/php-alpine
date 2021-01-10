@@ -55,7 +55,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.PA_BUILD_PATH }}
-          key: ${{ env.PA_BUILD_SLUG }}
+          key: ${{ env.PA_BUILD_SLUG }}-${{ hashFiles('scripts/**/APKBUILD') }}
+          restore-keys: |
+            ${{ env.PA_BUILD_SLUG }}-${{ hashFiles('scripts/**/APKBUILD') }}
+            ${{ env.PA_BUILD_SLUG }}
 
       # debug info.
       - name: debug-info
