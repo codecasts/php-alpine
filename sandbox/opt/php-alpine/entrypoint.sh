@@ -11,9 +11,9 @@ sudo chmod u=rw,go=r /etc/apk/keys/php-alpine.rsa.pub
 sudo chown -R sandbox:sandbox /home/sandbox
 
 # determine cpu count.
-ABUILD_JOBS=$(grep -c '^processor\s*:\s[0-9]*$' < /proc/cpuinfo)
+# ABUILD_JOBS=$(grep -c '^processor\s*:\s[0-9]*$' < /proc/cpuinfo)
 # configure JOBS variable as cpu count on abuild.conf file.
-sudo sed -i "/export JOBS=.*/c\export JOBS=$ABUILD_JOBS" /etc/abuild.conf
+# sudo sed -i "/export JOBS=.*/c\export JOBS=$ABUILD_JOBS" /etc/abuild.conf
 
 # source env files generated during docker build.
 if [ -f ~/.build_env ]; then

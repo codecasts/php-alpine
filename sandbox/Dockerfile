@@ -55,13 +55,11 @@ RUN adduser -D -u 1000 sandbox && \
     ln -s /var/cache/apk /etc/apk/cache && \
     echo "sandbox  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \
     echo "Set disable_coredump false" >> /etc/sudo.conf && \
-    sed -i "/export JOBS=.*/c\export JOBS=$(cat /proc/cpuinfo | grep '^processor\s*:\s[0-9]*$' | wc -l)" /etc/abuild.conf && \
-    sed -i "/#USE_CCACHE=.*/c\USE_CCACHE=1" /etc/abuild.conf && \
     sed -i "/#PACKAGER=.*/c\PACKAGER=\"${APK_PACKAGER}\"" /etc/abuild.conf && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
+    echo 'export PATH="/opt/php-alpine/bin:$PATH"' > /etc/profile.d/php-bin.sh && \
     chown -R sandbox:sandbox /home/sandbox && \
-    chown -R sandbox:sandbox /opt/php-alpine && \
-    echo 'export PATH="/opt/php-alpine/bin:$PATH"' > /etc/profile.d/php-bin.sh
+    chown -R sandbox:sandbox /opt/php-alpine
 
 # required for running "aports-build" tool.
 RUN mkdir -p /var/run/mqtt-exec.aports-build && \
