@@ -80,4 +80,4 @@ ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 WORKDIR "/home/sandbox/scripts"
 
 # use bash as default command.
-CMD ["/bin/sh"]
+CMD ["/bin/ash"]
