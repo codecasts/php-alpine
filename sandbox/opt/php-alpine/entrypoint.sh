@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# source /etc/profile
+. /etc/profile
+
 # trust the locally mounted public key and fix permissions.
 sudo cp /home/sandbox/.abuild/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 sudo chmod u=rw,go=r /etc/apk/keys/php-alpine.rsa.pub
