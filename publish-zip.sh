@@ -37,7 +37,7 @@ curl \
     -X PUT \
     -u "${BINTRAY_USERNAME}:${BINTRAY_API_KEY}" \
     -H "X-Bintray-Package: php-${PHP_VERSION}" \
-    -H "X-Bintray-Version: ${PHP_MINOR_VERSION}" \
+    -H "X-Bintray-Version: 0.0.0" \
     -H "X-Bintray-Publish: 1" \
     -H "X-Bintray-Override: 1" \
     -H "X-Bintray-Explode: 1" \
