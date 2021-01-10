@@ -1,7 +1,4 @@
-#!/usr/bin/env ash
-
-# set php-alpine bin directory on path.
-export PATH=/opt/php-alpine/bin:$PATH
+#!/bin/sh
 
 # trust the locally mounted public key and fix permissions.
 sudo cp /home/sandbox/.abuild/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub

@@ -60,7 +60,8 @@ RUN adduser -D -u 1000 sandbox && \
     sed -i "/#PACKAGER=.*/c\PACKAGER=\"${APK_PACKAGER}\"" /etc/abuild.conf && \
     sed -i "/#MAINTAINER=.*/c\MAINTAINER=\"${APK_MAINTAINER}\"" /etc/abuild.conf && \
     chown -R sandbox:sandbox /home/sandbox && \
-    chown -R sandbox:sandbox /opt/php-alpine
+    chown -R sandbox:sandbox /opt/php-alpine && \
+    echo 'export PATH="/opt/php-alpine/bin:$PATH"' > /etc/profile.d/php-bin.sh
 
 # required for running "aports-build" tool.
 RUN mkdir -p /var/run/mqtt-exec.aports-build && \
@@ -81,4 +82,4 @@ ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 WORKDIR "/home/sandbox/scripts"
 
 # use bash as default command.
-CMD ["/usr/bin/env", "ash"]
+CMD ["/bin/sh"]
