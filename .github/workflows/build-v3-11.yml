@@ -1,4 +1,4 @@
-name: "build"
+name: "build-alpine-v3.11"
 
 # workflow env.
 env:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       ALPINE_VERSION: ${{ matrix.alpine }}
@@ -29,21 +29,9 @@ jobs:
       PA_BUILD_PATH: repo/v${{ matrix.alpine }}/php-${{ matrix.php }}/${{ matrix.arch }}
 
     strategy:
+      fail-fast: false
       matrix:
         include:
-          # Alpine v3.12
-          # PHP 8.0
-          - alpine: "3.12"
-            php: "8.0"
-            release: "8.0.1"
-            arch: "x86_64"
-
-          # PHP 7.4
-          - alpine: "3.12"
-            php: "7.4"
-            release: "7.4.14"
-            arch: "x86_64"
-
           # Alpine v3.11
           # PHP 8.0
           - alpine: "3.11"
@@ -59,19 +47,6 @@ jobs:
 
           # PHP 7.3
           - alpine: "3.11"
-            php: "7.3"
-            release: "7.3.26"
-            arch: "x86_64"
-
-          # Alpine v3.12
-          # PHP 7.4
-          - alpine: "3.10"
-            php: "7.4"
-            release: "7.4.14"
-            arch: "x86_64"
-
-          # PHP 7.3
-          - alpine: "3.10"
             php: "7.3"
             release: "7.3.26"
             arch: "x86_64"
@@ -102,8 +77,7 @@ jobs:
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-          docker-compose run sandbox pa-fix-permissions.sh
-          docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p -k ${{ env.PHP_VERSION_SLUG }}
+          docker-compose run sandbox buildrepo -a /home/sandbox/scripts -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
