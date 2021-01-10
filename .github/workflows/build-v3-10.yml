@@ -29,6 +29,7 @@ jobs:
       PA_BUILD_PATH: repo/v${{ matrix.alpine }}/php-${{ matrix.php }}/${{ matrix.arch }}
 
     strategy:
+      fail-fast: false
       matrix:
         include:
           # Alpine v3.12
