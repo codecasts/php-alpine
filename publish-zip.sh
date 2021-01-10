@@ -19,7 +19,7 @@ CURRENT_TIME=$(date +"%s")
 REPO_SLUG=v${ALPINE_VERSION}/php-${PHP_VERSION}
 
 # archive name to use.
-ARCHIVE_NAME="v${ALPINE_VERSION}-php-${PHP_VERSION}-${CURRENT_TIME}.tar.bz2"
+ARCHIVE_NAME="alpine-v${ALPINE_VERSION}_php-${PHP_MINOR_VERSION}_${CURRENT_TIME}.tar.bz2"
 
 # find all .apk
 APK_LIST=$(find "./repo/${REPO_SLUG}" -name "*.apk" -type f | cut -d '/' -f5- | xargs)
