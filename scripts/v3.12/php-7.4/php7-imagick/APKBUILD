@@ -5,7 +5,7 @@ srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=imagick
 pkgver=3.4.4
-pkgrel=1
+pkgrel=99
 _phpver=7
 provides="php-imagick=7.4"
 pkgdesc="ImageMagick extension for PHP"
