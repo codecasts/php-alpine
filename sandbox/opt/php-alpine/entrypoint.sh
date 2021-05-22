@@ -6,6 +6,7 @@ sudo chmod u=rw,go=r /etc/apk/keys/php-alpine.rsa.pub
 
 # fix all packages permissions.
 sudo chown -R sandbox:sandbox "$HOME"/packages || echo -e ""
+sudo chown -R sandbox:sandbox "$HOME"/scripts || echo -e ""
 # fix all packages ownership.
 sudo chmod -R 644 "$HOME"/packages/*/*/*.apk || echo -e ""
 sudo chmod -R 644 "$HOME"/packages/*/*/*.tar.gz || echo -e ""
