@@ -30,6 +30,7 @@ jobs:
 
     strategy:
       fail-fast: false
+      max-parallel: 7
       matrix:
         include:
           # alpine-v3.12-php-8.0
@@ -41,7 +42,7 @@ jobs:
           # alpine-v3.12-php-7.4
           - alpine: "3.12"
             php: "7.4"
-            release: "7.4.14"
+            release: "7.4.19"
             arch: "x86_64"
 
           # alpine-v3.11-php-8.0
@@ -53,7 +54,7 @@ jobs:
           # alpine-v3.11-php-7.4
           - alpine: "3.11"
             php: "7.4"
-            release: "7.4.14"
+            release: "7.4.19"
             arch: "x86_64"
 
           # alpine-v3.11-php-7.3
@@ -65,7 +66,7 @@ jobs:
           # alpine-v3.10-php-7.4
           - alpine: "3.10"
             php: "7.4"
-            release: "7.4.14"
+            release: "7.4.19"
             arch: "x86_64"
 
           # alpine-v3.10-php-7.3
