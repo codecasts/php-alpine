@@ -114,9 +114,12 @@ jobs:
           name: ${{ env.PA_BUILD_SLUG }}
           path: ${{ env.PA_BUILD_PATH }}
 
-      # publish to bintray.
-      - name: bintray
-        if: github.ref == 'refs/heads/publish'
-        run: |
-          echo -e "Publishing to Bintray"
-          ./publish-zip.sh
+      - name: deploy
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avzr --delete
+          path: repo/
+          remote_path: ${{ secrets.RSYNC_TARGET }}
+          remote_host: ${{ secrets.RSYNC_HOST }}
+          remote_user: ${{ secrets.RSYNC_USER }}
+          remote_key: ${{ secrets.RSYNC_KEY }}
