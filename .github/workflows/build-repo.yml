@@ -117,7 +117,7 @@ jobs:
       - name: deploy
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -avzr --delete
+          switches: -avzr
           path: repo/
           remote_path: ${{ secrets.RSYNC_TARGET }}
           remote_host: ${{ secrets.RSYNC_HOST }}
