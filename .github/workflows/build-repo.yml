@@ -36,43 +36,43 @@ jobs:
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
-            release: "8.0.1"
+            release: "8.0.13"
             arch: "x86_64"
 
           # alpine-v3.12-php-7.4
           - alpine: "3.12"
             php: "7.4"
-            release: "7.4.19"
+            release: "7.4.26"
             arch: "x86_64"
 
           # alpine-v3.11-php-8.0
           - alpine: "3.11"
             php: "8.0"
-            release: "8.0.1"
+            release: "8.0.13"
             arch: "x86_64"
 
           # alpine-v3.11-php-7.4
           - alpine: "3.11"
             php: "7.4"
-            release: "7.4.19"
+            release: "7.4.26"
             arch: "x86_64"
 
           # alpine-v3.11-php-7.3
           - alpine: "3.11"
             php: "7.3"
-            release: "7.3.26"
+            release: "7.3.33"
             arch: "x86_64"
 
           # alpine-v3.10-php-7.4
           - alpine: "3.10"
             php: "7.4"
-            release: "7.4.19"
+            release: "7.4.26"
             arch: "x86_64"
 
           # alpine-v3.10-php-7.3
           - alpine: "3.10"
             php: "7.3"
-            release: "7.3.26"
+            release: "7.3.33"
             arch: "x86_64"
 
     steps:
