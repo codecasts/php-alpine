@@ -41,23 +41,22 @@ Additionally, many PECL extensions are also available as packages as well.
 
 | Alpine | PHP | End of Support | Repository URL
 | - | - | - | -
-| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 8.0](https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.12/php-8.0) | ![EOS](https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.12/php-8.0`](https://dl.bintray.com/php-alpine/v3.12/php-8.0)
-| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 8.0](https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-8.0) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.11/php-8.0`](https://dl.bintray.com/php-alpine/v3.11/php-8.0)
+| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 8.0](https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square) | ![EOS](https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square) | [`php.hernandev.com/v3.12/php-8.0`](https://php.hernandev.com/v3.12/php-8.0)
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 8.0](https://img.shields.io/badge/PHP-8.0-blueviolet?style=flat-square) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`php.hernandev.com/v3.11/php-8.0`](https://php.hernandev.com/v3.11/php-8.0)
 
 ### PHP 7.4
 
 | Alpine | PHP | End of Support | Repository URL
 | - | - | - | -
-| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.12/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2022--05--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.12/php-7.4`](https://dl.bintray.com/php-alpine/v3.12/php-7.4)
-| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.11/php-7.4`](https://dl.bintray.com/php-alpine/v3.11/php-7.4)
-| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.4) | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.10/php-7.4`](https://dl.bintray.com/php-alpine/v3.10/php-7.4)
+| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square)  | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`php.hernandev.com/v3.11/php-7.4`](https://php.hernandev.com/v3.11/php-7.4)
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.4](https://img.shields.io/badge/PHP-7.4-blueviolet?style=flat-square)  | ![EOS](https://img.shields.io/badge/EOS-2021--11--01-success?style=flat-square) | [`php.hernandev.com/v3.10/php-7.4`](https://php.hernandev.com/v3.10/php-7.4)
 
 ### PHP 7.3
 
 | Alpine | PHP | End of Support | Repository URL
 | - | - | - | -
-| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.11/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square) | [`dl.bintray.com/php-alpine/v3.11/php-7.3`](https://dl.bintray.com/php-alpine/v3.11/php-7.3)
-| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) ![](https://img.shields.io/badge/dynamic/json?label=PHP&query=$.latest_version&style=flat-square&color=blueviolet&url=https://api.bintray.com/packages/php-alpine/v3.10/php-7.3) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-red?style=flat-square) | [`dl.bintray.com/php-alpine/v3.10/php-7.3`](https://dl.bintray.com/php-alpine/v3.10/php-7.3)
+| ![Alpine 3.11](https://img.shields.io/badge/Alpine-v3.11-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) | ![EOS](https://img.shields.io/badge/EOS-2021--05--01-success?style=flat-square) | [`php.hernandev.com/v3.11/php-7.3`](https://php.hernandev.com/v3.11/php-7.3)
+| ![Alpine 3.10](https://img.shields.io/badge/Alpine-v3.10-blue?style=flat-square) | ![PHP 7.3](https://img.shields.io/badge/PHP-7.3-blueviolet?style=flat-square) | ![EOS](https://img.shields.io/badge/EOS-2020--12--06-red?style=flat-square) | [`php.hernandev.com/v3.10/php-7.3`](https://php.hernandev.com/v3.10/php-7.3)
 
 
 Builds are available as soon as possible, and EOS is determined by:
@@ -85,10 +84,10 @@ You may skip the ca-certificates part if you replace HTTPS by HTTP but you shoul
 ```dockerfile
 FROM alpine:3.11
 
-ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+ADD https://php.hernandev.com/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 RUN apk --update-cache add ca-certificates && \
-    echo "https://dl.bintray.com/php-alpine/v3.11/php-7.4" >> /etc/apk/repositories
+    echo "https://php.hernandev.com/v3.11/php-7.4" >> /etc/apk/repositories
 
 # install php and some extensions
 RUN apk add --update-cache \
