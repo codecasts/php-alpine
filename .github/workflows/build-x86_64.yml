@@ -1,8 +1,8 @@
-name: "build-repo"
+# workflow name.
+name: build-x86_64
 
 # workflow env.
 env:
-  ALPINE_ARCH: x86_64
   APORTS_SCRIPTS: /home/sandbox/scripts
   APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
   APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     env:
+      ALPINE_ARCH: ${{ matrix.arch }}
       ALPINE_VERSION: ${{ matrix.alpine }}
       PHP_VERSION: ${{ matrix.php }}
       PHP_MINOR_VERSION: ${{ matrix.release }}
@@ -33,30 +34,38 @@ jobs:
       max-parallel: 7
       matrix:
         include:
-          # alpine-v3.12-php-8.1
-          - alpine: "3.12"
+          # alpine-v3.14-php-8.1
+          - alpine: "3.14"
             php: "8.1"
             release: "8.1.0"
             arch: "x86_64"
-
           # alpine-v3.14-php-8.0
           - alpine: "3.14"
             php: "8.0"
             release: "8.0.13"
             arch: "x86_64"
 
+          # alpine-v3.13-php-8.1
+          - alpine: "3.13"
+            php: "8.1"
+            release: "8.1.0"
+            arch: "x86_64"
           # alpine-v3.13-php-8.0
           - alpine: "3.13"
             php: "8.0"
             release: "8.0.13"
             arch: "x86_64"
 
+          # alpine-v3.12-php-8.1
+          - alpine: "3.12"
+            php: "8.1"
+            release: "8.1.0"
+            arch: "x86_64"
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
             release: "8.0.13"
             arch: "x86_64"
-
           # alpine-v3.12-php-7.4
           - alpine: "3.12"
             php: "7.4"
@@ -68,13 +77,11 @@ jobs:
             php: "8.0"
             release: "8.0.13"
             arch: "x86_64"
-
           # alpine-v3.11-php-7.4
           - alpine: "3.11"
             php: "7.4"
             release: "7.4.26"
             arch: "x86_64"
-
           # alpine-v3.11-php-7.3
           - alpine: "3.11"
             php: "7.3"
@@ -86,7 +93,6 @@ jobs:
             php: "7.4"
             release: "7.4.26"
             arch: "x86_64"
-
           # alpine-v3.10-php-7.3
           - alpine: "3.10"
             php: "7.3"
