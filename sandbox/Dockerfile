@@ -73,6 +73,9 @@ USER sandbox
 RUN mkdir -p /home/sandbox/scripts && \
     mkdir -p /home/sandbox/packages
 
+# update repos.
+RUN sudo apk update
+
 # set entrypoint.
 ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
 
