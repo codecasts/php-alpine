@@ -33,6 +33,18 @@ jobs:
       max-parallel: 7
       matrix:
         include:
+          # alpine-v3.14-php-8.0
+          - alpine: "3.14"
+            php: "8.0"
+            release: "8.0.13"
+            arch: "x86_64"
+
+          # alpine-v3.13-php-8.0
+          - alpine: "3.13"
+            php: "8.0"
+            release: "8.0.13"
+            arch: "x86_64"
+
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
