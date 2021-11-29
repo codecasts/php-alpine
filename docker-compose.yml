@@ -3,6 +3,9 @@ version: "3"
 
 # volumes.
 volumes:
+  php-alpine-cache-v3.15:
+  php-alpine-cache-v3.14:
+  php-alpine-cache-v3.13:
   php-alpine-cache-v3.12:
   php-alpine-cache-v3.11:
   php-alpine-cache-v3.10:
