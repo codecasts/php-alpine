@@ -1,6 +1,6 @@
 ## PHP-ALPINE: Fresh PHP binaries APK repository for Alpine Linux.
 
-**Currently Supporting PHP 8.0**, also, PHP 7.4 and PHP 7.3.
+**Currently Supporting PHP 8.1**, also, PHP 8.0 and PHP 7.4.
 
 This project provides a simple alternative for running updated PHP binaries on Alpine Linux.
 We pack and release PHP versions as soon they are available on http://php.net. (At least, we try to.)
@@ -29,13 +29,14 @@ Additionally, many PECL extensions are also available as packages as well.
 
 ## APK Repositories & Release Cycle
 
-<!-- ### PHP End of Support -->
-<!-- - **PHP 7.4**     | 2021-11-28   1638057600-->
-<!-- PHP 7.3     | 2020-12-06 | 1607212800-->
-<!-- Alpine 3.12 | 2022-05-01 | 1651449599-->
-<!-- Alpine 3.11 | 2021-11-01 | 1635724800-->
-<!-- Alpine 3.10 | 2021-05-01 | 1619827200-->
-<!-- Alpine 3.9  | 2020-11-01 | 1604188800-->
+### PHP 8.1
+
+| Alpine | PHP | Repository URL
+| - | - | -
+| ![Alpine 3.14](https://img.shields.io/badge/Alpine-v3.14-blue?style=flat-square) | ![PHP 8.1](https://img.shields.io/badge/PHP-8.1-blueviolet?style=flat-square) | [`php.hernandev.com/v3.14/php-8.1`](https://php.hernandev.com/v3.14/php-8.1)
+| ![Alpine 3.13](https://img.shields.io/badge/Alpine-v3.13-blue?style=flat-square) | ![PHP 8.1](https://img.shields.io/badge/PHP-8.1-blueviolet?style=flat-square) | [`php.hernandev.com/v3.13/php-8.1`](https://php.hernandev.com/v3.13/php-8.1)
+| ![Alpine 3.12](https://img.shields.io/badge/Alpine-v3.12-blue?style=flat-square) | ![PHP 8.1](https://img.shields.io/badge/PHP-8.1-blueviolet?style=flat-square) | [`php.hernandev.com/v3.12/php-8.1`](https://php.hernandev.com/v3.12/php-8.1)
+
 
 ### PHP 8.0
 
