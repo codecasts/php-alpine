@@ -4,7 +4,7 @@ pkgname=php8-imagick
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=imagick
-pkgver=3.5.0
+pkgver=3.5.1
 pkgrel=99
 _phpver=8
 provides="php-imagick=8.1"
@@ -38,4 +38,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="bdb45205211faf7f53cc94df35df96be5a37aebd64c91866e89d442e87b619155a998e648e8e8a302aaf619a5a9c978f85b4f9cbc00c5ed11195a3035f9213bb  imagick-3.5.0.zip"
+sha512sums="0cf28e562ea548b0c04f70db42061f1d103d83a5a81a75e42faef7153c0c61cc8710f9a03b96ec59a7339a5c260ad63559d58a56964ab3fcf90b2cb9a00731c4  imagick-3.5.1.zip"

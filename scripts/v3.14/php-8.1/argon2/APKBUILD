@@ -10,7 +10,7 @@ pkgname=argon2
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgname=phc-winner-argon2
-pkgver=20161029
+pkgver=20190702
 provides="php-argon2=8.1"
 _soname=0.0.0
 pkgrel=1
@@ -32,14 +32,16 @@ package() {
     make DESTDIR="$pkgdir" install || return 1
 
     # A version number is not appended to the shared library file by default, so we do it ourselves
-    mv "$pkgdir"/usr/lib/libargon2.so "$pkgdir"/usr/lib/libargon2.so.$_soname || return 1
-    ln -s libargon2.so.$_soname "$pkgdir"/usr/lib/libargon2.so || return 1
-	ln -s libargon2.so.$_soname "$pkgdir"/usr/lib/libargon2.so.${_soname%%.*} || return 1
+    mv "$pkgdir"/usr/lib/x86_64-linux-gnu/libargon2.so "$pkgdir"/usr/lib/x86_64-linux-gnu/libargon2.so.$_soname || return 1
+    ln -s libargon2.so.$_soname "$pkgdir"/usr/lib/x86_64-linux-gnu/libargon2.so || return 1
+	ln -s libargon2.so.$_soname "$pkgdir"/usr/lib/x86_64-linux-gnu/libargon2.so.${_soname%%.*} || return 1
 }
 
 libargon2() {
     pkgdesc="The password hash Argon2 library, winner of PHC"
     mkdir -p "$subpkgdir"/usr
-    mv "$pkgdir"/usr/lib "$subpkgdir"/usr
+    mv "$pkgdir"/usr/lib/x86_64-linux-gnu "$subpkgdir"/usr
 }
-sha512sums="e1f947a97e8b5f292dd32a6f1ea0ef3f2e411629218653821886ec4e1d5f8289d5b8f4b8bf0a37e69c344a83b975c695947d6b49fd2001a0e4273bebd4792892  argon2-20161029.tar.gz"
+sha512sums="
+0a4cb89e8e63399f7df069e2862ccd05308b7652bf4ab74372842f66bcc60776399e0eaf979a7b7e31436b5e6913fe5b0a6949549d8c82ebd06e0629b106e85f  argon2-20190702.tar.gz
+"

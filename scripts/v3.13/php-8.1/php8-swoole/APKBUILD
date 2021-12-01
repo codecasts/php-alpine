@@ -4,7 +4,7 @@ pkgname=php8-swoole
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=swoole
-pkgver=4.7.1
+pkgver=4.8.2
 pkgrel=1
 _phpver=8
 provides="php-swoole=8.1"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="696cf2da6f7fc5275b90cd08e9973d592463e3c58dfd684e5ffabad33f7076ff46b6e44273308aff5e7fd66e9418d0534d013cf647e61d28af34db490ea6ab09  swoole-4.7.1.tgz"
+sha512sums="da250a70d1778b4919061fbca915c5156d16d140c8ecccf0440e78f5eadaadba6a0fa91c6a90751c6dffbe9bf8e45b097d447bdf0b889dbd55766602a63d6f2d  swoole-4.8.2.tgz"

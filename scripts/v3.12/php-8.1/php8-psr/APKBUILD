@@ -4,7 +4,7 @@ pkgname=php8-psr
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=psr
-pkgver=1.0.1
+pkgver=1.1.0
 pkgrel=1
 _phpver=8
 provides="php-psr=8.1"
@@ -38,4 +38,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="533f3f707a6bd2212cf67f6b1c35930af3df716a90283c6d9be2ef87306298f1ff7f96277cf6bd8137d46e8bb76582f305d23fd500195a06fb494607666b93ae  php8-psr.tar.gz"
+sha512sums="d6d733c2dd3c69285e2994682ad2693f24aab291887ac0ec274b633aba3fae23e654dc1c89c29db980500e5ade1ad49d932e13533cea620cbce870b7093b54a7  php8-psr.tar.gz"
