@@ -1,0 +1,54 @@
+# secp256k1 for Alpine
+
+# Contributor: Diego Hernandes <iamhernandev@gmail.com>
+# Maintainer: Diego Hernandes <iamhernandev@gmail.com>
+
+pkgname=libsecp256k1
+_pkgname=secp256k1
+srcdir="/tmp/src-$_pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+pkgver=20201212
+_soname=0.0.0
+pkgrel=2
+pkggitrev=95e99f196fd08a8b2c236ab99d7e7fec8f6dc78f
+pkgdesc="Optimized C library for EC operations on curve secp256k1"
+url="https://github.com/bitcoin-core/secp256k1"
+arch="all !armhf"
+license="MIT"
+depends="libressl gmp"
+makedepends="autoconf automake git m4 make libtool libressl-dev gmp-dev"
+#subpackages="https://github.com/bitcoin-core/secp256k1"
+source="$_pkgname-$pkgver.zip::https://codeload.github.com/bitcoin-core/secp256k1/zip/$pkggitrev"
+builddir="$srcdir/$_pkgname-$pkggitrev"
+
+build() {
+    cd "$builddir"
+    ./autogen.sh
+    ./configure --prefix=/usr \
+    --sbindir=/usr/bin \
+    --libexecdir=/usr/lib/libsecp256k1 \
+    --sysconfdir=/etc \
+    --sharedstatedir=/usr/share/libsecp256k1 \
+    --localstatedir=/var/lib/libsecp256k1 \
+    --enable-experimental \
+    --enable-module-recovery \
+    --enable-module-ecdh \
+    --enable-module-schnorr \
+    --disable-tests \
+    --with-gnu-ld
+    make
+}
+
+package() {
+    cd "$builddir"
+    make DESTDIR="$pkgdir" install || return 1
+
+    msg2 'Installing...'
+    make DESTDIR="$pkgdir" install
+
+    msg2 'Cleaning up pkgdir...'
+    find "$pkgdir" -type d -name .git -exec rm -r '{}' +
+    find "$pkgdir" -type f -name .gitignore -exec rm -r '{}' +
+}
+
+sha512sums="daeb412b920fc793ff8e97a20eec2cf3940b13ca7390a2700a9a9a6523200bdb6d07117d13d6986d1e18529e01eb51fb5ffdf5b4e7b59d5468968fae7a57355a  secp256k1-20201212.zip"
