@@ -4,7 +4,7 @@ pkgname=php8-swoole
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=swoole
-pkgver=4.7.1
+pkgver=4.8.4
 pkgrel=1
 _phpver=8
 provides="php-swoole=8.1"

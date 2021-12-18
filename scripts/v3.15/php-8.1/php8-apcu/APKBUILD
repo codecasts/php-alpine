@@ -4,7 +4,7 @@ pkgname=php8-apcu
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=apcu
-pkgver=5.1.19
+pkgver=5.1.21
 pkgrel=1
 _phpver=8
 provides="php-apcu=8.1"
