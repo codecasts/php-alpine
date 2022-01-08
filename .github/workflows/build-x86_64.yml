@@ -149,14 +149,11 @@ jobs:
 
       # build packages.
       - name: build
-        uses: uraimo/run-on-arch-action@master
-        with:
-          arch: ${{ matrix.arch }}
-          run: |
-            echo "" > .env
-            echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
-            echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-            docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
+        run: |
+          echo "" > .env
+          echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
+          echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+          docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
