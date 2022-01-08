@@ -143,6 +143,10 @@ jobs:
           arch: ${{ matrix.arch }}
           distro: ubuntu20.04
           githubToken: ${{ github.token }}
+          install: |
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+
           run: |
             echo "" > .env
             echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
