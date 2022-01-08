@@ -143,7 +143,7 @@ jobs:
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
           cd sandbox
-          docker buildx build --platform=${ALPINE_PLATFORM} --build-arg ALPINE_VERSION=${ALPINE_VERSION} --build-arg APK_MAINTAINER=${APK_MAINTAINER} --build-arg=APK_PACKAGER=${APK_PACKAGER} .
+          docker buildx build --load --platform=${ALPINE_PLATFORM} --build-arg ALPINE_VERSION=${ALPINE_VERSION} --build-arg APK_MAINTAINER=${APK_MAINTAINER} --build-arg=APK_PACKAGER=${APK_PACKAGER} -t codecasts/php-alpine:sandbox-v${ALPINE_VERSION} .
           cd ..
           docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
 
