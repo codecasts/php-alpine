@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     env:
+      ALPINE_PLATFORM: linux/arm64
       ALPINE_ARCH: ${{ matrix.arch }}
       ALPINE_VERSION: ${{ matrix.alpine }}
       PHP_VERSION: ${{ matrix.php }}
