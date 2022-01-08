@@ -42,7 +42,7 @@ source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.
 	"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
-_exts="bcmath bz2 calendar ctype curl dba dom enchant exif ftp gd gettext gmp iconv imap intl
+_exts="bcmath bz2 calendar ctype curl dba dom enchant exif ffi ftp gd gettext gmp iconv imap intl
 	ldap mbstring mysqli mysqlnd odbc opcache openssl pcntl pdo pdo_dblib pdo_mysql
 	pdo_odbc pdo_pgsql pdo_sqlite pgsql phar:phar posix pspell session shmop snmp soap
 	sockets sodium sqlite3 sysvmsg sysvsem sysvshm tidy xml xmlreader xsl zip zlib
@@ -87,6 +87,7 @@ _build() {
 		--sysconfdir=/etc/$pkgname \
 		--localstatedir=/var \
 		--with-layout=GNU \
+		--with-ffi=shared \
 		--with-pic \
 		--with-password-argon2 \
 		--with-pear \
