@@ -140,7 +140,7 @@ jobs:
       - name: build
         uses: uraimo/run-on-arch-action@v2
         with:
-          arch: ${{ env.DOCKER_PLATFORM }}
+          arch: ${{ matrix.arch }}
           run: |
             echo "" > .env
             echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
