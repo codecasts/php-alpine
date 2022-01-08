@@ -51,6 +51,7 @@ RUN adduser -D -u 1000 sandbox && \
     mkdir -p /var/cache/distfiles && \
     chmod a+w /var/cache/distfiles && \
     chmod +x /opt/php-alpine/entrypoint.sh && \
+    chmod +x /opt/php-alpine/checksum-all.sh && \
     mkdir -p /var/cache/apk && \
     ln -s /var/cache/apk /etc/apk/cache && \
     echo "sandbox  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \

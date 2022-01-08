@@ -37,4 +37,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="696cf2da6f7fc5275b90cd08e9973d592463e3c58dfd684e5ffabad33f7076ff46b6e44273308aff5e7fd66e9418d0534d013cf647e61d28af34db490ea6ab09  swoole-4.7.1.tgz"
+sha512sums="
+e5e3d21bba81be7830b37344e71ee98392c14f5b86c005725de528c59dbfc1d1e0faab5df81bdc8e6c4546c795f80d7ca05d3725163f65722a34f9373329056e  swoole-4.8.4.tgz
+"

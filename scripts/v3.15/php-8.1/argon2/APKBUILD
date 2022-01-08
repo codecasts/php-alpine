@@ -42,4 +42,6 @@ libargon2() {
     mkdir -p "$subpkgdir"/usr
     mv "$pkgdir"/usr/lib "$subpkgdir"/usr
 }
-sha512sums="e1f947a97e8b5f292dd32a6f1ea0ef3f2e411629218653821886ec4e1d5f8289d5b8f4b8bf0a37e69c344a83b975c695947d6b49fd2001a0e4273bebd4792892  argon2-20161029.tar.gz"
+sha512sums="
+e1f947a97e8b5f292dd32a6f1ea0ef3f2e411629218653821886ec4e1d5f8289d5b8f4b8bf0a37e69c344a83b975c695947d6b49fd2001a0e4273bebd4792892  argon2-20161029.tar.gz
+"

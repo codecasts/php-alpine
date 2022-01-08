@@ -41,5 +41,7 @@ package() {
     make DESTDIR="$pkgdir" install
 }
 
-sha512sums="0ca1634bb783df51512df4abecc89abdadee6baf7330d6e5f90cc15d10779896a3521a1c079ecc07e4df4f7a018ce398cca9d0125a7845a314a059840ebc9137  enchant-1.6.0.tar.gz
-c0b7fd8fd00a81ea2c08ea7ce2bdffa826b5a3a0c06eacb818681f0f977d8e76c69f7938c10cdf71571cd1cbbf0e576d36fc74a41755fb570e047525195aeb99  hunspell-build-fix.patch"
+sha512sums="
+0ca1634bb783df51512df4abecc89abdadee6baf7330d6e5f90cc15d10779896a3521a1c079ecc07e4df4f7a018ce398cca9d0125a7845a314a059840ebc9137  enchant-1.6.0.tar.gz
+c0b7fd8fd00a81ea2c08ea7ce2bdffa826b5a3a0c06eacb818681f0f977d8e76c69f7938c10cdf71571cd1cbbf0e576d36fc74a41755fb570e047525195aeb99  hunspell-build-fix.patch
+"
