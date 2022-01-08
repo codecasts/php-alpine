@@ -37,4 +37,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="80ad3caddde045fe5e879167b2b4cfc27bdabf6d3667df4df73f33503c329b0d6bf4da6b287fe454301a9a390434eec19971059c6de8d4c9720a79fe7680366d  mongodb-1.9.0.tgz"
+sha512sums="
+80ad3caddde045fe5e879167b2b4cfc27bdabf6d3667df4df73f33503c329b0d6bf4da6b287fe454301a9a390434eec19971059c6de8d4c9720a79fe7680366d  mongodb-1.9.0.tgz
+"

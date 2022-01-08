@@ -37,4 +37,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="a3951aa6d5ff189d7aea8acb62864ef23a71e061abd44f63f47567e53158ecaed1568c4be33365d65b75bc9bcddc02302a9932480a3c0658b3187b0b8802f825  php8-scalar_objects.zip"
+sha512sums="
+a3951aa6d5ff189d7aea8acb62864ef23a71e061abd44f63f47567e53158ecaed1568c4be33365d65b75bc9bcddc02302a9932480a3c0658b3187b0b8802f825  php8-scalar_objects.zip
+"

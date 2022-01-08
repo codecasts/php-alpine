@@ -51,4 +51,6 @@ package() {
     find "$pkgdir" -type f -name .gitignore -exec rm -r '{}' +
 }
 
-sha512sums="daeb412b920fc793ff8e97a20eec2cf3940b13ca7390a2700a9a9a6523200bdb6d07117d13d6986d1e18529e01eb51fb5ffdf5b4e7b59d5468968fae7a57355a  secp256k1-20201212.zip"
+sha512sums="
+daeb412b920fc793ff8e97a20eec2cf3940b13ca7390a2700a9a9a6523200bdb6d07117d13d6986d1e18529e01eb51fb5ffdf5b4e7b59d5468968fae7a57355a  secp256k1-20201212.zip
+"

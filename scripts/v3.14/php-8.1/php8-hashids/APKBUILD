@@ -39,4 +39,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/20_$_pkgreal.ini || return 1
 }
 
-sha512sums="b3cac1b27747e9b38bc0bb51313f5d537f647cf2bbaf07aa3a6dbd5c7449104ccf240bc1cd3676175b570ab1b3884da6a6cb33afcc17f4277ed706b5c4c04fe9  hashids-1.0.0.tar.gz"
+sha512sums="
+b3cac1b27747e9b38bc0bb51313f5d537f647cf2bbaf07aa3a6dbd5c7449104ccf240bc1cd3676175b570ab1b3884da6a6cb33afcc17f4277ed706b5c4c04fe9  hashids-1.0.0.tar.gz
+"

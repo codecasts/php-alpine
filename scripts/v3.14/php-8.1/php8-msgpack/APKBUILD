@@ -37,4 +37,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/30_$_pkgreal.ini || return 1
 }
 
-sha512sums="adce1ab7e6dba603398a2caa1f318c85748d9f991d8f56aaf7b93417c65146ca77916241549e76ef3bdfece0cf893990221e77c251e6369403740b02ae6bcff7  msgpack-2.1.2.tgz"
+sha512sums="
+adce1ab7e6dba603398a2caa1f318c85748d9f991d8f56aaf7b93417c65146ca77916241549e76ef3bdfece0cf893990221e77c251e6369403740b02ae6bcff7  msgpack-2.1.2.tgz
+"

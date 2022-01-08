@@ -37,4 +37,6 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="665969bd7a073888701e9da60b0dbffce114e38f51fc4c8be1f521ad2a10eeab7ad89a9be88fcd070b2fa2c40d9fc46d69d7a01c91128d5fdb0ae4a728987fd9  libsodium-2.0.23.tgz"
+sha512sums="
+665969bd7a073888701e9da60b0dbffce114e38f51fc4c8be1f521ad2a10eeab7ad89a9be88fcd070b2fa2c40d9fc46d69d7a01c91128d5fdb0ae4a728987fd9  libsodium-2.0.23.tgz
+"
