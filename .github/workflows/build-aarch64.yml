@@ -141,6 +141,8 @@ jobs:
         uses: uraimo/run-on-arch-action@master
         with:
           arch: ${{ matrix.arch }}
+          distro: ubuntu20.04
+          githubToken: ${{ github.token }}
           run: |
             echo "" > .env
             echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
