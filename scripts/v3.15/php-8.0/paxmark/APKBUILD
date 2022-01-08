@@ -1,0 +1,21 @@
+# Maintainer: Timo Teräs <timo.teras@iki.fi>
+pkgname=paxmark
+pkgver=0.12
+pkgrel=0
+pkgdesc="Manage PaX marking of executables"
+url="https://alpinelinux.org"
+arch="noarch"
+options="!check"
+license="GPL-2.0-or-later"
+depends="attr"
+source="paxmark"
+
+package() {
+	mkdir -p "$pkgdir"/usr/sbin
+	install -m755 "$srcdir"/paxmark "$pkgdir"/usr/sbin
+	ln -s paxmark "$pkgdir"/usr/sbin/paxmark.sh
+}
+
+sha512sums="
+f60c12b12b029a947cc3f5843484d4ac72fc4ac6d4a739c03e29ad890b392d1a8dca760258fbb28f88afeb854ddea1b60b85a8f1c9e8e8129c525cc29d8c05fa  paxmark
+"

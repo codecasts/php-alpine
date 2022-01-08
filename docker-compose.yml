@@ -38,7 +38,7 @@ services:
 
   # sandbox for building on alpine edge.
   starter-images:
-    platform: ${ALPINE_PLATFORM}
+    platform: ${DOCKER_PLATFORM}
     # target image.
     image: "codecasts/php-alpine:alpine-v${ALPINE_VERSION}-php-${PHP_VERSION}"
     build:
@@ -49,7 +49,7 @@ services:
 
   # sandbox for building on alpine edge.
   release-image:
-    platform: ${ALPINE_PLATFORM}
+    platform: ${DOCKER_PLATFORM}
     # target image.
     image: "codecasts/php-alpine:alpine-v${ALPINE_VERSION}-php-${PHP_VERSION}"
     build:
