@@ -1,0 +1,40 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-xdebug
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=xdebug
+pkgver=3.0.1
+pkgrel=1
+_phpver=8
+provides="php-xdebug=8.1"
+pkgdesc="xDebug Profiler"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="XDEBUG-1"
+depends="php8-common>=8.1.0 php8-common<8.2.0"
+makedepends="php8-dev>=8.1.0 php8-dev<8.2.0 autoconf"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    make || return 1
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="faa1ed9ad348ec5993ed1883dec2df9b331a158d4b9ae09df0a89be81a5651d51fe67a0a4f7af88d2e20a0e29babf294c98b0dbf289c10f5c0abf0be1c091e8b  xdebug-3.0.1.tgz"

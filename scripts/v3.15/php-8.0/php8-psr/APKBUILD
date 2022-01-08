@@ -1,0 +1,41 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-psr
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=psr
+pkgver=1.0.1
+pkgrel=1
+_phpver=8
+provides="php-psr=8.0"
+pkgdesc="PSR - PHP extension providing the accepted PSR interfaces"
+url="https://github.com/jbboehr/php-psr"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf pcre-dev"
+source="php8-psr.tar.gz::https://github.com/jbboehr/php-psr/archive/v$pkgver.tar.gz"
+builddir="$srcdir/php-$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    TEST_PHP_ARGS="-q" make test
+    make
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="533f3f707a6bd2212cf67f6b1c35930af3df716a90283c6d9be2ef87306298f1ff7f96277cf6bd8137d46e8bb76582f305d23fd500195a06fb494607666b93ae  php8-psr.tar.gz"
