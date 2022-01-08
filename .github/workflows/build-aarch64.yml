@@ -141,16 +141,11 @@ jobs:
         uses: uraimo/run-on-arch-action@v2
         with:
           arch: ${{ env.DOCKER_PLATFORM }}
-        run: |
-          docker buildx create --use
-          docker buildx ls
-          echo "" > .env
-          echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
-          echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-          cd sandbox
-          echo docker buildx build --load --platform=${DOCKER_PLATFORM} --build-arg ALPINE_VERSION=${ALPINE_VERSION} --build-arg APK_MAINTAINER=${APK_MAINTAINER} --build-arg=APK_PACKAGER=${APK_PACKAGER} -t codecasts/php-alpine:sandbox-v${ALPINE_VERSION} .
-          cd ..
-          docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
+          run: |
+            echo "" > .env
+            echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
+            echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+            docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
