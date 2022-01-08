@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
 
     env:
       DOCKER_PLATFORM: linux/arm64
@@ -106,17 +106,6 @@ jobs:
       - name: git-checkout
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Inspect builder
-        run: |
-          echo "Name:      ${{ steps.buildx.outputs.name }}"
-          echo "Endpoint:  ${{ steps.buildx.outputs.endpoint }}"
-          echo "Status:    ${{ steps.buildx.outputs.status }}"
-          echo "Flags:     ${{ steps.buildx.outputs.flags }}"
-          echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
-
       # cache packages.
       - name: cache
         uses: actions/cache@v2
@@ -144,18 +133,16 @@ jobs:
           distro: ubuntu20.04
           githubToken: ${{ github.token }}
           install: |
+            uname -a
             export DEBIAN_FRONTEND=noninteractive
             whoami
             apt update -y
             apt install -y curl
-            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-
           run: |
             echo "" > .env
             echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
             echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-            docker-compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
+            docker compose run sandbox buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}
 
       # upload artifacts.
       - name: upload
