@@ -138,7 +138,7 @@ jobs:
 
       # build packages.
       - name: build
-        uses: uraimo/run-on-arch-action@v2
+        uses: uraimo/run-on-arch-action@master
         with:
           arch: ${{ matrix.arch }}
           run: |
