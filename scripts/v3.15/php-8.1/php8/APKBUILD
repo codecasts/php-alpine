@@ -29,7 +29,7 @@ makedepends="autoconf argon2-dev bison re2c apache2-dev libxml2-dev libxslt-dev 
 	libical-dev libsodium-dev openssl-dev openldap-dev net-snmp-dev db-dev krb5-dev gdbm-dev sqlite-dev
 	freetds-dev mariadb-dev postgresql-dev unixodbc-dev freetype-dev tidyhtml-dev libxpm-dev
 	libpng-dev libwebp-dev libjpeg-turbo-dev gsoap-dev recode-dev
-	libedit-dev paxmark gettext-dev oniguruma-dev libgcrypt-dev libgpg-error-dev gd-dev
+	libedit-dev gettext-dev oniguruma-dev libgcrypt-dev libgpg-error-dev gd-dev
 	"
 
 source="$_pkgreal-$pkgver.tar.bz2::http://br2.php.net/get/$_pkgreal-$pkgver.tar.bz2/from/this/mirror

@@ -16,7 +16,7 @@ services:
   # sandbox base image
   sandbox:
     # specify docker platform to run.
-    platform: ${ALPINE_PLATFORM}
+    platform: ${DOCKER_PLATFORM}
     # target image.
     image: "codecasts/php-alpine:sandbox-v${ALPINE_VERSION}"
     # enable tty.
