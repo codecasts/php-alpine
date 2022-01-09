@@ -143,6 +143,8 @@ jobs:
             apt install -y curl
             curl -fsSL https://get.docker.com -o get-docker.sh
             sh get-docker.sh
+            docker --version
+            mkdir -p ~/.docker/cli-plugins
             curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose
             chmod +x ~/.docker/cli-plugins/docker-compose
             docker compose version
