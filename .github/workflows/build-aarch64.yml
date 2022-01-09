@@ -158,6 +158,7 @@ jobs:
             docker compose version
           run: |
             docker run -it --rm alpine:v3.15 "uname -a"
+            env
 #          run: |
 #            env
 #            echo "" > .env
