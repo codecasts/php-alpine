@@ -134,6 +134,11 @@ jobs:
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
 
+      - name: prepare
+        run: |
+          echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
+          echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+
       # build packages.
       - name: build
         uses: uraimo/run-on-arch-action@master
@@ -142,9 +147,9 @@ jobs:
           distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
           dockerRunArgs: |
-            --privileged --platform=${{ env.DOCKER_PLATFORM }}
-
+            --privileged --platform=${{ env.DOCKER_PLATFORM }} -e DOCKER_PLATFORM=${{ env.DOCKER_PLATFORM }} -e ALPINE_VERSION=${{env.ALPINE_VERSION}} -e PHP_VERSION=${{ env.PHP_VERSION }} -e APK_MAINTAINER=${{secrets.APK_MAINTAINER}} -e APK_PACKAGER=${{secrets.APK_PACKAGER}} -e PHP_VERSION_SLUG=${{env.PHP_VERSION_SLUG}}
           install: |
+            env
             uname -a
             export DEBIAN_FRONTEND=noninteractive
             whoami
@@ -157,17 +162,11 @@ jobs:
             curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose
             chmod +x ~/.docker/cli-plugins/docker-compose
             docker compose version
-#          run: |
-#            docker run -it --rm alpine:v3.15 "uname -a"
-#            env
           run: |
             env
-            docker run -it --rm alpine:3.15 uname -a
+            docker run --platform=$DOCKER_PLATFORM -it --rm alpine:3.15 uname -a
             echo "" > .env
-            echo -e "${{env.DOCKER_PLATFORM}}"
-            echo -e "${{secrets.PHP_ALPINE_RSA}}" > .abuild/php-alpine.rsa
-            echo -e "${{secrets.PHP_ALPINE_RSA_PUB}}" > .abuild/php-alpine.rsa.pub
-            docker compose run sandbox buildrepo -p -a /home/sandbox/scripts ${{env.PHP_VERSION_SLUG}}
+            docker compose run sandbox buildrepo -p -a /home/sandbox/scripts $PHP_VERSION_SLUG
 
       # upload artifacts.
       - name: upload
