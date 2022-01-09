@@ -144,6 +144,7 @@ jobs:
         uses: uraimo/run-on-arch-action@master
         with:
           env: |
+            DOCKER_BUILDKIT: 1
             DOCKER_PLATFORM: ${{ env.DOCKER_PLATFORM }}
             ALPINE_VERSION: ${{ env.ALPINE_VERSION }}
             PHP_VERSION: ${{ env.PHP_VERSION }}
