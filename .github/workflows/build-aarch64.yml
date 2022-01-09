@@ -143,12 +143,19 @@ jobs:
       - name: build
         uses: uraimo/run-on-arch-action@master
         with:
-          env: ${{ env }}
+          env: |
+            DOCKER_PLATFORM: ${{ env.DOCKER_PLATFORM }}
+            ALPINE_VERSION: ${{ env.ALPINE_VERSION }}
+            PHP_VERSION: ${{ env.PHP_VERSION }}
+            PHP_VERSION: ${{ env.PHP_VERSION }}
+            PHP_VERSION_SLUG: ${{ env.PHP_VERSION_SLUG }}
+            APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}
+            APK_PACKAGER: ${{ secrets.APK_PACKAGER }}
           arch: ${{ matrix.arch }}
           distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
           dockerRunArgs: |
-            --privileged --platform=${{ env.DOCKER_PLATFORM }} -e DOCKER_PLATFORM=${{ env.DOCKER_PLATFORM }} -e ALPINE_VERSION=${{env.ALPINE_VERSION}} -e PHP_VERSION=${{ env.PHP_VERSION }} -e APK_MAINTAINER=${{secrets.APK_MAINTAINER}} -e APK_PACKAGER=${{secrets.APK_PACKAGER}} -e PHP_VERSION_SLUG=${{env.PHP_VERSION_SLUG}}
+            --privileged --platform=${{ env.DOCKER_PLATFORM }}
           install: |
             env
             uname -a
