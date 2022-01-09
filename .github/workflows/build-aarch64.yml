@@ -25,7 +25,6 @@ jobs:
       ALPINE_ARCH: ${{ matrix.arch }}
       ALPINE_VERSION: ${{ matrix.alpine }}
       PHP_VERSION: ${{ matrix.php }}
-      PHP_MINOR_VERSION: ${{ matrix.release }}
       ALPINE_VERSION_SLUG: v${{ matrix.alpine }}
       PHP_VERSION_SLUG: php-${{ matrix.php }}
       PA_ARCH: ${{ matrix.arch }}
@@ -37,37 +36,47 @@ jobs:
       max-parallel: 7
       matrix:
         include:
+          # alpine-v3.15-php-8.1
+          - alpine: "3.15"
+            php: "8.1"
+            release: "8.1.1"
+            arch: "aarch64"
+          # alpine-v3.15-php-8.0
+          - alpine: "3.14"
+            php: "8.0"
+            release: "8.0.14"
+            arch: "aarch64"
           # alpine-v3.14-php-8.1
           - alpine: "3.14"
             php: "8.1"
-            release: "8.1.0"
+            release: "8.1.1"
             arch: "aarch64"
           # alpine-v3.14-php-8.0
           - alpine: "3.14"
             php: "8.0"
-            release: "8.0.13"
+            release: "8.0.14"
             arch: "aarch64"
 
           # alpine-v3.13-php-8.1
           - alpine: "3.13"
             php: "8.1"
-            release: "8.1.0"
+            release: "8.1.1"
             arch: "aarch64"
           # alpine-v3.13-php-8.0
           - alpine: "3.13"
             php: "8.0"
-            release: "8.0.13"
+            release: "8.0.14"
             arch: "aarch64"
 
           # alpine-v3.12-php-8.1
           - alpine: "3.12"
             php: "8.1"
-            release: "8.1.0"
+            release: "8.1.1"
             arch: "aarch64"
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
-            release: "8.0.13"
+            release: "8.0.14"
             arch: "aarch64"
           # alpine-v3.12-php-7.4
           - alpine: "3.12"
@@ -78,7 +87,7 @@ jobs:
           # alpine-v3.11-php-8.0
           - alpine: "3.11"
             php: "8.0"
-            release: "8.0.13"
+            release: "8.0.14"
             arch: "aarch64"
           # alpine-v3.11-php-7.4
           - alpine: "3.11"
@@ -124,7 +133,6 @@ jobs:
           echo -e "Job strategy: "
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
-          echo -e "PHP Release: ${{ env.PHP_MINOR_VERSION }}"
 
       # build packages.
       - name: build
