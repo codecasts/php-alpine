@@ -78,7 +78,11 @@ RUN mkdir -p /home/sandbox/scripts && \
     mkdir -p /home/sandbox/packages
 
 # update repos.
-RUN sudo apk update
+USER root
+RUN apk update
+
+# switch to sandbox user.
+USER sandbox
 
 # set entrypoint.
 ENTRYPOINT ["/opt/php-alpine/entrypoint.sh"]
