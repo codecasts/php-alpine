@@ -157,10 +157,13 @@ jobs:
             chmod +x ~/.docker/cli-plugins/docker-compose
             docker compose version
           run: |
-            echo "" > .env
-            echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
-            echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
-            DOCKER_PLATFORM=${{env.DOCKER_PLATFORM}} docker compose run sandbox "buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}"
+            docker run -it --rm alpine:v3.15 "uname -a"
+#          run: |
+#            env
+#            echo "" > .env
+#            echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
+#            echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
+#            DOCKER_PLATFORM=${{env.DOCKER_PLATFORM}} docker compose run sandbox "buildrepo -a ${{ env.APORTS_SCRIPTS }} -p ${{ env.PHP_VERSION_SLUG }}"
 
       # upload artifacts.
       - name: upload
