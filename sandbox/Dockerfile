@@ -2,9 +2,10 @@
 
 # arg for using a specific Alpine version (before FROM)
 ARG ALPINE_VERSION
+ARG DOCKER_PLATFORM
 
 # use alpine version from argument as base/from image.
-FROM alpine:$ALPINE_VERSION
+FROM --platform=$DOCKER_PLATFORM alpine:$ALPINE_VERSION
 
 # maintainer label.
 MAINTAINER Diego Hernandes <iamhernandev@gmail.com>

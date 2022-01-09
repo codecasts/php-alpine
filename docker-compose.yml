@@ -25,6 +25,7 @@ services:
     build:
       context: "sandbox"
       args:
+        DOCKER_PLATFORM: ${DOCKER_PLATFORM}
         ALPINE_VERSION: ${ALPINE_VERSION}
         APK_MAINTAINER: ${APK_MAINTAINER}
         APK_PACKAGER: ${APK_PACKAGER}
