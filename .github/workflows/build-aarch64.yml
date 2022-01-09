@@ -162,12 +162,12 @@ jobs:
 #            env
           run: |
             env
-            docker run -it --rm alpine:3.15 "uname -a"
+            docker run -it --rm alpine:3.15 uname -a
             echo "" > .env
             echo -e "${{env.DOCKER_PLATFORM}}"
             echo -e "${{secrets.PHP_ALPINE_RSA}}" > .abuild/php-alpine.rsa
             echo -e "${{secrets.PHP_ALPINE_RSA_PUB}}" > .abuild/php-alpine.rsa.pub
-            docker compose run sandbox "buildrepo -p -a /home/sandbox/scripts ${{env.PHP_VERSION_SLUG}}"
+            docker compose run sandbox buildrepo -p -a /home/sandbox/scripts ${{env.PHP_VERSION_SLUG}}
 
       # upload artifacts.
       - name: upload
