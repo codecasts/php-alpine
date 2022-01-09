@@ -21,6 +21,7 @@ jobs:
 
     env:
       DOCKER_PLATFORM: linux/arm64
+      DOCKER_DISTRO: ubuntu20.04
       ALPINE_ARCH: ${{ matrix.arch }}
       ALPINE_VERSION: ${{ matrix.alpine }}
       PHP_VERSION: ${{ matrix.php }}
@@ -129,8 +130,8 @@ jobs:
       - name: build
         uses: uraimo/run-on-arch-action@master
         with:
-          arch: ${{ matrix.arch }}
-          distro: ubuntu20.04
+          arch: ${{ env.DOCKER_PLATFORM }}
+          distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
           install: |
             uname -a
@@ -138,6 +139,8 @@ jobs:
             whoami
             apt update -y
             apt install -y curl
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            sh get-docker.sh
           run: |
             echo "" > .env
             echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
