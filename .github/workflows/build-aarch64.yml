@@ -164,6 +164,7 @@ jobs:
             env
             docker run -it --rm alpine:v3.15 "uname -a"
             echo "" > .env
+            echo -e "${env.DOCKER_PLATFORM}"
             echo -e "${PHP_ALPINE_RSA}" > .abuild/php-alpine.rsa
             echo -e "${PHP_ALPINE_RSA_PUB}" > .abuild/php-alpine.rsa.pub
             DOCKER_PLATFORM=${DOCKER_PLATFORM} docker compose run sandbox "buildrepo -p -a /home/sandbox/scripts ${PHP_VERSION_SLUG}"
