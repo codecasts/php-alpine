@@ -130,7 +130,7 @@ jobs:
       - name: build
         uses: uraimo/run-on-arch-action@master
         with:
-          arch: ${{ env.DOCKER_PLATFORM }}
+          arch: ${{ matrix.arch }}
           distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
           install: |
