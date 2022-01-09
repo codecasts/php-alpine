@@ -21,7 +21,7 @@ jobs:
 
     env:
       DOCKER_PLATFORM: linux/arm64
-      DOCKER_DISTRO: ubuntu20.04
+      DOCKER_DISTRO: ubuntu18.04
       ALPINE_ARCH: ${{ matrix.arch }}
       ALPINE_VERSION: ${{ matrix.alpine }}
       PHP_VERSION: ${{ matrix.php }}

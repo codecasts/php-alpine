@@ -7,6 +7,8 @@ ARG DOCKER_PLATFORM
 # use alpine version from argument as base/from image.
 FROM --platform=$DOCKER_PLATFORM alpine:$ALPINE_VERSION
 
+RUN echo "I am running on $DOCKER_PLATFORM, building for $TARGETPLATFORM"
+
 # maintainer label.
 MAINTAINER Diego Hernandes <iamhernandev@gmail.com>
 
