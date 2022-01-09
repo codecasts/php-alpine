@@ -133,6 +133,8 @@ jobs:
           arch: ${{ matrix.arch }}
           distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
+          dockerRunArgs: |
+            --privileged --platform {{ env.DOCKER_PLATFORM }}
           install: |
             uname -a
             export DEBIAN_FRONTEND=noninteractive
