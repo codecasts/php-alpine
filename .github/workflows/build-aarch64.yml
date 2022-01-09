@@ -142,7 +142,7 @@ jobs:
           distro: ${{ env.DOCKER_DISTRO }}
           githubToken: ${{ github.token }}
           dockerRunArgs: |
-            --privileged --platform=${{ env.DOCKER_PLATFORM }} -e PHP_VERSION_SLUG=${{env.PHP_VERSION_SLUG}} -e PHP_ALPINE_RSA=${{secrets.PHP_ALPINE_RSA}} -e PHP_ALPINE_RSA_PUB=${{secrets.PHP_ALPINE_RSA_PUB}} -e DOCKER_DISTRO=${{env.DOCKER_DISTRO}}-e DOCKER_PLATFORM=${{env.DOCKER_PLATFORM}} -e ALPINE_VERSION=${{env.ALPINE_VERSION}} -e PHP_VERSION=${{env.PHP_VERSION}} -e APK_PACKAGER=${{env.APK_PACKAGER}} -e APK_MAINTAINER=${{env.APK_MAINTAINER}}
+            --privileged --platform=${{ env.DOCKER_PLATFORM }}
 
           install: |
             uname -a
@@ -164,10 +164,10 @@ jobs:
             env
             docker run -it --rm alpine:v3.15 "uname -a"
             echo "" > .env
-            echo -e "${env.DOCKER_PLATFORM}"
-            echo -e "${PHP_ALPINE_RSA}" > .abuild/php-alpine.rsa
-            echo -e "${PHP_ALPINE_RSA_PUB}" > .abuild/php-alpine.rsa.pub
-            DOCKER_PLATFORM=${DOCKER_PLATFORM} docker compose run sandbox "buildrepo -p -a /home/sandbox/scripts ${PHP_VERSION_SLUG}"
+            echo -e "${{env.DOCKER_PLATFORM}}"
+            echo -e "${{secrets.PHP_ALPINE_RSA}}" > .abuild/php-alpine.rsa
+            echo -e "${{secrets.PHP_ALPINE_RSA_PUB}}" > .abuild/php-alpine.rsa.pub
+            docker compose run sandbox "buildrepo -p -a /home/sandbox/scripts ${{env.PHP_VERSION_SLUG}}"
 
       # upload artifacts.
       - name: upload
