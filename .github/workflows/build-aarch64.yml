@@ -156,6 +156,7 @@ jobs:
           dockerRunArgs: |
             --privileged --platform=${{ env.DOCKER_PLATFORM }}
           install: |
+            mount
             env
             uname -a
             export DEBIAN_FRONTEND=noninteractive
@@ -170,6 +171,7 @@ jobs:
             chmod +x ~/.docker/cli-plugins/docker-compose
             docker compose version
           run: |
+            mount
             env
             docker run --platform=$DOCKER_PLATFORM -it --rm alpine:3.15 uname -a
             echo "" > .env
