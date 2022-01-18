@@ -4,7 +4,7 @@ pkgname=php8-apcu
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=apcu
-pkgver=5.1.19
+pkgver=5.1.21
 pkgrel=1
 _phpver=8
 provides="php-apcu=8.1"
@@ -37,4 +37,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="45077e3bd0eac207539e2eafe21968c71f49b8c8920168dbafa87961b041f1d348b6bf1c130104744bc541e1f690854f0a29062e9520db81c04edeee3ef2ed99  apcu-5.1.19.tgz"
+sha512sums="a6ffe8349760d27cde0d86017a59a68e9639bf385e606622d807094f4e5fb305bb25b9ce00077d0856f4d223d44329f7a6314c229b62c78d8e2b085593c92bb3  apcu-5.1.21.tgz"
