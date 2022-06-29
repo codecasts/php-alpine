@@ -38,4 +38,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="bdb45205211faf7f53cc94df35df96be5a37aebd64c91866e89d442e87b619155a998e648e8e8a302aaf619a5a9c978f85b4f9cbc00c5ed11195a3035f9213bb  imagick-3.5.0.zip"
+sha512sums="7e50eab5f9450efd4f9fe2830b882895d0fee63167acd87db04d845fcf40282701416b822cdd6d5a7320256a64d702de557b9db1c89c852be8718a8b935bd77b  imagick-3.5.0.zip"
