@@ -16,7 +16,7 @@ license="PHP-3"
 depends="php8-common>=8.0.0 php8-common<8.1.0 imagemagick"
 makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf imagemagick-dev libtool pcre2-dev"
 #source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-source="$_pkgreal-$pkgver.zip::https://github.com/Imagick/imagick/archive/$pkggitrev.zip"
+source="$_pkgreal-$pkgver.zip::https://github.com/Imagick/imagick/archive/refs/tags/$pkggitrev.zip"
 builddir="$srcdir/$_pkgreal-$pkggitrev"
 
 prepare() {

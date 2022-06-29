@@ -15,7 +15,7 @@ license="PHP-3"
 depends="php8-common>=8.1.0 php8-common<8.2.0 imagemagick"
 makedepends="php8-dev>=8.1.0 php8-dev<8.2.0 autoconf imagemagick-dev libtool pcre2-dev"
 #source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-source="$_pkgreal-$pkgver.zip::https://github.com/Imagick/imagick/archive/$pkgver.zip"
+source="$_pkgreal-$pkgver.zip::https://github.com/Imagick/imagick/archive/refs/tags/$pkgver.zip"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
 prepare() {
@@ -38,4 +38,4 @@ package() {
     echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
 }
 
-sha512sums="c8a4b49dbc9d6988086bc084f6897258faf19bc1b6bc7bb72e6f91e555d62632ab2cfe89ae2582a9823f12dcc4896d987da37e3baf403d50e4cd19d72348f204  imagick-3.5.0.zip"
+sha512sums="792c052e159fefcca5ae2fbbc14067fb7f8a9356a1fb1fd387599bd6b7f14640e12b953c34936891f8324296a20e95022efe4ac5ba8f6158cb0bc7e899253acb  imagick-3.5.0.zip"
