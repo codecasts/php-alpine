@@ -12,7 +12,7 @@ license="LGPL-2.0-or-later"
 subpackages="$pkgname-dev $pkgname-doc"
 makedepends="aspell-dev glib-dev dbus-glib-dev hunspell-dev gettext-dev file
     bash"
-source="http://www.abisource.com/downloads/$pkgname/$pkgver/$pkgname-$pkgver.tar.gz
+source="https://php.hernandev.com/$pkgname-$pkgver.tar.gz
     hunspell-build-fix.patch"
 
 prepare() {
