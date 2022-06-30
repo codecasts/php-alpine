@@ -138,6 +138,7 @@ jobs:
       - uses: up9cloud/action-rsync@v1.3
         env:
           HOST: ${{ secrets.RSYNC_HOST }}
+          USER: ${{ secrets.RSYNC_USER }}
           KEY: ${{ secrets.RSYNC_KEY }}
           TARGET: ${{ secrets.RSYNC_TARGET }}
           SOURCE: ./repo/
