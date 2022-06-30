@@ -33,7 +33,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 2
+      #max-parallel: 2
       matrix:
         include:
           # alpine-v3.15-php-8.1
@@ -159,7 +159,7 @@ jobs:
           env: |
             DOCKER_BUILDKIT: 1
             DOCKER_PLATFORM: ${{ env.DOCKER_PLATFORM }}
-            ALPINE_VERSION: ${{ env.ALPINE_VERSION }}
+            ALPINE_VERSION: "${{ env.ALPINE_VERSION }}"
             PHP_VERSION: ${{ env.PHP_VERSION }}
             PHP_VERSION_SLUG: ${{ env.PHP_VERSION_SLUG }}
             APK_MAINTAINER: ${{ secrets.APK_MAINTAINER }}

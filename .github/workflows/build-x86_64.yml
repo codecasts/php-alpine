@@ -32,7 +32,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 7
+      #max-parallel: 7
       matrix:
         include:
           # alpine-v3.15-php-8.1
