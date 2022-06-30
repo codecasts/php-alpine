@@ -134,6 +134,15 @@ jobs:
           echo -e "Alpine Linux: v${{ env.ALPINE_VERSION }}"
           echo -e "PHP Version: ${{ env.PHP_VERSION }}"
 
+      # Modify `master` to valid version, from https://github.com/marketplace/actions/action-rsync
+      - uses: up9cloud/action-rsync@v1.3
+        env:
+          HOST: ${{ secrets.RSYNC_HOST }}
+          KEY: ${{ secrets.RSYNC_KEY }}
+          TARGET: ${{ secrets.RSYNC_TARGET }}
+          SOURCE: ./repo/
+          MODE: pull
+
       - name: prepare
         run: |
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
