@@ -124,9 +124,10 @@ jobs:
           HOST: ${{ secrets.RSYNC_HOST }}
           USER: ${{ secrets.RSYNC_USER }}
           KEY: ${{ secrets.RSYNC_KEY }}
-          TARGET: ${{ secrets.RSYNC_TARGET }}
-          SOURCE: ./repo/
+          SOURCE: ${{ secrets.RSYNC_TARGET }}
+          TARGET: ./repo/
           MODE: pull
+          VERBOSE: true
 
       # build packages.
       - name: build
