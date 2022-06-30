@@ -124,7 +124,7 @@ jobs:
           HOST: ${{ secrets.RSYNC_HOST }}
           USER: ${{ secrets.RSYNC_USER }}
           KEY: ${{ secrets.RSYNC_KEY }}
-          SOURCE: ${{ secrets.RSYNC_TARGET }}
+          SOURCE: ${{ secrets.RSYNC_TARGET }}/
           TARGET: ./repo/
           MODE: pull
           VERBOSE: true
@@ -132,6 +132,7 @@ jobs:
       # build packages.
       - name: build
         run: |
+          ls -lhart repo/
           echo "" > .env
           echo -e "${{ secrets.PHP_ALPINE_RSA }}" > .abuild/php-alpine.rsa
           echo -e "${{ secrets.PHP_ALPINE_RSA_PUB }}" > .abuild/php-alpine.rsa.pub
