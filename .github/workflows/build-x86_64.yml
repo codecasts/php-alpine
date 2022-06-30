@@ -110,6 +110,15 @@ jobs:
             ${{ env.PA_BUILD_SLUG }}-
             ${{ env.PA_BUILD_SLUG }}
 
+      # Modify `master` to valid version, from https://github.com/marketplace/actions/action-rsync
+      - uses: up9cloud/action-rsync@v1.3
+        env:
+          HOST: ${{ secrets.RSYNC_HOST }}
+          KEY: ${{ secrets.RSYNC_KEY }}
+          TARGET: ${{ secrets.RSYNC_TARGET }}
+          SOURCE: ./repo/
+          MODE: pull
+
       # debug info.
       - name: debug-info
         run: |
