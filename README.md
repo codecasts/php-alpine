@@ -79,6 +79,21 @@ The following code snippets are intended for quick usage on either shell scripts
 
 > Notice that `main` and `community` official repositories must be enabled.
 
+## Example Installation
+```
+wget https://php.hernandev.com/key/php-alpine.rsa.pub -O /etc/apk/keys/php-alpine.rsa.pub
+
+apk --update-cache add ca-certificates && \
+    echo "https://php.hernandev.com/v3.15/php-8.1" >> /etc/apk/repositories
+    
+apk add --update-cache \
+    php \
+    php-bz2 \
+    php-json \
+    php-any other available package \
+    
+```
+
 ### Dockerfile
 
 You may skip the ca-certificates part if you replace HTTPS by HTTP but you should not. PHP packages will eventually install ca-certificates anyway.
