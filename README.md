@@ -86,11 +86,18 @@ wget https://php.hernandev.com/key/php-alpine.rsa.pub -O /etc/apk/keys/php-alpin
 apk --update-cache add ca-certificates && \
     echo "https://php.hernandev.com/v3.15/php-8.1" >> /etc/apk/repositories
     
-apk add --update-cache \
-    php \
-    php-bz2 \
-    php-json \
-    php-any other available package \
+apk add --update-cache php=8.1
+apk add php-phar=8.1
+apk add php-mbstring=8.1
+apk add php-iconv=8.1
+apk add php-openssl=8.1
+apk add php-curl=8.1
+apk add php-pdo_mysql=8.1
+apk add php-gettext=8.1
+apk add php-intl=8.1
+apk add php-sqlite3=8.1
+
+#etc...
     
 ```
 
