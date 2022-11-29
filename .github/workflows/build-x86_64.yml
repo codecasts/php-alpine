@@ -36,52 +36,52 @@ jobs:
       matrix:
         include:
           # alpine-v3.15-php-8.1
-          - alpine: "3.15"
-            php: "8.1"
+#          - alpine: "3.15"
+#            php: "8.1"
           # alpine-v3.15-php-8.0
-          - alpine: "3.15"
-            php: "8.0"
+#          - alpine: "3.15"
+#            php: "8.0"
 
           # alpine-v3.14-php-8.1
-          - alpine: "3.14"
-            php: "8.1"
+#          - alpine: "3.14"
+#            php: "8.1"
           # alpine-v3.14-php-8.0
-          - alpine: "3.14"
-            php: "8.0"
+#          - alpine: "3.14"
+#            php: "8.0"
 
           # alpine-v3.13-php-8.1
-          - alpine: "3.13"
-            php: "8.1"
+#          - alpine: "3.13"
+#            php: "8.1"
           # alpine-v3.13-php-8.0
-          - alpine: "3.13"
-            php: "8.0"
+#          - alpine: "3.13"
+#            php: "8.0"
 
           # alpine-v3.12-php-8.1
-          - alpine: "3.12"
-            php: "8.1"
+#          - alpine: "3.12"
+#            php: "8.1"
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
-          # alpine-v3.12-php-7.4
-          - alpine: "3.12"
-            php: "7.4"
-
-          # alpine-v3.11-php-8.0
-          - alpine: "3.11"
-            php: "8.0"
-          # alpine-v3.11-php-7.4
-          - alpine: "3.11"
-            php: "7.4"
-          # alpine-v3.11-php-7.3
-          - alpine: "3.11"
-            php: "7.3"
-
-          # alpine-v3.10-php-7.4
-          - alpine: "3.10"
-            php: "7.4"
-          # alpine-v3.10-php-7.3
-          - alpine: "3.10"
-            php: "7.3"
+#          # alpine-v3.12-php-7.4
+#          - alpine: "3.12"
+#            php: "7.4"
+#
+#          # alpine-v3.11-php-8.0
+#          - alpine: "3.11"
+#            php: "8.0"
+#          # alpine-v3.11-php-7.4
+#          - alpine: "3.11"
+#            php: "7.4"
+#          # alpine-v3.11-php-7.3
+#          - alpine: "3.11"
+#            php: "7.3"
+#
+#          # alpine-v3.10-php-7.4
+#          - alpine: "3.10"
+#            php: "7.4"
+#          # alpine-v3.10-php-7.3
+#          - alpine: "3.10"
+#            php: "7.3"
 
     steps:
       # checkout repository.
