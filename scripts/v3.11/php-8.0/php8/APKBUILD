@@ -7,7 +7,7 @@ pkgname=php8
 srcdir="/tmp/src-$pkgname"
 pkgbasedir="/tmp/pkg-$pkgname"
 _pkgreal=php
-pkgver=8.0.14
+pkgver=8.0.26
 pkgrel=800
 pkgdesc="The PHP language runtime engine - 8th branch"
 url="http://www.php.net/"
@@ -353,7 +353,7 @@ _package_ext() {
 		> "$subpkgdir"/etc/$pkgname/conf.d/${elo}_${extname}.ini
 }
 
-sha512sums="0489757437a78ea60a3df6f9f34c44dbbd7aaf75cb4b48adba9f4bf2907825b7b391a021405250ea8398bec5e3120d43603a2618a81a1d1b2a5a299988b86f21  php-8.0.14.tar.bz2
+sha512sums="ad85d5a0069f9090c7038c3d186bdc7826c05eda1fa4c8ee61c91c91dc77aaecc59ecd67b4d59cb07a04200a896530d15a0d3eab4a29b302aa5af3f0e961b5d2  php-8.0.26.tar.bz2
 070c983b9f3f9aea72e4ef87f6c6cc4b625bf422fa2d3e5a4c38061563df1e8f1027f723b6b7d611bb6fa12d6e14fc3f1e17b7bac1e40230fd52b3a7af2dfb5f  php8-fpm.initd
 023618c57c8d7aeaf6b05df60f58bf97375c40aba930b3cefce8d8b0d6248d237d3a2e3107a45116930ba9cc4ab7d1139e18fd5d10ddf5175b74385f9871e56d  php8-fpm.logrotate
 da6d0eacb3d94feafb0d39e2a1af31b78e81ec8b31372d5529eabb2a61b3f34c33403a4b05e539f2df871081f8fff620cae74c4fb83b27bf7cd848a58fadb745  php8-module.conf
