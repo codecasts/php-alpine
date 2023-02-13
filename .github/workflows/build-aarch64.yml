@@ -76,7 +76,7 @@ jobs:
           # alpine-v3.12-php-8.0
           - alpine: "3.12"
             php: "8.0"
-            release: "8.0.14"
+            release: "8.0.27"
             arch: "aarch64"
           # alpine-v3.12-php-7.4
           - alpine: "3.12"
