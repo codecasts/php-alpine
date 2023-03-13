@@ -1,0 +1,41 @@
+# Maintainer: "Diego Hernandes <iamhernandev@gmail.com>"
+
+pkgname=php8-amqp
+srcdir="/tmp/src-$pkgname"
+pkgbasedir="/tmp/pkg-$pkgname"
+_pkgreal=amqp
+pkgver=1.11.0
+pkgrel=1
+_phpver=8
+provides="php-amqp=8.0"
+pkgdesc="AMQP - Communicate with any AMQP compliant server"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="php8-common>=8.0.0 php8-common<8.1.0"
+makedepends="php8-dev>=8.0.0 php8-dev<8.1.0 autoconf pcre-dev rabbitmq-c rabbitmq-c-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+	default_prepare || return 1
+}
+
+build() {
+	cd "$builddir"
+	phpize$_phpver || return 1
+	./configure --prefix=/usr \
+	    --with-php-config=/usr/bin/php-config$_phpver || return 1
+    # TEST_PHP_ARGS="-q" make test
+    make
+}
+
+package() {
+	mkdir -p "$pkgdir" || return 1
+    install -d $pkgdir/ || return 1
+    make -C "$builddir" INSTALL_ROOT="$pkgdir" install || return 1
+    install -d "$pkgdir"/etc/php$_phpver/conf.d || return 1
+    echo "extension=$_pkgreal" > "$pkgdir"/etc/php$_phpver/conf.d/00_$_pkgreal.ini || return 1
+}
+
+sha512sums="0f0220fc2f1f9109640e096ab38a4bb06b2569a336b83f527d18dae2b8c21efaf383dade807ee5bb3dbf4447bc3548c15f38ac18155762fe7920ef8939bc0321  amqp-1.11.0.tgz"
